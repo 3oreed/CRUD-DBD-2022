@@ -7,6 +7,8 @@ public class Empresa {
     private String direccion;
     private int idRanking;
 
+    //Contruxtors
+
     public Empresa(int idEmpresa, String pass, String mail, String direccion, int idRanking) {
         this.idEmpresa = idEmpresa;
         this.pass = pass;
@@ -14,6 +16,8 @@ public class Empresa {
         this.direccion = direccion;
         this.idRanking = idRanking;
     }
+
+    //Getters
 
     public int getIdEmpresa() {
         return idEmpresa;
@@ -34,6 +38,8 @@ public class Empresa {
     public int getIdRanking() {
         return idRanking;
     }
+
+    //Setters
 
     public void setIdEmpresa(int idEmpresa) {
         this.idEmpresa = idEmpresa;
