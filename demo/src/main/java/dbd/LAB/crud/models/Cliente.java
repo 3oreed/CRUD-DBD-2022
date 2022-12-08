@@ -9,9 +9,6 @@ public class Cliente {
     private String Email_cliente;
     private String Direccion_cliente;
     private String Fecha_nacimiento_cliente;
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
     private int Edad_cliente;
 
     //Constructors
@@ -27,20 +24,6 @@ public class Cliente {
         this.Direccion_cliente = direccion_cliente;
         this.Fecha_nacimiento_cliente = fecha_nacimiento_cliente;
         this.Edad_cliente = edad_cliente;
-=======
->>>>>>> Stashed changes
-
-    public Cliente(int id_cliente, String nombre_cliente, String apellido_cliente,
-                   String clave_cliente, String email_cliente, String direccion_cliente,
-                   String fecha_nacimiento_cliente) {
-        Id_cliente = id_cliente;
-        Nombre_cliente = nombre_cliente;
-        Apellido_cliente = apellido_cliente;
-        Clave_cliente = clave_cliente;
-        Email_cliente = email_cliente;
-        Direccion_cliente = direccion_cliente;
-        Fecha_nacimiento_cliente = fecha_nacimiento_cliente;
->>>>>>> main
     }
     //Getters
     public int getId_cliente() {
@@ -71,18 +54,12 @@ public class Cliente {
         return Fecha_nacimiento_cliente;
     }
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
     public int getEdad_cliente() {
         return Edad_cliente;
     }
 
     //Setters
 
-=======
->>>>>>> main
->>>>>>> Stashed changes
     public void setId_cliente(int id_cliente) {
         Id_cliente = id_cliente;
     }
@@ -110,15 +87,6 @@ public class Cliente {
     public void setFecha_nacimiento_cliente(String fecha_nacimiento_cliente) {
         Fecha_nacimiento_cliente = fecha_nacimiento_cliente;
     }
-}
-
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
-
-
 
     public void setEdad_cliente(int edad_cliente) {
         Edad_cliente = edad_cliente;
