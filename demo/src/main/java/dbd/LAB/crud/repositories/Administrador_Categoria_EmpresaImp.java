@@ -17,9 +17,9 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
     public  Administrador_Categoria_Empresa crear(Administrador_Categoria_Empresa Administrador_Categoria_Empresa){
         try(Connection conn = sql2o.open()){
             String sql = "INSERT INTO Administrador_Categoria_Empresa (id_admin_categoria_empresa,id_admin,id_categoria)" +
-                    "VALUES (id_admin_categoria_empresa,id_admin,id_categoria)";
+                    "VALUES (:id_admin_categoria_empresa,:id_admin,:id_categoria)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("id_admin_categoria_empresa",Administrador_Categoria_Empresa.getId_admin_categoria_empresa())
+                    .addParameter("id_admin_categoria_empresa",Administrador_Categoria_Empresa.getId_admin_categoria_empresa())
                     .addParameter("id_admin", Administrador_Categoria_Empresa.getId_admin())
                     .addParameter("id_categoria", Administrador_Categoria_Empresa.getId_categoria())
                     .executeUpdate();

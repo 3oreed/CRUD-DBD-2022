@@ -80,7 +80,6 @@ public class AdministradorImp implements AdministradorRepository {
         try(Connection conn = sql2o.open()){
             String updateSql = "update Administrador set nombre=:nombre WHERE id=:id";
             conn.createQuery(updateSql)
-                    .addParameter("id", id)
                     .addParameter("nombre", Administrador.getNombre())
                     .executeUpdate();
             return "Se actualizó el Administrador;
