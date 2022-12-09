@@ -9,7 +9,7 @@ import org.sql2o.Sql2o;
 import java.util.List;
 
 @Repository
-public class CategoriaRepositoryImp implements CategoriaRepository{
+public class CCategoriaRepositoryImp implements CCategoriaRepository {
 
     @Autowired
     private Sql2o sql2o;

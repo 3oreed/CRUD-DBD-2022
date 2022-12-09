@@ -4,7 +4,7 @@ import dbd.LAB.crud.models.Categoria;
 
 import java.util.List;
 
-public interface CategoriaRepository {
+public interface CCategoriaRepository {
     /**
     * Inserta un Categoria en la tabla Categoria.
     * Al ser el todos sus atributos obligatorios (excepto id), si son nulos o vacíos se lanzará
