@@ -5,13 +5,13 @@ public class Oferta {
     private int id_oferta;
     private String descripcion;
     private int stock_oferta;
-    private int fecha_inicio;
-    private int fecha_final;
+    private String fecha_inicio;
+    private String fecha_final;
     private int id_prod;
 
     //Constructor
 
-    public Oferta(int id_oferta, String descripcion, int stock_oferta, int fecha_inicio, int fecha_final, int id_prod) {
+    public Oferta(int id_oferta, String descripcion, int stock_oferta, String fecha_inicio, String fecha_final, int id_prod) {
         this.id_oferta = id_oferta;
         this.descripcion = descripcion;
         this.stock_oferta = stock_oferta;
@@ -34,11 +34,11 @@ public class Oferta {
         return stock_oferta;
     }
 
-    public int getFecha_inicio() {
+    public String getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public int getFecha_final() {
+    public String getFecha_final() {
         return fecha_final;
     }
 
@@ -60,11 +60,11 @@ public class Oferta {
         this.stock_oferta = stock_oferta;
     }
 
-    public void setFecha_inicio(int fecha_inicio) {
+    public void setFecha_inicio(String fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public void setFecha_final(int fecha_final) {
+    public void setFecha_final(String fecha_final) {
         this.fecha_final = fecha_final;
     }
 
