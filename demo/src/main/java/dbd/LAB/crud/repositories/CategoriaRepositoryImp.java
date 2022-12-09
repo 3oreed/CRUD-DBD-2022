@@ -20,8 +20,8 @@ public class CategoriaRepositoryImp implements CategoriaRepository{
             String sql = "INSERT INTO Categoria (id,nombre)" +
             "VALUES (id, :nombre)";
             conn.createQuery(sql, true)
-                .addColumnMapping("id", Categoria.getId_Categoria())
-                .addParameter("nombre", Categoria.getNombre_Categoria())
+                .addColumnMapping("id", Categoria.getId_categoria())
+                .addParameter("nombre", Categoria.getNombreCategoria())
                 .executeUpdate();
                 return Categoria;
         } catch (Exception e) {
