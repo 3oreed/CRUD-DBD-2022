@@ -8,7 +8,7 @@ public interface PagoRepository {
 
     public Pago crear(Pago pago);
 
-    public String update(Pago oferta, int id_pago);
+    public String update(Pago pago, int id_pago);
 
     public List<Pago> getAll();
 

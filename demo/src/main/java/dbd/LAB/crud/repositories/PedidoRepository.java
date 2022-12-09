@@ -7,7 +7,9 @@ import java.util.List;
 public interface PedidoRepository {
 
     public Pedido crear(Pedido pedido);
-    public String update(Pedido pedido, int id_pedido);
+
+    public String updateUbicacion(Pedido pedido, int id_pedido);
+    public String updateEntrega(Pedido pedido, int id_pedido);
 
     public List<Pedido> getAll();
 

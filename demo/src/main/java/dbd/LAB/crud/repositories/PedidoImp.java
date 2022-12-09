@@ -33,7 +33,7 @@ public class PedidoImp implements PedidoRepository{
 
     }
 
-    @Override
+
     public String updateEntrega(Pedido pedido, int id_pedido) {
         try(Connection conn = sql2o.open()){
             String updateSql = "update Pedido set tipo_entrega=:tipo_entrega WHERE id_pedido=:id_pedido";
@@ -47,7 +47,6 @@ public class PedidoImp implements PedidoRepository{
             System.out.println(e.getMessage());
             return "Fallo al actualizar Categoria";
         }
-        return null;
     }
     public String updateUbicacion(Pedido pedido, int id_pedido) {
         try(Connection conn = sql2o.open()){
