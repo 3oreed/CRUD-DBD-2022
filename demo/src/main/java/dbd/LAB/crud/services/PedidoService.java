@@ -1,44 +1,58 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Pedido;
 import dbd.LAB.crud.repositories.PedidoRepository;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+@CrossOrigin
+@RestController
 public class PedidoService {
 
     private final PedidoRepository pedidoRepository;
 
-    public PedidoService(PedidoRepository pedidoRepository) {
+    PedidoService(PedidoRepository pedidoRepository) {
         this.pedidoRepository = pedidoRepository;
     }
 
 
-
-    public Pedido crear(Pedido pedido){
+    @PostMapping("/Pedido")
+    @ResponseBody
+    public Pedido crear(@RequestBody Pedido pedido){
         Pedido resultado = pedidoRepository.crear(pedido);
         return resultado;
     }
 
-    public List<Pedido> getPedido(int id_pedido){
+
+    @GetMapping("/Pedido")
+    public List<Pedido> getPedido(@PathVariable int id_pedido){
         return pedidoRepository.getAll();
     }
 
+
+    @GetMapping("/Pedido/{id}")
     public List<Pedido> getAllPedido(){
         return pedidoRepository.getAll();
-
     }
 
-    public String updateEntregaPedido(Pedido pedido,int id_pedido){
+
+    @PutMapping("/Pedido/{precio}") //{id}(?)
+    @ResponseBody
+    public String updateEntregaPedido(@RequestBody Pedido pedido,int id_pedido){
         String retorno = pedidoRepository.updateEntrega(pedido,id_pedido);
         return retorno;
 
     }
-    public String updateUbicacionPedido(Pedido pedido,int id_pedido){
+
+
+    @PutMapping("/Pedido/{precio}") //{id}(?)
+    @ResponseBody
+    public String updateUbicacionPedido(@RequestBody Pedido pedido,int id_pedido){
         String retorno = pedidoRepository.updateUbicacion(pedido,id_pedido);
         return retorno;
 
     }
-
-    public void borrar(int id_pedido){
+    @DeleteMapping("/Pedido/{id}")
+    public void borrar(@PathVariable int id_pedido){
         pedidoRepository.delete(id_pedido);
     }
 }

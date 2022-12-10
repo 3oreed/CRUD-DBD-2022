@@ -1,10 +1,11 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Pago;
 import dbd.LAB.crud.repositories.PagoRepository;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
+@RestController
 public class PagoService {
 
     private final PagoRepository pagoRepository;
@@ -12,8 +13,9 @@ public class PagoService {
     public PagoService(PagoRepository pagoRepository) {
         this.pagoRepository = pagoRepository;
     }
-
-    public Pago crear(Pago pago){
+    @PostMapping("/Pago")
+    @ResponseBody
+    public Pago crear(@RequestBody Pago pago){
         Pago resultado = pagoRepository.crear(pago);
         return resultado;
     }
@@ -21,17 +23,18 @@ public class PagoService {
     public List<Pago> getAllpago(){
         return pagoRepository.getAll();
     }
-
-    public List<Pago> getPago(int id_pago) {
+    @GetMapping("/Pago/{id}")
+    public List<Pago> getPago(@PathVariable int id_pago) {
         return pagoRepository.show(id_pago);
     }
-
-    public String updatePago(Pago pago, int id_pago){
+    @PutMapping("/Pago/{precio}") //{id}(?)
+    @ResponseBody
+    public String updatePago(@RequestBody Pago pago, int id_pago){
         String retorno = pagoRepository.update(pago,id_pago);
         return retorno;
     }
-
-    public void borrar(int id_pago){
+    @DeleteMapping("/Pago/{id}")
+    public void borrar(@PathVariable int id_pago){
 
         pagoRepository.delete(id_pago);
     }
