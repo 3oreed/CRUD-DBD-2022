@@ -37,38 +37,25 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     }
 
     @Override
-    public String update(Empresa_Administrador Empresa_admin, int id_empresa_Administrador) {
+    public String update(ProductoCategoria prodCat, int id_prod) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update empresa_administrador set id_empresa =:id_empresa, id_administrador=:id_administrador";
+            String updateSql = "update productocategoria set precio=:precio where id_prod=:id_prod";
             conn.createQuery(updateSql)
-                    .addParameter("id_empresa",Empresa_admin.getId_empresa())
-                    .addParameter("id_administrador",Empresa_admin.getId_administrador())
+                    .addParameter("precio",prodCat.getPrecio())
                     .executeUpdate();
-            return "Se actualizo ID EMPRESA Y ID ADMINISTRADOR";
+            return "Se actualizo precio de un productocategoria";
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return "Falló la actualizacion de ID EMPRESA Y ID ADMINISTRADOR";
+            return "Fallo al actualizar precio de productocategoria";
         }
 
     }
 
     @Override
-    public List<Empresa_Administrador> getAll() {
+    public List<ProductoCategoria> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from empresa_administrador order by id_empresa_administrador asc ")
-                    .executeAndFetch(Empresa_Administrador.class);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    @Override
-    public List<Empresa_Administrador> show(int id_empresa_Administrador) {
-        try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from empresa_administrador where id_empresa_administrador=:id_empresa_Administrador ")
-                    .addParameter("id_empresa_administrador ",id_empresa_Administrador)
-                    .executeAndFetch(Empresa_Administrador.class);
+            return conn.createQuery("select * from producto_categoria order by id_prod asc ")
+                    .executeAndFetch(ProductoCategoria.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
             return null;
@@ -76,10 +63,22 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     }
 
     @Override
-    public void delete(int id_empresa_Administrador) {
+    public List<ProductoCategoria> show(int id_prod) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from empresa_administrador where id_empresa_administrador=:id_empresa_Administrador")
-                    .addParameter("id_empresa_administrador",id_empresa_Administrador)
+            return conn.createQuery("SELECT * from productocategoria where id_prod=:id_prod ")
+                    .addParameter("id_prod ",id_prod)
+                    .executeAndFetch(ProductoCategoria.class);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public void delete(int id_prod) {
+        try(Connection conn = sql2o.open()){
+            conn.createQuery("DELETE from productocategoria where id_prod=:id_prod")
+                    .addParameter("id_prod",id_prod)
                     .executeUpdate();
         }catch (Exception e){
             System.out.println(e.getMessage());
