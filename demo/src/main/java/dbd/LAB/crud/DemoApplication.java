@@ -1,4 +1,4 @@
-package dbd.LAB.crud.services;
+package dbd.LAB.crud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
