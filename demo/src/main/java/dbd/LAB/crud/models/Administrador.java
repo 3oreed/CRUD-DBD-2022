@@ -1,7 +1,7 @@
 package dbd.LAB.crud.models;
 
     public class Administrador {
-        private String id_admin;
+        private int id_admin;
         private String clave;
         private String email;
         private String nombre;
@@ -9,7 +9,7 @@ package dbd.LAB.crud.models;
 
 
         // Constructor
-        public Administrador(String id_admin, String clave, String email, String nombre, String apellido) {
+        public Administrador(int id_admin, String clave, String email, String nombre, String apellido) {
             this.id_admin = id_admin;
             this.clave = clave;
             this.email = email;
@@ -17,7 +17,7 @@ package dbd.LAB.crud.models;
             this.apellido = apellido;
         }
 
-        public String getId_admin() {
+        public int getId_admin() {
             return id_admin;
         }
 
@@ -37,7 +37,7 @@ package dbd.LAB.crud.models;
             return apellido;
         }
 
-        public void setId_admin(String id_admin) {
+        public void setId_admin(int id_admin) {
             this.id_admin = id_admin;
         }
 
