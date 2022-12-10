@@ -1,0 +1,88 @@
+insert into administrador (email,clave,nombre ,apellido)
+values
+('kennetherickson@outlook.edu ','Kenneth12Erickson','Kenneth '  , 'Erickson'),
+('grahamyang4286@aol.org ','Graham21 ', 'Graham ', 'Yang '),
+('josephchandler@yahoo.com ','Garrisone43','Joseph  ', 'Chandler ' ),
+('maconmoody@google.edu', 'Osbornñd11','Macon ', 'Osborn' ),
+('dalekidd8121@outlook.edu','Dale3223    ', 'Dale', 'Kidd ' )
+
+insert into cliente ( nombre, apellido,clave,email,direccion,fecha_nacimiento, edad)
+values
+('Brady ', 'Goodwin', 'Goodwin23', 'bradygoodwin@icloud.edu', '958-7267 Sed Street', '2001-01-01 ',21),
+('Ivan ', 'Schwartz', 'Schwartz21', 'ivanschwartz5703@google.org', 'Ap #681-5323 Posuere Av.', '2001-01-01 ',21),
+('Matthew ', 'Garrison', 'Garrison43', 'matthewgarrison@icloud.ca', '690-5820 Proin Avenue', '2001-01-01 ',21),
+('Macon ', 'Osborn', 'Osborn11', 'maconosborn9133@google.ca', '789-8196 Lobortis Rd', '2001-01-01 ',21),
+('Elliott', ' Aguirre', ' Aguirre654', 'elliottaguirre6280@outlook.org', 'Ap #305-7123 In St.', '2001-01-01 ',21),
+('Brandon ', 'Donovan', 'Donovan43', 'brandondonovan3055@yahoo.ca', 'Ap #868-8541 Sit Rd.', '2001-01-01 ',21),
+('Leo ', 'Rivera', 'Rivera543', 'leorivera@yahoo.edu', '585-3044 Ante Avenue', '2001-01-01 ',21),
+('Flynn', 'Mccoy', 'Mccoy432', 'flynnmccoy@protonmail.org', 'Ap #248-8985 Eu, Street', '2001-01-01 ',21),
+('Tobias ', 'Garcia', 'Garcia432', 'tobiasgarcia@aol.ca', '4910 Nec, St.', '2002-05-01 ',21),
+('Gregory ', 'Bryan', 'Bryan432', 'gregorybryan8737@hotmail.couk', '321-8798 Ac Ave', '2001-01-01 ',21)
+
+insert into Ranking (nombre_empresa,lugar)
+values	
+('Dui Augue Incorporated',2),
+('Eget PC ',1),
+('Libero Nec Associates',3),
+('Sit PC',4),
+('Suscipit Est Ac Industries',5);
+
+insert into Metodo_de_pago(nombre_metodo)
+values
+('debito'),
+('credito'),
+('efectivo'),
+('Puntos'),
+('GifCard'),
+('Paypal'),
+('Cripto')
+
+insert into carrito(cantidad_productos,subtotal)
+values 
+(7,32000),
+(11,77520),
+(2,5990),
+(53,143030),
+(18,72720)
+
+insert into empresa(clave,mail,direccion,id_ranking)
+VALUES
+  ('14R!0QZHub','nunc.nulla@google.com','622-6447 Et S',2),
+  ('tX0&S@eC17','hendrerit@yahoo.com','Ap #191-6966 Parturient Avenue',3),
+  ('s&V2WZh71i','pellentesque@outlook.com','P.O. Box 416, 5030 Maecenas Street',5),
+  ('50m3%7Ox@8','nisl.sem@icloud.com','Ap #869-8811 Porta Rd.',1),
+  ('4566SR1to','elit.elit.fermentum@google.com','P.O. Box 120 2174 Integer Avenue',4)
+  
+insert into empresa_administrador(id_empresa,id_administrador)
+values
+(4,2),
+(1,5),
+(3,3),
+(2,1),
+(5,4)
+
+insert into valoracion(puntuacion,opinion,favoritos,id_cliente,id_empresa)
+values
+(5,'muy rapidos','false',2,3),
+(7,'los mejores de todos','true',5,1),
+(2,'pesima atencion','false',2,5),
+(6,'buenos productos','false',4,1),
+(7,'muy buena atencion','true',1,1)
+
+insert into pago(monto,id_tipopago,id_empresa)
+values
+(54000,3,3),
+(104000,2,1),
+(150200,7,1),
+(12350,1,5),
+(4300,5,2),
+(65440,1,2)
+
+insert into boleta(id_pago,detalle_compra)
+values
+(1,'Productos de aseo'),
+(2,'Productos de casa'),
+(3,'Muebleria'),
+(4,'Bebidad alcholicas'),
+(5,'Ropa'),
+(6,'Ropa')
