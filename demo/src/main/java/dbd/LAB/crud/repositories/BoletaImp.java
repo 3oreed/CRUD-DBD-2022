@@ -15,10 +15,10 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public Boleta crear(Boleta Boleta) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO pago(id_Boleta,id_pago,detalle_compra)"
+            String sql = "INSERT INTO pago(id_boleta,id_pago,detalle_compra)"
                     + "VALUES (:id_pago,:id_empresa)";
             conn.createQuery(sql,true)
-                    //.addParameter("id_Boleta",Boleta.getId_Boleta())
+                    //.addParameter("id_boleta",Boleta.getId_Boleta())
                     .addParameter("id_tipopago",Boleta.getId_pago())
                     .addParameter("id_empresa",Boleta.getDetalle_compra())
                     .executeUpdate();
@@ -30,9 +30,9 @@ public class BoletaImp implements BoletaRepository{
     }
 
     @Override
-    public String update(Boleta Boleta, int id_Boleta) {
+    public String update(Boleta Boleta, int id_boleta) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update boleta set detalle_compra=:detalle_compra WHERE id_Boleta=:id_Boleta";
+            String updateSql = "update boleta set detalle_compra=:detalle_compra WHERE id_boleta=:id_boleta";
             conn.createQuery(updateSql)
                     .addParameter("detalle_compra",Boleta.getDetalle_compra())
                     .executeUpdate();
@@ -47,7 +47,7 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public List<Boleta> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from boleta order by id_Boleta asc")
+            return conn.createQuery("SELECT * from boleta order by id_boleta asc")
                     .executeAndFetch(Boleta.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -57,10 +57,10 @@ public class BoletaImp implements BoletaRepository{
     }
 
     @Override
-    public List<Boleta> show(int id_Boleta) {
+    public List<Boleta> show(int id_boleta) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from boleta where id_Boleta = :id_Boleta ")
-                    .addParameter("id_Boleta",id_Boleta)
+            return conn.createQuery("select * from boleta where id_boleta = :id_boleta ")
+                    .addParameter("id_boleta",id_boleta)
                     .executeAndFetch(Boleta.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -70,10 +70,10 @@ public class BoletaImp implements BoletaRepository{
     }
 
     @Override
-    public void delete(int id_Boleta) {
+    public void delete(int id_boleta) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from boleta where id_Boleta = :id_Boleta")
-                    .addParameter("id_Boleta",id_Boleta)
+            conn.createQuery("DELETE from boleta where id_boleta = :id_boleta")
+                    .addParameter("id_boleta",id_boleta)
                     .executeUpdate();
         }catch (Exception e) {
             System.out.println(e.getMessage());
