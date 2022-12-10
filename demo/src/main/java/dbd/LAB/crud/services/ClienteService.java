@@ -1,8 +1,5 @@
-package dbd.LAB.crud.services;
-
 import dbd.LAB.crud.models.Cliente;
 import dbd.LAB.crud.repositories.ClienteRepository;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,21 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 import java.util.List;
 
 @CrossOrigin
 @RestController
-
-
-
-public class ClienteService{
+public class ClienteService {
     private final ClienteRepository ClienteRepository;
 
     ClienteService(ClienteRepository ClienteRepository){
         this.ClienteRepository = ClienteRepository;
     }
-
 
     // crear C
     @PostMapping("/Cliente")
@@ -66,7 +58,5 @@ public class ClienteService{
     @DeleteMapping("/Categoria/{id}")
     public void borrar(@PathVariable int id){
         ClienteRepository.delete(id);
-
-
     }
 }
