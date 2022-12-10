@@ -1,4 +1,7 @@
+package dbd.LAB.crud.services;
+
 import dbd.LAB.crud.models.Categoria;
+
 import dbd.LAB.crud.repositories.CategoriaRepository;
 
 
@@ -13,18 +16,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
 import java.util.List;
 
 @CrossOrigin
 @RestController
-public class CategoriaService {
+
+public class CategoriaService{
     private final CategoriaRepository CategoriaRepository;
 
     CategoriaService(CategoriaRepository CategoriaRepository){
         this.CategoriaRepository = CategoriaRepository;
     }
 
-    // crear C
+
     @PostMapping("/Categoria")
     @ResponseBody
     public Categoria crear(@RequestBody Categoria Categoria){
@@ -33,12 +38,12 @@ public class CategoriaService {
     }
 
 
-
     // get R
     @GetMapping("/Categoria")
     public List<Categoria> getAllCategorias(){
         return CategoriaRepository.getAll();
     }
+
     //get by
     @GetMapping("/Categoria/{id}")
     public List<Categoria> getCategoria(@PathVariable int id){
@@ -59,5 +64,7 @@ public class CategoriaService {
     @DeleteMapping("/Categoria/{id}")
     public void borrar(@PathVariable int id){
         CategoriaRepository.delete(id);
-    }
+
+        }
+
 }
