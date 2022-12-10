@@ -54,7 +54,7 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     @Override
     public List<ProductoCategoria> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from producto_categoria order by id_prod asc ")
+            return conn.createQuery("select * from productocategoria order by id_prod asc ")
                     .executeAndFetch(ProductoCategoria.class);
         }catch (Exception e){
             System.out.println(e.getMessage());

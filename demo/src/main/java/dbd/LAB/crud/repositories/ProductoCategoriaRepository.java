@@ -1,6 +1,6 @@
 package dbd.LAB.crud.repositories;
 
-import dbd.LAB.crud.models.Empresa_Administrador;
+
 import dbd.LAB.crud.models.ProductoCategoria;
 
 import java.util.List;
