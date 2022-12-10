@@ -13,10 +13,10 @@ public class AdministradorImp implements AdministradorRepository {
     private Sql2o sql2o;
 
     @Override
-    public  Administrador crear(Administrador Administrador){
-        try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Administrador (id_admin,clave,email,nombre,apellido)" +
-                    "VALUES (id,:clave,:email, :nombre,:apellido)";
+    public Administrador crear(Administrador Administrador) {
+        try (Connection conn = sql2o.open()) {
+            String sql = "INSERT INTO Administrador(id_admin,clave,email,nombre,apellido)" +
+                    "VALUES (:id_admin,:clave,:email, :nombre,:apellido)";
             conn.createQuery(sql, true)
                     .addColumnMapping("id_admin", Administrador.getId_admin())
                     .addParameter("clave", Administrador.getClave())
