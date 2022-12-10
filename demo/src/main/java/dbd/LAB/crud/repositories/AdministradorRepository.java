@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface AdministradorRepository {
     public Administrador crear(Administrador Administrador);
-    public String update(Administrador Admnistrador, String id);
+    public String update(Administrador Admnistrador, int id);
     public List<Administrador> getAll();
-    public List<Administrador> show(String id);
-    public void delete(String id);
+    public List<Administrador> show(int id);
+    public void delete(int id);
 }

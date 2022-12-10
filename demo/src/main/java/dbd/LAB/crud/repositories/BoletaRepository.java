@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface BoletaRepository {
     public Boleta crear(Boleta Boleta);
-    public String update(Boleta Boleta, String id);
+    public String update(Boleta Boleta, int id);
     public List<Boleta> getAll();
-    public List<Boleta> show(String id);
-    public void delete(String id);
+    public List<Boleta> show(int id);
+    public void delete(int id);
 }

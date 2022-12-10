@@ -17,9 +17,9 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
     public  Administrador_Categoria_Empresa crear(Administrador_Categoria_Empresa Administrador_Categoria_Empresa){
         try(Connection conn = sql2o.open()){
             String sql = "INSERT INTO Administrador_Categoria_Empresa (id_admin_categoria_empresa,id_admin,id_categoria)" +
-                    "VALUES (:id_admin_categoria_empresa,:id_admin,:id_categoria)";
+                    "VALUES (:id_admin,:id_categoria)";
             conn.createQuery(sql, true)
-                    .addParameter("id_admin_categoria_empresa",Administrador_Categoria_Empresa.getId_admin_categoria_empresa())
+                    //.addParameter("id_admin_categoria_empresa",Administrador_Categoria_Empresa.getId_admin_categoria_empresa())
                     .addParameter("id_admin", Administrador_Categoria_Empresa.getId_admin())
                     .addParameter("id_categoria", Administrador_Categoria_Empresa.getId_categoria())
                     .executeUpdate();
@@ -46,7 +46,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
 
 
     @Override
-    public List<Administrador_Categoria_Empresa> show(String id) {
+    public List<Administrador_Categoria_Empresa> show(int id) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from Administrador_Categoria_Empresa where id = :id ")
                     .addParameter("id",id)
@@ -61,7 +61,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
 
 
     @Override
-    public void delete(String id) {
+    public void delete(int  id) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from Administrador_Categoria_Empresa where id = :id ")
                     .addParameter("id",id)
@@ -74,7 +74,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
 
 
     @Override
-    public String update(Administrador_Categoria_Empresa Administrador_Categoria_Empresa, String id){
+    public String update(Administrador_Categoria_Empresa Administrador_Categoria_Empresa, int  id){
         try(Connection conn = sql2o.open()){
             String updateSql = "update Administrador_Categoria_Empresa set id_admin=:id_admin WHERE id=:id";
             conn.createQuery(updateSql)
@@ -86,7 +86,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
             System.out.println(e.getMessage());
             return "Fallo al actualizar Administrador_Categoria_Empresa";
         }
-    }
+    }}
 
 
 

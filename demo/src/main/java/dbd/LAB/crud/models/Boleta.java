@@ -23,8 +23,8 @@ public class Boleta {
         return detalle_compra;
     }
 
-    public void setId_boleta(int id_boleta) {
-        this.id_boleta = id_boleta;
+    public void setId_Boleta(int id_Boleta) {
+        this.id_Boleta = id_Boleta;
     }
 
     public void setId_pago(int id_pago) {

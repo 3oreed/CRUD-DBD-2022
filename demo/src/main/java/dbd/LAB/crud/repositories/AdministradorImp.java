@@ -16,9 +16,9 @@ public class AdministradorImp implements AdministradorRepository {
     public Administrador crear(Administrador Administrador) {
         try (Connection conn = sql2o.open()) {
             String sql = "INSERT INTO Administrador(id_admin,clave,email,nombre,apellido)" +
-                    "VALUES (:id_admin,:clave,:email, :nombre,:apellido)";
+                    "VALUES (:clave,:email, :nombre,:apellido)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("id_admin", Administrador.getId_admin())
+                    //.addParameter("id_admin", Administrador.getId_admin())
                     .addParameter("clave", Administrador.getClave())
                     .addParameter("email", Administrador.getEmail())
                     .addParameter("nombre", Administrador.getNombre())
@@ -34,10 +34,9 @@ public class AdministradorImp implements AdministradorRepository {
     }
 
 
-
     @Override
     public List<Administrador> getAll() {
-        try(Connection conn = sql2o.open()){
+        try (Connection conn = sql2o.open()) {
             return conn.createQuery("select * from Administrador order by nombre ASC")
                     .executeAndFetch(Administrador.class);
         } catch (Exception e) {
@@ -48,10 +47,10 @@ public class AdministradorImp implements AdministradorRepository {
 
 
     @Override
-    public List<Administrador> show(String id) {
-        try(Connection conn = sql2o.open()){
+    public List<Administrador> show(int id) {
+        try (Connection conn = sql2o.open()) {
             return conn.createQuery("select * from Administrador where id = :id ")
-                    .addParameter("id",id)
+                    .addParameter("id", id)
                     .executeAndFetch(Administrador.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -60,15 +59,13 @@ public class AdministradorImp implements AdministradorRepository {
     }
 
 
-
-
     @Override
-    public void delete(String id) {
-        try(Connection conn = sql2o.open()){
+    public void delete(int id) {
+        try (Connection conn = sql2o.open()) {
             conn.createQuery("DELETE from Administrador where id = :id ")
-                    .addParameter("id",id)
+                    .addParameter("id", id)
                     .executeUpdate();
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -76,17 +73,17 @@ public class AdministradorImp implements AdministradorRepository {
 
 
     @Override
-    public String update(Administrador Administrador, String id){
-        try(Connection conn = sql2o.open()){
+    public String update(Administrador Administrador, int id) {
+        try (Connection conn = sql2o.open()) {
             String updateSql = "update Administrador set nombre=:nombre WHERE id=:id";
             conn.createQuery(updateSql)
                     .addParameter("nombre", Administrador.getNombre())
                     .executeUpdate();
-            return "Se actualizó el Administrador;
-        }catch (Exception e) {
+            return "Se actualizó el Administrador";
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return "Fallo al actualizar Administrador";
         }
     }
-
+}
 

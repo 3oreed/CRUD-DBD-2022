@@ -15,10 +15,10 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public Boleta crear(Boleta Boleta) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO pago(id_Boleta,id_pago,detalle_compra)" +
-                    "VALUES (:id_Boleta,:id_pago,:id_empresa)";
+            String sql = "INSERT INTO pago(id_Boleta,id_pago,detalle_compra)"
+                    + "VALUES (:id_pago,:id_empresa)";
             conn.createQuery(sql,true)
-                    .addParameter("id_Boleta",Boleta.getId_Boleta())
+                    //.addParameter("id_Boleta",Boleta.getId_Boleta())
                     .addParameter("id_tipopago",Boleta.getId_pago())
                     .addParameter("id_empresa",Boleta.getDetalle_compra())
                     .executeUpdate();

@@ -15,9 +15,9 @@ public class Carrito_ProductoCarritoImp implements Carrito_ProductoCarritoReposi
     public Carrito_ProductoCarrito crear(Carrito_ProductoCarrito Carrito_ProductoCarrito) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO pago(id_Carrito_ProductoCarrito,id_item_carrito,id_carrito)" +
-                    "VALUES (:id_Carrito_ProductoCarrito,:id_item_carrito,:id_carrito)";
+                    "VALUES (:id_item_carrito,:id_carrito)";
             conn.createQuery(sql,true)
-                    .addParameter("id_Carrito_ProductoCarrito",Carrito_ProductoCarrito.getId_Carrito_ProductoCarrito())
+                    //.addParameter("id_Carrito_ProductoCarrito",Carrito_ProductoCarrito.getId_Carrito_ProductoCarrito())
                     .addParameter("id_item_carrito",Carrito_ProductoCarrito.getId_item_carrito())
                     .addParameter("id_carrito",Carrito_ProductoCarrito.getId_carrito())
                     .executeUpdate();

@@ -15,9 +15,9 @@ public class CarritoImp implements CarritoRepository{
     public Carrito crear(Carrito Carrito) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO pago(id_Carrito,cantidad_productos,subtotal)" +
-                    "VALUES (:id_Carrito,:cantidad_productos,:subtotal)";
+                    "VALUES (:cantidad_productos,:subtotal)";
             conn.createQuery(sql,true)
-                    .addParameter("id_Carrito",Carrito.getId_Carrito())
+                    //.addParameter("id_Carrito",Carrito.getId_Carrito())
                     .addParameter("cantidad_productos",Carrito.getCantidad_productos())
                     .addParameter("subtotal",Carrito.getSubtotal())
                     .executeUpdate();
