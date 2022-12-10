@@ -58,7 +58,7 @@ public class AdministradorService {
 
     // borrar D
     @DeleteMapping("/Categoria/{id}")
-    public void borrar(@PathVariable String id){
+    public void borrar(@PathVariable int id){
         AdministradorRepository.delete(id);
     }
 }
