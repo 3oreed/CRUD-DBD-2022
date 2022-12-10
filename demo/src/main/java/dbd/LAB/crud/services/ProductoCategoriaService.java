@@ -59,6 +59,6 @@ public class ProductoCategoriaService {
     // borrar D
     @DeleteMapping("/Categoria/{id}")
     public void borrar(@PathVariable String id){
-        CategoriaRepository.delete(id);
+        ProductoCategoriaRepository.delete(id);
     }
 }
