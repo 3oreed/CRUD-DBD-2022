@@ -1,24 +1,34 @@
 package dbd.LAB.crud.repositories;
 
-import dbd.LAB.crud.models.Empresa_Administrador;
+import dbd.LAB.crud.models.ProductoCategoria;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
 import java.util.List;
 
 public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     private Sql2o sql2o;
 
     @Override
-    public Empresa_Administrador crear(Empresa_Administrador Empresa_admin) {
+    public ProductoCategoria crear(ProductoCategoria prodCat) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO empresa_administrador(id_empresa,id_administrador)" +
-                    "VALUES(:id_empresa,:id_administrador) ";
+            String sql = "INSERT INTO productocategoria (nombre,descripcion,precio,stock_inicial," +
+                    "stock_actual,vendidos,id_carrito,id_empresa,id_categoria) " +
+                    "VALUES(:nombre,:descripcion,:precio,:stock_inicial," +
+                    ":stock_actual,:vendidos,:id_carrito,:id_empresa,:id_categoria)";
             conn.createQuery(sql,true)
-                    .addParameter("id_empresa",Empresa_admin.getId_empresa())
-                    .addParameter("id_administrador",Empresa_admin.getId_administrador())
+
+                    .addParameter("nombre",prodCat.getNombrProdCat())
+                    .addParameter("descripcion",prodCat.getDesc())
+                    .addParameter("precio",prodCat.getPrecio())
+                    .addParameter("stock_inicial",prodCat.getInitialStock())
+                    .addParameter("stock_actual",prodCat.getCurrentStock())
+                    .addParameter("vendidos",prodCat.getVendidos())
+                    .addParameter("id_carrito",prodCat.getId_carrito())
+                    .addParameter("id_empresa",prodCat.getId_empresa())
+                    .addParameter("id_categoria",prodCat.getId_categoria())
+
                     .executeUpdate();
-            return Empresa_admin;
+            return prodCat;
 
         }catch (Exception e){
             System.out.println(e.getMessage());
