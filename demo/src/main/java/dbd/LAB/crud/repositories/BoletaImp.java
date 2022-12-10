@@ -32,7 +32,7 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public String update(Boleta Boleta, int id_Boleta) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Boleta set detalle_compra=:detalle_compra WHERE id_Boleta=:id_Boleta";
+            String updateSql = "update boleta set detalle_compra=:detalle_compra WHERE id_Boleta=:id_Boleta";
             conn.createQuery(updateSql)
                     .addParameter("detalle_compra",Boleta.getDetalle_compra())
                     .executeUpdate();
@@ -47,7 +47,7 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public List<Boleta> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from Boleta order by id_Boleta asc")
+            return conn.createQuery("SELECT * from boleta order by id_Boleta asc")
                     .executeAndFetch(Boleta.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -59,7 +59,7 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public List<Boleta> show(int id_Boleta) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Boleta where id_Boleta = :id_Boleta ")
+            return conn.createQuery("select * from boleta where id_Boleta = :id_Boleta ")
                     .addParameter("id_Boleta",id_Boleta)
                     .executeAndFetch(Boleta.class);
         } catch (Exception e) {
@@ -72,7 +72,7 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public void delete(int id_Boleta) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Boleta where id_Boleta = :id_Boleta")
+            conn.createQuery("DELETE from boleta where id_Boleta = :id_Boleta")
                     .addParameter("id_Boleta",id_Boleta)
                     .executeUpdate();
         }catch (Exception e) {
