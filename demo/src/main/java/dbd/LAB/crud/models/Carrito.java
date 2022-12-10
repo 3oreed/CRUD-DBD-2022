@@ -23,8 +23,8 @@ public class Carrito {
         return subtotal;
     }
 
-    public void setId_carrito(int id_carrito) {
-        this.id_carrito = id_carrito;
+    public void setId_Carrito(int id_Carrito) {
+        this.id_Carrito = id_Carrito;
     }
 
     public void setCantidad_productos(int cantidad_productos) {
