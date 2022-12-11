@@ -79,6 +79,19 @@ public class TiendaImp implements TiendaRepository{
             return null;
         }
     }
+
+    @Override
+    public List<Tienda> showByTipoEmpresa(String tipo_empresa) {
+
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery("select * from tienda where tipo_empresa=:tipo_empresa")
+                    .addParameter("tipo_empresa",tipo_empresa)
+                    .executeAndFetch(Tienda.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
     @Override
     public void delete(int id_tienda) {
         try(Connection conn = sql2o.open()){

@@ -15,5 +15,7 @@ public interface TiendaRepository {
 
     public List<Tienda> showByEdadMin(int edad_minima);
 
+    public List<Tienda> showByTipoEmpresa(String tipo_empresa);
+
     public void delete(int id_tienda);
 }

@@ -60,6 +60,11 @@ public class TiendaService{
         return tiendaRepository.showByEdadMin(edad);
     }
 
+    @GetMapping("/Tienda/tipo/{tipo}")
+    public List<Tienda> showByTipoEmpresa(@PathVariable String tipo) {
+        return tiendaRepository.showByTipoEmpresa(tipo);
+    }
+
 
     @DeleteMapping("/Tienda/{id_tienda}")
     public void delete(@PathVariable int id_tienda) {
