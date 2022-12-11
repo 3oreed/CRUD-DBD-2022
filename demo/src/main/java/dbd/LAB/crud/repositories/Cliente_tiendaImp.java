@@ -62,7 +62,7 @@ public class Cliente_tiendaImp implements Cliente_tiendaRepository{
     public List<Cliente_tienda> show(int id_cliente_tienda) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * from cliente_tienda where id_cliente_tienda=:id_cliente_tienda ")
-                    .addParameter("id_cliente_tienda ",id_cliente_tienda)
+                    .addParameter("id_cliente_tienda",id_cliente_tienda)
                     .executeAndFetch(Cliente_tienda.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
