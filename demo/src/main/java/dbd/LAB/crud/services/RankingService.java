@@ -29,7 +29,7 @@ public class RankingService {
     }
 
 
-    @PutMapping("/Ranking/{id}")
+    @PutMapping("/Ranking/{id_ranking}")
     @ResponseBody
     public String update(@RequestBody Ranking ranking,@PathVariable int id_ranking) {
         String retorno = rankingRepository.update(ranking,id_ranking);
@@ -44,8 +44,8 @@ public class RankingService {
 
 
     @GetMapping("/Ranking/{id_ranking}")
-    public List<Ranking> show(@PathVariable int lugar) {
-        return rankingRepository.show(lugar);
+    public List<Ranking> show(@PathVariable int id_ranking) {
+        return rankingRepository.show(id_ranking);
     }
 
 
