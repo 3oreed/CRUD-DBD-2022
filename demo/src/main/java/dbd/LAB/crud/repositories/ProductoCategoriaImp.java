@@ -20,11 +20,11 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
                     ":stock_actual,:vendidos,:id_carrito,:id_empresa,:id_categoria)";
             conn.createQuery(sql,true)
 
-                    .addParameter("nombre",prodCat.getNombrProdCat())
-                    .addParameter("descripcion",prodCat.getDesc())
+                    .addParameter("nombre",prodCat.getNombre())
+                    .addParameter("descripcion",prodCat.getDescripcion())
                     .addParameter("precio",prodCat.getPrecio())
-                    .addParameter("stock_inicial",prodCat.getInitialStock())
-                    .addParameter("stock_actual",prodCat.getCurrentStock())
+                    .addParameter("stock_inicial",prodCat.getStock_inicial())
+                    .addParameter("stock_actual",prodCat.getStock_actual())
                     .addParameter("vendidos",prodCat.getVendidos())
                     .addParameter("id_carrito",prodCat.getId_carrito())
                     .addParameter("id_empresa",prodCat.getId_empresa())
@@ -45,6 +45,7 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
             String updateSql = "update productocategoria set precio=:precio where id_prod=:id_prod";
             conn.createQuery(updateSql)
                     .addParameter("precio",prodCat.getPrecio())
+                    .addParameter("id_prod",id_prod)
                     .executeUpdate();
             return "Se actualizo precio de un productocategoria";
         }catch (Exception e){
@@ -57,7 +58,7 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     @Override
     public List<ProductoCategoria> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from productocategoria order by id_prod asc ")
+            return conn.createQuery("select * from productocategoria order by id_prod asc")
                     .executeAndFetch(ProductoCategoria.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -69,7 +70,7 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     public List<ProductoCategoria> show(int id_prod) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * from productocategoria where id_prod=:id_prod ")
-                    .addParameter("id_prod ",id_prod)
+                    .addParameter("id_prod",id_prod)
                     .executeAndFetch(ProductoCategoria.class);
         }catch (Exception e){
             System.out.println(e.getMessage());

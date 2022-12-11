@@ -1,54 +1,54 @@
 package dbd.LAB.crud.models;
 
 public class ProductoCategoria {
-      private int idProdCat;
-      private String nombrProdCat;
-      private String desc;
+      private int id_prod;
+      private String nombre;
+      private String descripcion;
       private int precio;
-      private int initialStock;
-      private int currentStock;
+      private int stock_inicial;
+      private int stock_actual;
       private int vendidos;
       private int id_carrito;
       private int id_empresa;
       private int id_categoria;
     //Constructor
-    public ProductoCategoria(int idProdCat, String nombrProdCat, String desc, int precio,
-                             int initialStock, int currentStock, int vendidos, int id_carrito,
+    public ProductoCategoria(int id_prod, String nombre, String descripcion, int precio,
+                             int stock_inicial, int stock_actual, int vendidos, int id_carrito,
                              int id_empresa, int id_categoria) {
-        this.idProdCat = idProdCat;
-        this.nombrProdCat = nombrProdCat;
-        this.desc = desc;
+        this.id_prod = id_prod;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.precio = precio;
-        this.initialStock = initialStock;
-        this.currentStock = currentStock;
+        this.stock_inicial = stock_inicial;
+        this.stock_actual = stock_actual;
         this.vendidos = vendidos;
         this.id_carrito = id_carrito;
         this.id_empresa = id_empresa;
         this.id_categoria = id_categoria;
     }
     //Getters
-    public int getIdProdCat() {
-        return idProdCat;
+    public int getId_prod() {
+        return id_prod;
     }
 
-    public String getNombrProdCat() {
-        return nombrProdCat;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public int getPrecio() {
         return precio;
     }
 
-    public int getInitialStock() {
-        return initialStock;
+    public int getStock_inicial() {
+        return stock_inicial;
     }
 
-    public int getCurrentStock() {
-        return currentStock;
+    public int getStock_actual() {
+        return stock_actual;
     }
 
     public int getVendidos() {
@@ -67,28 +67,28 @@ public class ProductoCategoria {
         return id_categoria;
     }
     //Setters
-    public void setIdProdCat(int idProdCat) {
-        this.idProdCat = idProdCat;
+    public void setId_prod(int id_prod) {
+        this.id_prod = id_prod;
     }
 
-    public void setNombrProdCat(String nombrProdCat) {
-        this.nombrProdCat = nombrProdCat;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public void setPrecio(int precio) {
         this.precio = precio;
     }
 
-    public void setInitialStock(int initialStock) {
-        this.initialStock = initialStock;
+    public void setStock_inicial(int stock_inicial) {
+        this.stock_inicial = stock_inicial;
     }
 
-    public void setCurrentStock(int currentStock) {
-        this.currentStock = currentStock;
+    public void setStock_actual(int stock_actual) {
+        this.stock_actual = stock_actual;
     }
 
     public void setVendidos(int vendidos) {
