@@ -19,7 +19,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-public class CategoriaService implements CategoriaRepository{
+public class CategoriaService{
     private final CategoriaRepository categoriaRepository;
 
     public CategoriaService(@Lazy CategoriaRepository categoriaRepository) {
@@ -35,7 +35,7 @@ public class CategoriaService implements CategoriaRepository{
         return resultado;
     }
 
-    @Override
+
     @PutMapping("/Categoria/{id_categoria}") //{id}(?)
     @ResponseBody
     public String update(@RequestBody Categoria categoria,@PathVariable int id_categoria) {
@@ -43,25 +43,25 @@ public class CategoriaService implements CategoriaRepository{
         return retorno;
     }
 
-    @Override
+
     public String updateDesc(@RequestBody Categoria categoria,@PathVariable int id_categoria) {
         String retorno = categoriaRepository.updateDesc(categoria,id_categoria);
         return retorno;
     }
 
-    @Override
+
     @GetMapping("/Categoria")
     public List<Categoria> getAll() {
         return categoriaRepository.getAll();
     }
 
-    @Override
+
     @GetMapping("/Categoria/{id_categoria}")
     public List<Categoria> show(@PathVariable int id_categoria) {
         return categoriaRepository.show(id_categoria);
     }
 
-    @Override
+
     @DeleteMapping("/Categoria/{id_categoria}")
     public void delete(@PathVariable int id_categoria) {
         categoriaRepository.delete(id_categoria);

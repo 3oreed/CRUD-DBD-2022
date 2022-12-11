@@ -1,6 +1,5 @@
 package dbd.LAB.crud.repositories;
 
-import dbd.LAB.crud.models.Boleta;
 import dbd.LAB.crud.models.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,7 +8,7 @@ import org.sql2o.Sql2o;
 
 import java.util.List;
 @Repository
-public class CategoriaImp {
+public class CategoriaImp implements CategoriaRepository {
     @Autowired
     private Sql2o sql2o;
     public Categoria crear(Categoria categoria) {
@@ -18,7 +17,7 @@ public class CategoriaImp {
             String sql = "INSERT INTO categoria(nombre,descripcion,id_tienda)"
                     + "VALUES (:nombre,:descripcion,:id_tienda)";
             conn.createQuery(sql,true)
-                    .addParameter("nombre",categoria.getNombreCategoria())
+                    .addParameter("nombre",categoria.getNombre())
                     .addParameter("descripcion",categoria.getDescripcion())
                     .addParameter("id_tienda",categoria.getId_tienda())
                     .executeUpdate();
@@ -28,12 +27,12 @@ public class CategoriaImp {
         }
         return null;
     }
-
+    @Override
     public String update(Categoria categoria, int id_categoria) {
         try(Connection conn = sql2o.open()){
             String updateSql = "update categoria set nombre=:nombre,descripcion=:descripcion,id_tienda=:id_tienda WHERE id_categoria=:id_categoria";
             conn.createQuery(updateSql)
-                    .addParameter("nombre",categoria.getNombreCategoria())
+                    .addParameter("nombre",categoria.getNombre())
                     .addParameter("descripcion",categoria.getDescripcion())
                     .addParameter("id_tienda",categoria.getId_tienda())
                     .executeUpdate();
@@ -43,7 +42,7 @@ public class CategoriaImp {
             return "Fallo al actualizar Categoria";
         }
     }
-
+    @Override
     public String updateDesc(Categoria categoria, int id_categoria) {
         try(Connection conn = sql2o.open()){
             String updateSql = "update boleta set descripcion=:descripcion WHERE id_categoria=:id_categoria6";
@@ -58,7 +57,7 @@ public class CategoriaImp {
 
     }
 
-
+    @Override
     public List<Categoria> getAll() {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * from categoria order by id_categoria asc")
@@ -68,7 +67,7 @@ public class CategoriaImp {
             return null;
         }
     }
-
+    @Override
     public List<Categoria> show(int id_categoria) {
 
         try(Connection conn = sql2o.open()){
@@ -80,7 +79,7 @@ public class CategoriaImp {
             return null;
         }
     }
-
+    @Override
     public void delete(int id_categoria) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from categoria where id_categoria = :id_categoria")
