@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.List;
-
+@Repository
 public class ClienteImp implements ClienteRepository{
+    @Autowired
+
     private Sql2o sql2o;
 
     @Override

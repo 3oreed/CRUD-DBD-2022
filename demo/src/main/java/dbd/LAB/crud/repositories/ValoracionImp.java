@@ -13,8 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
         import org.sql2o.Connection;
         import org.sql2o.Sql2o;
         import java.util.List;
-
+@Repository
 public class ValoracionImp implements ValoracionRepository{
+    @Autowired
     private Sql2o sql2o;
 
     @Override

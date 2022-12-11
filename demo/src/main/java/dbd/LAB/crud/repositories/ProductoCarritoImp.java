@@ -1,12 +1,15 @@
 package dbd.LAB.crud.repositories;
 
 import dbd.LAB.crud.models.ProductoCarrito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import java.util.List;
-
+@Repository
 public class ProductoCarritoImp implements ProductoCarritoRepository{
+    @Autowired
     private Sql2o sql2o;
 
     @Override

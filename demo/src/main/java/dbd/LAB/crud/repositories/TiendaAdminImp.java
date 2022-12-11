@@ -9,8 +9,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+@Repository
 public class TiendaAdminImp implements TiendaAdminRepository{
+    @Autowired
     private Sql2o sql2o;
 
     @Override
