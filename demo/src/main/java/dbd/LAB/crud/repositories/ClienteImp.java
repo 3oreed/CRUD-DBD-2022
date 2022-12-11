@@ -17,9 +17,9 @@ public class ClienteImp implements ClienteRepository{
     public Cliente crear(Cliente Cliente) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO Cliente(Nombre_cliente,Apellido_cliente,Clave_cliente,Direccion_cliente,Fecha_nacimiento_cliente,Edad_cliente)" +
-                    "VALUES (:id_cliente,:Nombre_cliente,:Apellido_cliente,:Clave_cliente,:Direccion_cliente,:Fecha_nacimiento_cliente,:Edad_cliente)";
+                    "VALUES (:Nombre_cliente,:Apellido_cliente,:Clave_cliente,:Direccion_cliente,:Fecha_nacimiento_cliente,:Edad_cliente)";
             conn.createQuery(sql,true)
-                    //.addParameter("id_cliente",Cliente.getId_cliente())
+                     //.addParameter("id_cliente",Cliente.getId_cliente())
                     .addParameter("Nombre_cliente",Cliente.getNombre_cliente())
                     .addParameter("Apellido_cliente",Cliente.getApellido_cliente())
                     .addParameter("Clave",Cliente.getClave_cliente())
@@ -37,9 +37,9 @@ public class ClienteImp implements ClienteRepository{
     }
 
     @Override
-    public String update(Cliente Cliente, int id_cliente) {
+    public String update(Cliente Cliente, int Id_cliente) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Cliente set Clave_cliente=:Clave_cliente WHERE id_cliente=:id_cliente";
+            String updateSql = "update Cliente set Clave_cliente=:Clave_cliente WHERE Id_cliente=:Id_cliente";
             conn.createQuery(updateSql)
                     .addParameter("Clave_cliente",Cliente.getClave_cliente())
                     .executeUpdate();
@@ -54,7 +54,7 @@ public class ClienteImp implements ClienteRepository{
     @Override
     public List<Cliente> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from cliente order by id_cliente asc")
+            return conn.createQuery("SELECT * from cliente order by Id_cliente asc")
                     .executeAndFetch(Cliente.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -64,10 +64,10 @@ public class ClienteImp implements ClienteRepository{
     }
 
     @Override
-    public List<Cliente> show(int id_cliente) {
+    public List<Cliente> show(int Id_cliente) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from cliente where id_cliente = :id_cliente")
-                    .addParameter("id_cliente",id_cliente)
+            return conn.createQuery("select * from cliente where Id_cliente = :Id_cliente")
+                    .addParameter("Id_cliente",Id_cliente)
                     .executeAndFetch(Cliente.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -77,10 +77,10 @@ public class ClienteImp implements ClienteRepository{
     }
 
     @Override
-    public void delete(int id_cliente) {
+    public void delete(int Id_cliente) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from cliente where id_cliente= :id_cliente")
-                    .addParameter("id_cliente",id_cliente)
+            conn.createQuery("DELETE from cliente where Id_cliente= :Id_cliente")
+                    .addParameter("Id_cliente",Id_cliente)
                     .executeUpdate();
         }catch (Exception e) {
             System.out.println(e.getMessage());

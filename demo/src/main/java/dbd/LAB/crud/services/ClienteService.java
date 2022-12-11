@@ -26,7 +26,7 @@ public class ClienteService{
     }
 
     // crear C
-    @PostMapping("/ClienteCrear")
+    @PostMapping("/Cliente")
     @ResponseBody
     public Cliente crear(@RequestBody Cliente Cliente){
         Cliente resultado = ClienteRepository.crear(Cliente);
@@ -36,20 +36,20 @@ public class ClienteService{
 
 
     // get R
-    @GetMapping("/ClienteAll")
+    @GetMapping("/Cliente")
     public List<Cliente> getAllClientes(){
         return ClienteRepository.getAll();
     }
     //get by
-    @GetMapping("/ClienteGet/{id}")
-    public List<Cliente> getCategoria(@PathVariable int id){
+    @GetMapping("/Cliente/{Id_cliente}")
+    public List<Cliente> getClientes(@PathVariable int id){
         return ClienteRepository.show(id);
     }
 
 
 
     // actualizar U
-    @PutMapping("/ClienteUpdate/{id}") //{id}(?)
+    @PutMapping("/Cliente/{Id_cliente}") //{id}(?)
     @ResponseBody
     public String updateCliente(@RequestBody Cliente Cliente, @PathVariable int id){
         String retorno = ClienteRepository.update(Cliente,id);
@@ -57,7 +57,7 @@ public class ClienteService{
     }
 
     // borrar D
-    @DeleteMapping("/ClienteDelete/{id}")
+    @DeleteMapping("/Cliente/{Id_cliente}")
     public void borrar(@PathVariable int id){
         ClienteRepository.delete(id);
     }

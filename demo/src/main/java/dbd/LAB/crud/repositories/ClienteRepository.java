@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface ClienteRepository {
     public Cliente crear(Cliente cliente );
-    public String update(Cliente cliente , int id_cliente);
+    public String update(Cliente cliente , int Id_cliente);
     public List<Cliente> getAll();
-    public List<Cliente> show(int id_cliente);
-    public void delete(int id_cliente);
+    public List<Cliente> show(int Id_cliente);
+    public void delete(int Id_cliente);
 }
