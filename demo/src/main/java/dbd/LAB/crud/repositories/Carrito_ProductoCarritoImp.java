@@ -15,7 +15,7 @@ public class Carrito_ProductoCarritoImp implements Carrito_ProductoCarritoReposi
     @Override
     public Carrito_ProductoCarrito crear(Carrito_ProductoCarrito Carrito_ProductoCarrito) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Carrito_ProductoCarrito(id_Carrito_ProductoCarrito,id_item_carrito,id_carrito)" +
+            String sql = "INSERT INTO carrito_productocarrito(id_item_carrito,id_carrito)" +
                     "VALUES (:id_item_carrito,:id_carrito)";
             conn.createQuery(sql,true)
                     //.addParameter("id_Carrito_ProductoCarrito",Carrito_ProductoCarrito.getId_Carrito_ProductoCarrito())
@@ -30,9 +30,9 @@ public class Carrito_ProductoCarritoImp implements Carrito_ProductoCarritoReposi
     }
 
     @Override
-    public String update(Carrito_ProductoCarrito Carrito_ProductoCarrito, int id_Carrito_ProductoCarrito) {
+    public String update(Carrito_ProductoCarrito Carrito_ProductoCarrito, int id_carrito_productocarrito) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Carrito_ProductoCarrito set id_item_carrito=:id_item_carrito WHERE id_Carrito_ProductoCarrito=:id_Carrito_ProductoCarrito";
+            String updateSql = "update carrito_productocarrito set id_item_carrito=:id_item_carrito WHERE id_carrito_productocarrito=:id_carrito_productocarrito";
             conn.createQuery(updateSql)
                     .addParameter("id_item_carrito",Carrito_ProductoCarrito.getId_item_carrito())
                     .executeUpdate();
@@ -47,7 +47,7 @@ public class Carrito_ProductoCarritoImp implements Carrito_ProductoCarritoReposi
     @Override
     public List<Carrito_ProductoCarrito> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from Carrito_ProductoCarrito order by id_Carrito_ProductoCarrito asc")
+            return conn.createQuery("SELECT * from carrito_productocarrito order by id_carrito_productocarrito asc")
                     .executeAndFetch(Carrito_ProductoCarrito.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -57,10 +57,10 @@ public class Carrito_ProductoCarritoImp implements Carrito_ProductoCarritoReposi
     }
 
     @Override
-    public List<Carrito_ProductoCarrito> show(int id_Carrito_ProductoCarrito) {
+    public List<Carrito_ProductoCarrito> show(int id_carrito_productocarrito) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Carrito_ProductoCarrito where id_Carrito_ProductoCarrito = :id_Carrito_ProductoCarrito")
-                    .addParameter("id_Carrito_ProductoCarrito",id_Carrito_ProductoCarrito)
+            return conn.createQuery("select * from carrito_productocarrito where id_carrito_productocarrito = :id_carrito_productocarrito")
+                    .addParameter("id_Carrito_ProductoCarrito",id_carrito_productocarrito)
                     .executeAndFetch(Carrito_ProductoCarrito.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -70,10 +70,10 @@ public class Carrito_ProductoCarritoImp implements Carrito_ProductoCarritoReposi
     }
 
     @Override
-    public void delete(int id_Carrito_ProductoCarrito) {
+    public void delete(int id_carrito_productocarrito) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Carrito_ProductoCarrito where id_Carrito_ProductoCarrito = :id_Carrito_ProductoCarrito")
-                    .addParameter("id_Carrito_ProductoCarrito",id_Carrito_ProductoCarrito)
+            conn.createQuery("DELETE from carrito_productocarrito where id_carrito_productocarrito = :id_carrito_productocarrito")
+                    .addParameter("id_Carrito_ProductoCarrito",id_carrito_productocarrito)
                     .executeUpdate();
         }catch (Exception e) {
             System.out.println(e.getMessage());

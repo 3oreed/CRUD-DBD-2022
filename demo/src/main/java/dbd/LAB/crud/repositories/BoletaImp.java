@@ -16,7 +16,7 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public Boleta crear(Boleta Boleta) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Boleta(id_boleta,id_pago,detalle_compra)"
+            String sql = "INSERT INTO boleta(id_pago,detalle_compra)"
                     + "VALUES (:id_pago,:id_empresa)";
             conn.createQuery(sql,true)
                     //.addParameter("id_boleta",Boleta.getId_Boleta())
@@ -33,7 +33,7 @@ public class BoletaImp implements BoletaRepository{
     @Override
     public String update(Boleta Boleta, int id_boleta) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Boleta set detalle_compra=:detalle_compra WHERE id_boleta=:id_boleta";
+            String updateSql = "update boleta set detalle_compra=:detalle_compra WHERE id_boleta=:id_boleta";
             conn.createQuery(updateSql)
                     .addParameter("detalle_compra",Boleta.getDetalle_compra())
                     .executeUpdate();
