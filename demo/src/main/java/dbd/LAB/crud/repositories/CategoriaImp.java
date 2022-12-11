@@ -15,7 +15,7 @@ public class CategoriaImp {
     public Categoria crear(Categoria categoria) {
 
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO pago(nombre,descripcion,id_tienda)"
+            String sql = "INSERT INTO categoria(nombre,descripcion,id_tienda)"
                     + "VALUES (:nombre,:descripcion,:id_tienda)";
             conn.createQuery(sql,true)
                     .addParameter("nombre",categoria.getNombreCategoria())

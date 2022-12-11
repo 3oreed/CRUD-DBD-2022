@@ -15,7 +15,7 @@ public class EmpresaImp {
 
     public Empresa crear(Empresa empresa) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO pago(clave,mail,direccion,id_ranking)"
+            String sql = "INSERT INTO empresa(clave,mail,direccion,id_ranking)"
                     + "VALUES (:clave,:mail,:direccion,:id_ranking)";
             conn.createQuery(sql,true)
                     .addParameter("clave",empresa.getPass())

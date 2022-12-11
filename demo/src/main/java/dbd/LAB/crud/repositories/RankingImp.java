@@ -14,7 +14,7 @@ public class RankingImp {
 
     public Ranking crear(Ranking ranking) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO ranking(nombre_empresa,lugar)" +
+            String sql = "INSERT INTO  ranking(nombre_empresa,lugar)" +
                     "VALUES(:nombre_empresa,:lugar)";
             conn.createQuery(sql, true)
                     .addParameter("nombre_empresa", ranking.getNombreEmpresa())

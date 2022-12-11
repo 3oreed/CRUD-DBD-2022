@@ -16,7 +16,7 @@ public class Empresa_administradorImp implements Empresa_administradorRepository
     @Override
     public Empresa_Administrador crear(Empresa_Administrador Empresa_admin) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO empresa_administrador(id_empresa,id_administrador)" +
+            String sql = "INSERT INTO Empresa_admin(id_empresa,id_administrador)" +
                     "VALUES(:id_empresa,:id_administrador) ";
             conn.createQuery(sql,true)
                     .addParameter("id_empresa",Empresa_admin.getId_empresa())

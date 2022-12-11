@@ -15,7 +15,7 @@ public class CarritoImp implements CarritoRepository{
     @Override
     public Carrito crear(Carrito Carrito) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO pago(id_Carrito,cantidad_productos,subtotal)" +
+            String sql = "INSERT INTO Carrito(id_Carrito,cantidad_productos,subtotal)" +
                     "VALUES (:cantidad_productos,:subtotal)";
             conn.createQuery(sql,true)
                     //.addParameter("id_Carrito",Carrito.getId_Carrito())
