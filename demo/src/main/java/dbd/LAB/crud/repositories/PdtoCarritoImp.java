@@ -15,11 +15,11 @@ public class PdtoCarritoImp implements PdtoCarritoRepository {
     public PdtoCarrito crear(PdtoCarrito PdtoCarrito) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO productocarrito (nombre,cantidad,comentario)" +
-                    "VALUES (:nombre,:cantidad,comentario)";
+                    "VALUES (:nombre,:cantidad,:comentario)";
             conn.createQuery(sql,true)
-                    .addParameter("nombre",PdtoCarrito.getNombreItem())
-                    .addParameter("cantidad",PdtoCarrito.getCantidadItem())
-                    .addParameter("comentario",PdtoCarrito.getComentarioItem())
+                    .addParameter("nombre",PdtoCarrito.getNombre())
+                    .addParameter("cantidad",PdtoCarrito.getCantidad())
+                    .addParameter("comentario",PdtoCarrito.getComentario())
                     .executeUpdate();
             return PdtoCarrito;
         }catch (Exception e){
@@ -33,7 +33,8 @@ public class PdtoCarritoImp implements PdtoCarritoRepository {
         try(Connection conn = sql2o.open()){
             String updateSql = "update productocarrito set cantidad=:cantidad where id_item_carrito=:id_item_carrito";
             conn.createQuery(updateSql)
-                    .addParameter("cantidad",PdtoCarrito.getCantidadItem())
+                    .addParameter("cantidad",PdtoCarrito.getCantidad())
+                    .addParameter("id_item_carrito",id_item_carrito)
                     .executeUpdate();
             return "Se actualizo cantidad de un ProductoCarrito";
         }catch (Exception e){
