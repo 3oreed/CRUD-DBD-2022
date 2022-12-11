@@ -1,8 +1,5 @@
-
-
 package dbd.LAB.crud.repositories;
 import dbd.LAB.crud.models.Boleta;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;

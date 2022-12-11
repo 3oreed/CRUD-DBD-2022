@@ -1,13 +1,11 @@
 package dbd.LAB.crud.repositories;
-
-import dbd.LAB.crud.models.Boleta;
 import dbd.LAB.crud.models.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
 import java.util.List;
+
 @Repository
 public class EmpresaImp {
     @Autowired

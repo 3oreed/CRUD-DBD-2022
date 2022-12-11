@@ -58,6 +58,7 @@ public class CategoriaImp {
 
     }
 
+
     public List<Categoria> getAll() {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * from categoria order by id_categoria asc")
