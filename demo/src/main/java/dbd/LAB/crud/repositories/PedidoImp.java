@@ -17,11 +17,11 @@ public class PedidoImp implements PedidoRepository{
     @Override
     public Pedido crear(Pedido pedido) {
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO pedido(id_pedido,subtotal,tipo_entrega," +
-                    "ubicacion,id_pago,id_cliente) VALUES(:id_pedido,:subtotal,:tipo_entrega,:Ubicacion" +
+            String sql = "INSERT INTO pedido(subtotal,tipo_entrega," +
+                    "ubicacion,id_pago,id_cliente) VALUES(:subtotal,:tipo_entrega,:ubicacion" +
                     ",:id_pago,:id_cliente)";
             conn.createQuery(sql,true)
-                    .addParameter("id_pedido", pedido.getId_pedido())
+
                     .addParameter("subtotal",pedido.getSubtotal())
                     .addParameter("tipo_entrega",pedido.getTipo_entrega())
                     .addParameter("ubicacion",pedido.getUbicacion())

@@ -44,14 +44,14 @@ public class PedidoService {
 
     }
 
-   /*
-    @PutMapping("/Pedido/{id_pedido}") //{id}(?)
+
+    @PutMapping("/Pedido/Ubicacion/{id_pedido}") //{id}(?)
     @ResponseBody
-    public String updateUbicacionPedido(@RequestBody Pedido pedido,int id_pedido){
-        String retorno = pedidoRepository.updateUbicacion(pedido,id_pedido);
+    public String updateUbicacionPedido(@RequestBody Pedido pedido,int id_pedido) {
+        String retorno = pedidoRepository.updateUbicacion(pedido, id_pedido);
         return retorno;
 
-    }*/
+    }
     @DeleteMapping("/Pedido/{id_pedido}")
     public void borrar(@PathVariable int id_pedido){
         pedidoRepository.delete(id_pedido);
