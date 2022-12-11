@@ -41,24 +41,44 @@ public class ClienteService{
         return ClienteRepository.getAll();
     }
     //get by
-    @GetMapping("/Cliente/{Id_cliente}")
-    public List<Cliente> getClientes(@PathVariable int id){
-        return ClienteRepository.show(id);
+    @GetMapping("/Cliente/{id_cliente}")
+    public List<Cliente> getClientes(@PathVariable int id_cliente){
+        return ClienteRepository.show(id_cliente);
     }
 
 
 
     // actualizar U
-    @PutMapping("/Cliente/{Id_cliente}") //{id}(?)
+    @PutMapping("/ClienteUpdatePass/{id_cliente}") //{id}(?)
     @ResponseBody
-    public String updateCliente(@RequestBody Cliente Cliente, @PathVariable int id){
-        String retorno = ClienteRepository.update(Cliente,id);
+    public String updatePass(@RequestBody Cliente Cliente, @PathVariable int id_cliente){
+        String retorno = ClienteRepository.update(Cliente,id_cliente);
+        return retorno;
+    }
+
+    @PutMapping("/ClienteUpdateEmail/{id_cliente}")
+    @ResponseBody
+    public String updateEmail(@RequestBody Cliente cliente, @PathVariable int id_cliente){
+        String retorno = ClienteRepository.updateMail(cliente,id_cliente);
+        return retorno;
+    }
+
+    @PutMapping("/ClienteUpdateAll/{id_cliente}")
+    @ResponseBody
+    public String updateAll(@RequestBody Cliente cliente,@PathVariable int id_cliente){
+        String retorno = ClienteRepository.updateAll(cliente,id_cliente);
+        return retorno;
+    }
+    @PutMapping("/ClienteUpdateDireccion/{id_cliente}")
+    @ResponseBody
+    public String updateDireccion(@RequestBody Cliente cliente,@PathVariable int id_cliente){
+        String retorno = ClienteRepository.updateDireccion(cliente, id_cliente);
         return retorno;
     }
 
     // borrar D
-    @DeleteMapping("/Cliente/{Id_cliente}")
-    public void borrar(@PathVariable int id){
-        ClienteRepository.delete(id);
+    @DeleteMapping("/Cliente/{id_cliente}")
+    public void borrar(@PathVariable int id_cliente){
+        ClienteRepository.delete(id_cliente);
     }
 }

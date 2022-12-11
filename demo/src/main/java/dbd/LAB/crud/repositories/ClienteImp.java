@@ -39,9 +39,9 @@ public class ClienteImp implements ClienteRepository{
     @Override
     public String update(Cliente cliente, int id_cliente) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update cliente set clave=:Clave_cliente WHERE id_cliente=:id_cliente";
+            String updateSql = "update cliente set clave=:clave WHERE id_cliente=:id_cliente";
             conn.createQuery(updateSql)
-                    .addParameter("Clave_cliente",cliente.getClave())
+                    .addParameter("clave",cliente.getClave())
                     .addParameter("id_cliente",id_cliente)
                     .executeUpdate();
             return "Se actualizó la CLAVE de cliente";
@@ -50,6 +50,57 @@ public class ClienteImp implements ClienteRepository{
             return "Fallo al actualizar Clave de cliente";
         }
 
+    }
+
+    @Override
+    public String updateAll(Cliente cliente, int id_cliente) {
+        try(Connection conn = sql2o.open()){
+            String updateSql = "update cliente set nombre=:nombre,apellido=:apellido,clave=:clave,email=:email," +
+                    "direccion=:direccion,fecha_nacimiento=:fecha_nacimiento WHERE id_cliente=:id_cliente";
+            conn.createQuery(updateSql)
+                    .addParameter("nombre",cliente.getNombre())
+                    .addParameter("apellido",cliente.getApellido())
+                    .addParameter("clave",cliente.getClave())
+                    .addParameter("email",cliente.getEmail())
+                    .addParameter("direccion",cliente.getDireccion())
+                    .addParameter("fecha_nacimiento",LocalDate.parse(cliente.getFecha_nacimiento()))
+                    .addParameter("id_cliente",id_cliente)
+                    .executeUpdate();
+            return "Se actualizaron DATOS de cliente";
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return "Fallo al actualizar DATOS de cliente";
+        }
+    }
+
+    @Override
+    public String updateDireccion(Cliente cliente, int id_cliente) {
+        try(Connection conn = sql2o.open()){
+            String updateSql = "update cliente set direccion=:direccion WHERE id_cliente=:id_cliente";
+            conn.createQuery(updateSql)
+                    .addParameter("direccion",cliente.getDireccion())
+                    .addParameter("id_cliente",id_cliente)
+                    .executeUpdate();
+            return "Se actualizó la DIRECCION de cliente";
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return "Fallo al actualizar DIRECCION de cliente";
+        }
+    }
+
+    @Override
+    public String updateMail(Cliente cliente, int id_cliente) {
+        try(Connection conn = sql2o.open()){
+            String updateSql = "update cliente set email=:email WHERE id_cliente=:id_cliente";
+            conn.createQuery(updateSql)
+                    .addParameter("email",cliente.getEmail())
+                    .addParameter("id_cliente",id_cliente)
+                    .executeUpdate();
+            return "Se actualizó el EMAIL de cliente";
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return "Fallo al actualizar EMAIL de cliente";
+        }
     }
 
     @Override
