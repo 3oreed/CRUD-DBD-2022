@@ -35,11 +35,12 @@ public class Cliente_tiendaImp implements Cliente_tiendaRepository{
     @Override
     public String update(Cliente_tienda clienteTienda, int id_cliente_tienda) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update cliente_tienda set id_cliente_tienda=:id_cliente_tienda";
+            String updateSql = "update cliente_tienda set edad_minima=:edad_minima where id_cliente_tienda=:id_cliente_tienda";
             conn.createQuery(updateSql)
-                    .addParameter("id_cliente_tienda",clienteTienda.getId_cliente_tienda())
+                    .addParameter("edad_minima",clienteTienda.getEdad_minima())
+                    .addParameter("id_cliente_tienda",id_cliente_tienda)
                     .executeUpdate();
-            return "Se actualizo id_cliente_tienda de un Cliente_tienda";
+            return "Se actualizo edad minima de Cliente_tienda";
         }catch (Exception e){
             System.out.println(e.getMessage());
             return "Fallo al actualizar id_cliente_tienda de Cliente_tienda";

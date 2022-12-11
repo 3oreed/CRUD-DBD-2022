@@ -37,22 +37,36 @@ public class OfertaImp implements OfertaRepository {
     @Override
     public String update(Oferta oferta, int id_oferta) {
         try (Connection conn = sql2o.open()){
-            String updateSql = "update oferta set descripcion=:descripcion,stock_oferta=:stock_oferta,fecha_inicio=:fecha_inicio,fecha_final=:fecha_final";
-
+            String updateSql = "update oferta set descripcion=:descripcion,stock_oferta=:stock_oferta,fecha_inicio=:fecha_inicio,fecha_final=:fecha_final where id_oferta=:id_oferta";
             conn.createQuery(updateSql,true)
                     .addParameter("id_oferta",id_oferta)
                     .addParameter("descripcion",oferta.getDescripcion())
                     .addParameter("stock_oferta",oferta.getStock_oferta())
                     .addParameter("fecha_inicio", LocalDate.parse(oferta.getFecha_inicio()))
                     .addParameter("fecha_final",LocalDate.parse(oferta.getFecha_final()))
-
                     .executeUpdate();
             return "Se actualizó informacion de OFERTA";
         }catch (Exception e){
             System.out.println(e.getMessage());
+            return "Fallo al actualizar OFERTA";
         }
 
-        return null;
+
+    }
+
+    public String updateStock(Oferta oferta, int id) {
+        try (Connection conn = sql2o.open()){
+            String updateSql = "update oferta set stock_oferta=:stock_oferta where id_oferta=:id_oferta";
+            conn.createQuery(updateSql,true)
+                    .addParameter("stock_oferta",oferta.getStock_oferta())
+                    .addParameter("id_oferta",id)
+                    .executeUpdate();
+            return "Se actualizó informacion de OFERTA";
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return "Fallo al actualizar OFERTA";
+        }
+
     }
 
     @Override

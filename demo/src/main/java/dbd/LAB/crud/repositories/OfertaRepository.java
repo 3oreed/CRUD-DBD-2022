@@ -11,6 +11,7 @@ public interface OfertaRepository {
     public Oferta crear(Oferta oferta);
 
     public String update(Oferta oferta, int id_oferta);
+    public String updateStock(Oferta oferta, int id_oferta);
 
     public List<Oferta> getAll();
 
