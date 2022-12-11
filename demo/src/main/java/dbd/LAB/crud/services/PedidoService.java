@@ -23,13 +23,13 @@ public class PedidoService {
     }
 
 
-    @GetMapping("/Pedido")
+    @GetMapping("/Pedido/{id}")
     public List<Pedido> getPedido(@PathVariable int id_pedido){
         return pedidoRepository.getAll();
     }
 
 
-    @GetMapping("/Pedido/{id}")
+    @GetMapping("/Pedido")
     public List<Pedido> getAllPedido(){
         return pedidoRepository.getAll();
     }
