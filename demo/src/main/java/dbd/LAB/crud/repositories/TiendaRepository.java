@@ -13,5 +13,7 @@ public interface TiendaRepository {
 
     public List<Tienda> show(int id_tienda);
 
+    public List<Tienda> showByEdadMin(int edad_minima);
+
     public void delete(int id_tienda);
 }

@@ -67,6 +67,18 @@ public class TiendaImp implements TiendaRepository{
         }
     }
     @Override
+    public List<Tienda> showByEdadMin(int edad_minima) {
+
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery("select * from tienda where edad_minima<=:edad_minima ")
+                    .addParameter("edad_minima",edad_minima)
+                    .executeAndFetch(Tienda.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    @Override
     public void delete(int id_tienda) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from tienda where id_tienda = :id_tienda")
