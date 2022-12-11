@@ -58,7 +58,7 @@ public class CarritoService {
 
     // borrar D
     @DeleteMapping("/Categoria/{id}")
-    public void borrar(@PathVariable String id){
+    public void borrar(@PathVariable int id){
         CarritoRepository.delete(id);
     }
 }

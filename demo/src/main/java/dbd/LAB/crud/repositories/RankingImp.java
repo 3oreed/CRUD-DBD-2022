@@ -8,9 +8,9 @@ import org.sql2o.Sql2o;
 
 import java.net.ConnectException;
 import java.util.List;
-
+@Repository
 public class RankingImp {
-
+    @Autowired
     private Sql2o sql2o;
 
     public Ranking crear(Ranking ranking) {

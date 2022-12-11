@@ -17,7 +17,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-public class CategoriaService {
+public class CategoriaService{
     private final CategoriaRepository CategoriaRepository;
 
     CategoriaService(CategoriaRepository CategoriaRepository){

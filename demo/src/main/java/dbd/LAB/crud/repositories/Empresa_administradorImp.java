@@ -1,13 +1,16 @@
 package dbd.LAB.crud.repositories;
 import dbd.LAB.crud.models.Empresa_Administrador;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import java.net.ConnectException;
 import java.util.List;
-
+@Repository
 public class Empresa_administradorImp implements Empresa_administradorRepository {
+    @Autowired
     private Sql2o sql2o;
 
     @Override

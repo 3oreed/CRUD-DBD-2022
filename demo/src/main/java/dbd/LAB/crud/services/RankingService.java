@@ -15,8 +15,8 @@ import java.util.List;
 public class RankingService {
 
 
-    private RankingRepository rankingRepository;
-    @Autowired
+    private final RankingRepository rankingRepository;
+
     public RankingService(RankingRepository rankingRepository) {
         this.rankingRepository = rankingRepository;
     }

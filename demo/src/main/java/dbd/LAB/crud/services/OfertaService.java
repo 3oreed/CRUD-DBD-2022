@@ -23,16 +23,19 @@ public class OfertaService {
     public List<Oferta> getAllOferta(){
         return ofertaRepository.getAll();
     }
+
     @GetMapping("/Oferta/{id}")
     public  List<Oferta> getOferta(@PathVariable int id_oferta){
         return ofertaRepository.show(id_oferta);
     }
+
     @PutMapping("/Oferta/{precio}") //{id}(?)
     @ResponseBody
     public String updateOferta(@RequestBody Oferta oferta, int id_oferta){
         String retorno = ofertaRepository.update(oferta,id_oferta);
         return retorno;
     }
+
     @DeleteMapping("/Oferta/{id}")
     public void borrar(@PathVariable int id_oferta){
         ofertaRepository.delete(id_oferta);

@@ -2,11 +2,14 @@ package dbd.LAB.crud.repositories;
 import dbd.LAB.crud.models.Metodo_de_pago;
 
 import dbd.LAB.crud.models.Pago;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.List;
-
+@Repository
 public class Metodo_de_pagoImp implements Metodo_de_pagoRepository {
+    @Autowired
     private Sql2o sql2o;
     @Override
     public Metodo_de_pago crear(Metodo_de_pago tipo_de_pago) {

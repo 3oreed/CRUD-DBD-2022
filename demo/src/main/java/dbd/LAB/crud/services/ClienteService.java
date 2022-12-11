@@ -16,7 +16,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-public class ClienteService {
+public class ClienteService{
     private final ClienteRepository ClienteRepository;
 
     ClienteService(ClienteRepository ClienteRepository){
