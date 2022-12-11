@@ -36,6 +36,7 @@ public class TiendaImp implements TiendaRepository{
         try(Connection conn = sql2o.open()){
             String updateSql = "update tienda set nombre=:nombre WHERE id_tienda=:id_tienda";
             conn.createQuery(updateSql)
+                    .addParameter("id_tienda",id_tienda)
                     .addParameter("nombre",tienda.getNombre())
                     .executeUpdate();
             return "Se actualizó el nombre de tienda";
