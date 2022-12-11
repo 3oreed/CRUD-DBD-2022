@@ -62,7 +62,7 @@ public class Cliente_ProductoCategoriaImp implements Cliente_ProductoCategoriaRe
     @Override
     public List<Cliente_ProductoCategoria> show(int cliente_productocategoria) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from Cliente_ProductoCategoria where cliente_productocategoria=:cliente_productocategoria ")
+            return conn.createQuery("SELECT * from cliente_productocategoria where cliente_productocategoria=:cliente_productocategoria ")
                     .addParameter("cliente_productocategoria ",cliente_productocategoria)
                     .executeAndFetch(Cliente_ProductoCategoria.class);
         }catch (Exception e){
@@ -74,7 +74,7 @@ public class Cliente_ProductoCategoriaImp implements Cliente_ProductoCategoriaRe
     @Override
     public void delete(int cliente_productocategoria) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Cliente_ProductoCategoria where cliente_productocategoria=:cliente_productocategoria")
+            conn.createQuery("DELETE from cliente_productocategoria where cliente_productocategoria=:cliente_productocategoria")
                     .addParameter("cliente_productocategoria",cliente_productocategoria)
                     .executeUpdate();
         }catch (Exception e){
