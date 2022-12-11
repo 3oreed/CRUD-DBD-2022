@@ -22,7 +22,7 @@ public class TiendaAdminService implements TiendaAdminRepository {
 
     @Override
     @PutMapping("/TiendaAdmin")
-    public String update(TiendaAdmin tiendaAdmin, int id_TiendaAdmin) {
+    public String update(@PathVariable TiendaAdmin tiendaAdmin,@PathVariable int id_TiendaAdmin) {
         String retorno = tiendaAdminRepository.update(tiendaAdmin,id_TiendaAdmin);
         return retorno;
     }
@@ -35,13 +35,13 @@ public class TiendaAdminService implements TiendaAdminRepository {
 
     @Override
     @GetMapping("/TiendaAdmin/{id_TiendaAdmin}")
-    public List<TiendaAdmin> show(int id_TiendaAdmin) {
+    public List<TiendaAdmin> show(@PathVariable int id_TiendaAdmin) {
         return tiendaAdminRepository.show(id_TiendaAdmin);
     }
 
     @Override
     @DeleteMapping("/TiendaAdmin")
-    public void delete(int id_TiendaAdmin) {
+    public void delete(@PathVariable int id_TiendaAdmin) {
         tiendaAdminRepository.delete(id_TiendaAdmin);
 
     }
