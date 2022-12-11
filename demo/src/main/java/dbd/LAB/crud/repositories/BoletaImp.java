@@ -17,11 +17,11 @@ public class BoletaImp implements BoletaRepository{
     public Boleta crear(Boleta Boleta) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO boleta(id_pago,detalle_compra)"
-                    + "VALUES (:id_pago,:id_empresa)";
+                    + "VALUES (:id_pago,:detalle_compra)";
             conn.createQuery(sql,true)
                     //.addParameter("id_boleta",Boleta.getId_Boleta())
-                    .addParameter("id_tipopago",Boleta.getId_pago())
-                    .addParameter("id_empresa",Boleta.getDetalle_compra())
+                    .addParameter("id_pago",Boleta.getId_pago())
+                    .addParameter("detalle_compra",Boleta.getDetalle_compra())
                     .executeUpdate();
             return Boleta;
         }catch (Exception e){

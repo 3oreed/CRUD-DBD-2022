@@ -36,7 +36,7 @@ public class ClienteService{
 
 
     // get R
-    @GetMapping("/Cliente")
+    @GetMapping("/ClienteAll")
     public List<Cliente> getAllClientes(){
         return ClienteRepository.getAll();
     }
