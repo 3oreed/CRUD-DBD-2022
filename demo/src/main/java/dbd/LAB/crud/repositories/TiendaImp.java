@@ -17,10 +17,10 @@ public class TiendaImp{
                     + "VALUES (:nombre,:edad_minima,:codigo_postal,:tipo_empresa,:id_empresa)";
             conn.createQuery(sql,true)
 
-                    .addParameter("nombre",tienda.getNombreTienda())
-                    .addParameter("edad_minima",tienda.getEdadMinima())
-                    .addParameter("codigo_postal",tienda.getPostalCode())
-                    .addParameter("tipo_empresa",tienda.getTipoEmpresa())
+                    .addParameter("nombre",tienda.getNombre())
+                    .addParameter("edad_minima",tienda.getEdad_minima())
+                    .addParameter("codigo_postal",tienda.getCodigo_postal())
+                    .addParameter("tipo_empresa",tienda.getTipo_empresa())
                     .executeUpdate();
             return tienda;
         }catch (Exception e){
@@ -33,7 +33,7 @@ public class TiendaImp{
         try(Connection conn = sql2o.open()){
             String updateSql = "update tienda set nombre=:nombre WHERE id_tienda=:id_tienda";
             conn.createQuery(updateSql)
-                    .addParameter("nombre",tienda.getNombreTienda())
+                    .addParameter("nombre",tienda.getNombre())
                     .executeUpdate();
             return "Se actualizó el nombre de tienda";
         }catch (Exception e){

@@ -1,72 +1,72 @@
 package dbd.LAB.crud.models;
 
 public class Tienda {
-    private int idTienda;
-    private String nombreTienda;
-    private int edadMinima;
-    private int postalCode;
-    private int tipoEmpresa;
-    private int idEmpresa;
+    private int id_tienda;
+    private String nombre;
+    private int edad_minima;
+    private int codigo_postal;
+    private int tipo_empresa;
+    private int id_empresa;
 
     //Constructor
 
-    public Tienda(int idTienda, String nombreTienda, int edadMinima,
-                  int postalCode, int tipoEmpresa, int idEmpresa) {
-        this.idTienda = idTienda;
-        this.nombreTienda = nombreTienda;
-        this.edadMinima = edadMinima;
-        this.postalCode = postalCode;
-        this.tipoEmpresa = tipoEmpresa;
-        this.idEmpresa = idEmpresa;
+    public Tienda(int id_tienda, String nombre, int edad_minima,
+                  int codigo_postal, int tipo_empresa, int id_empresa) {
+        this.id_tienda = id_tienda;
+        this.nombre = nombre;
+        this.edad_minima = edad_minima;
+        this.codigo_postal = codigo_postal;
+        this.tipo_empresa = tipo_empresa;
+        this.id_empresa = id_empresa;
     }
     //Getters
 
-    public int getIdTienda() {
-        return idTienda;
+    public int getId_tienda() {
+        return id_tienda;
     }
 
-    public String getNombreTienda() {
-        return nombreTienda;
+    public String getNombre() {
+        return nombre;
     }
 
-    public int getEdadMinima() {
-        return edadMinima;
+    public int getEdad_minima() {
+        return edad_minima;
     }
 
-    public int getPostalCode() {
-        return postalCode;
+    public int getCodigo_postal() {
+        return codigo_postal;
     }
 
-    public int getTipoEmpresa() {
-        return tipoEmpresa;
+    public int getTipo_empresa() {
+        return tipo_empresa;
     }
 
-    public int getIdEmpresa() {
-        return idEmpresa;
+    public int getId_empresa() {
+        return id_empresa;
     }
     //Setters
 
-    public void setIdTienda(int idTienda) {
-        this.idTienda = idTienda;
+    public void setId_tienda(int id_tienda) {
+        this.id_tienda = id_tienda;
     }
 
-    public void setNombreTienda(String nombreTienda) {
-        this.nombreTienda = nombreTienda;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setEdadMinima(int edadMinima) {
-        this.edadMinima = edadMinima;
+    public void setEdad_minima(int edad_minima) {
+        this.edad_minima = edad_minima;
     }
 
-    public void setPostalCode(int postalCode) {
-        this.postalCode = postalCode;
+    public void setCodigo_postal(int codigo_postal) {
+        this.codigo_postal = codigo_postal;
     }
 
-    public void setTipoEmpresa(int tipoEmpresa) {
-        this.tipoEmpresa = tipoEmpresa;
+    public void setTipo_empresa(int tipo_empresa) {
+        this.tipo_empresa = tipo_empresa;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public void setId_empresa(int id_empresa) {
+        this.id_empresa = id_empresa;
     }
 }
