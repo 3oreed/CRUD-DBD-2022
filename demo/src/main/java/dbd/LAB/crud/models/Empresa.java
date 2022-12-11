@@ -2,19 +2,19 @@ package dbd.LAB.crud.models;
 
 public class Empresa {
     private int id_empresa;
-    private String pass;
+    private String clave;
     private String mail;
     private String direccion;
-    private int idRanking;
+    private int id_ranking;
 
     //Contruxtors
 
-    public Empresa(int idEmpresa, String pass, String mail, String direccion, int idRanking) {
+    public Empresa(int idEmpresa, String clave, String mail, String direccion, int id_ranking) {
         this.id_empresa = idEmpresa;
-        this.pass = pass;
+        this.clave = clave;
         this.mail = mail;
         this.direccion = direccion;
-        this.idRanking = idRanking;
+        this.id_ranking = id_ranking;
     }
 
     //Getters
@@ -23,8 +23,8 @@ public class Empresa {
         return id_empresa;
     }
 
-    public String getPass() {
-        return pass;
+    public String getClave() {
+        return clave;
     }
 
     public String getMail() {
@@ -35,8 +35,8 @@ public class Empresa {
         return direccion;
     }
 
-    public int getIdRanking() {
-        return idRanking;
+    public int getId_ranking() {
+        return id_ranking;
     }
 
     //Setters
@@ -45,8 +45,8 @@ public class Empresa {
         this.id_empresa = id_empresa;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public void setMail(String mail) {
@@ -57,7 +57,7 @@ public class Empresa {
         this.direccion = direccion;
     }
 
-    public void setIdRanking(int idRanking) {
-        this.idRanking = idRanking;
+    public void setId_ranking(int id_ranking) {
+        this.id_ranking = id_ranking;
     }
 }

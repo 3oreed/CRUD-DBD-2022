@@ -37,7 +37,7 @@ public class EmpresaService implements EmpresaRepository{
     }
 
 
-    @PutMapping("/Empresa/{id_empresa}") //{id}(?)
+    @PutMapping("/Empresa/updatepass/{id_empresa}") //{id}(?)
     @ResponseBody
     public String updatePass(@RequestBody Empresa empresa, @PathVariable int id_empresa){
         String retorno = EmpresaRepository.updatePass(empresa,id_empresa);
@@ -45,7 +45,7 @@ public class EmpresaService implements EmpresaRepository{
     }
 
 
-    @PutMapping("/Empresas/{id_empresa}") //{id}(?)
+    @PutMapping("/Empresas/updatemail/{id_empresa}") //{id}(?)
     @ResponseBody
     public String updateMail(@RequestBody Empresa empresa, @PathVariable int id_empresa){
         String retorno = EmpresaRepository.updateMail(empresa,id_empresa);

@@ -16,10 +16,11 @@ public class EmpresaImp {
             String sql = "INSERT INTO empresa(clave,mail,direccion,id_ranking)"
                     + "VALUES (:clave,:mail,:direccion,:id_ranking)";
             conn.createQuery(sql,true)
-                    .addParameter("clave",empresa.getPass())
+                    .throwOnMappingFailure(false)
+                    .addParameter("clave",empresa.getClave())
                     .addParameter("mail",empresa.getMail())
                     .addParameter("direccion",empresa.getDireccion())
-                    .addParameter("id_ranking",empresa.getIdRanking())
+                    .addParameter("id_ranking",empresa.getId_ranking())
                     .executeUpdate();
             return empresa;
         }catch (Exception e){
@@ -33,7 +34,8 @@ public class EmpresaImp {
         try(Connection conn = sql2o.open()){
             String updateSql = "update empresa set clave=:clave WHERE id_empresa=:id_empresa";
             conn.createQuery(updateSql)
-                    .addParameter("clave",empresa.getPass())
+                    .addParameter("id_empresa",id_empresa)
+                    .addParameter("clave",empresa.getClave())
                     .executeUpdate();
             return "Se actualizó la clave de empresa.";
         }catch (Exception e){
@@ -47,9 +49,10 @@ public class EmpresaImp {
         try(Connection conn = sql2o.open()){
             String updateSql = "update empresa set mail=:mail WHERE id_empresa=:id_empresa";
             conn.createQuery(updateSql)
+                    .addParameter("id_empresa",id_empresa)
                     .addParameter("mail",empresa.getMail())
                     .executeUpdate();
-            return "Se actualizó mail de empresa.";
+            return "Se actualizó mail de empresa";
         }catch (Exception e){
             System.out.println(e.getMessage());
             return "Fallo al actualizar mail de empresa";
@@ -60,7 +63,8 @@ public class EmpresaImp {
 
     public List<Empresa> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from empresa order by id_empresa asc")
+            return conn.createQuery("select * from empresa order by id_empresa asc")
+                    //.throwOnMappingFailure(false)
                     .executeAndFetch(Empresa.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
