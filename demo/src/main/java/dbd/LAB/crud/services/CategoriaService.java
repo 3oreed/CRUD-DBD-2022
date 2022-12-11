@@ -36,13 +36,13 @@ public class CategoriaService implements CategoriaRepository{
     @Override
     @PutMapping("/Categoria/{id_categoria}") //{id}(?)
     @ResponseBody
-    public String update(Categoria categoria, int id_categoria) {
+    public String update(@RequestBody Categoria categoria,@PathVariable int id_categoria) {
         String retorno = CategoriaRepository.update(categoria,id_categoria);
         return retorno;
     }
 
     @Override
-    public String updateDesc(Categoria categoria, int id_categoria) {
+    public String updateDesc(@RequestBody Categoria categoria,@PathVariable int id_categoria) {
         String retorno = CategoriaRepository.updateDesc(categoria,id_categoria);
         return retorno;
     }
