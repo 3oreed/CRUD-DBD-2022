@@ -6,7 +6,7 @@ public class Pedido {
     private int id_pedido;
     private int subtotal;
     private String tipo_entrega;
-    private String Ubicacion;
+    private String ubicacion;
     private int id_pago;
     private int id_cliente;
 
@@ -16,7 +16,7 @@ public class Pedido {
         this.id_pedido = id_pedido;
         this.subtotal = subtotal;
         this.tipo_entrega = tipo_entrega;
-        Ubicacion = ubicacion;
+        this.ubicacion = ubicacion;
         this.id_pago = id_pago;
         this.id_cliente = id_cliente;
     }
@@ -36,7 +36,7 @@ public class Pedido {
     }
 
     public String getUbicacion() {
-        return Ubicacion;
+        return ubicacion;
     }
 
 
@@ -64,7 +64,7 @@ public class Pedido {
     }
 
     public void setUbicacion(String ubicacion) {
-        Ubicacion = ubicacion;
+        this.ubicacion = ubicacion;
     }
 
     public void setId_pago(int id_pago) {

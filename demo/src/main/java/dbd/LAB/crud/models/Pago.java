@@ -3,15 +3,15 @@ package dbd.LAB.crud.models;
 public class Pago {
     private int id_pago;
     private int monto;
-    private int id_tipo_pago;
+    private int id_tipopago;
     private int id_empresa;
 
     //Constructor
 
-    public Pago(int id_pago, int monto, int id_tipo_pago, int id_empresa) {
+    public Pago(int id_pago, int monto, int id_tipopago, int id_empresa) {
         this.id_pago = id_pago;
         this.monto = monto;
-        this.id_tipo_pago = id_tipo_pago;
+        this.id_tipopago = id_tipopago;
         this.id_empresa = id_empresa;
     }
 
@@ -25,8 +25,8 @@ public class Pago {
         return monto;
     }
 
-    public int getId_tipo_pago() {
-        return id_tipo_pago;
+    public int getId_tipopago() {
+        return id_tipopago;
     }
 
     public int getId_empresa() {
@@ -44,8 +44,8 @@ public class Pago {
         this.monto = monto;
     }
 
-    public void setId_tipo_pago(int id_tipo_pago) {
-        this.id_tipo_pago = id_tipo_pago;
+    public void setId_tipopago(int id_tipopago) {
+        this.id_tipopago = id_tipopago;
     }
 
     public void setId_empresa(int id_empresa) {

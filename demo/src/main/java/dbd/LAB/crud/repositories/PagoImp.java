@@ -18,7 +18,7 @@ public class PagoImp implements PagoRepository{
                     "VALUES (:monto,:id_tipopago,:id_empresa)";
             conn.createQuery(sql,true)
                     .addParameter("monto",pago.getMonto())
-                    .addParameter("id_tipopago",pago.getId_tipo_pago())
+                    .addParameter("id_tipopago",pago.getId_tipopago())
                     .addParameter("id_empresa",pago.getId_empresa())
                     .executeUpdate();
                     return pago;
