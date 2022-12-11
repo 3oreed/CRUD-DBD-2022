@@ -10,51 +10,51 @@ import java.util.List;
 
 public class EmpresaService implements EmpresaRepository{
 
-    private final EmpresaRepository empresaRepository ;
+    private final EmpresaRepository EmpresaRepository ;
 
     EmpresaService(@Lazy EmpresaRepository empresaRepository) {
-        this.empresaRepository = empresaRepository;
+        this.EmpresaRepository = empresaRepository;
     }
 
 
     @PostMapping("/Empresa")
     @ResponseBody
     public Empresa crear(@RequestBody Empresa empresa){
-        Empresa resultado = empresaRepository.crear(empresa);
+        Empresa resultado = EmpresaRepository.crear(empresa);
         return resultado;
     }
 
 
     @GetMapping("/Empresa")
     public List<Empresa> getAll(){
-        return empresaRepository.getAll();
+        return EmpresaRepository.getAll();
     }
 
 
     @GetMapping("/Empresa/{id_empresa}")
-    public List<Empresa> showLugar(@RequestBody int id_empresa){
-        return empresaRepository.showLugar(id_empresa);
+    public List<Empresa> showLugar(@PathVariable int id_empresa){
+        return EmpresaRepository.showLugar(id_empresa);
     }
 
 
     @PutMapping("/Empresa/{id_empresa}") //{id}(?)
     @ResponseBody
-    public String updatePass(@RequestBody Empresa empresa,int id_empresa){
-        String retorno = empresaRepository.updatePass(empresa,id_empresa);
+    public String updatePass(@RequestBody Empresa empresa, @PathVariable int id_empresa){
+        String retorno = EmpresaRepository.updatePass(empresa,id_empresa);
         return retorno;
     }
 
 
     @PutMapping("/Empresa/{id_empresa}") //{id}(?)
     @ResponseBody
-    public String updateMail(@RequestBody Empresa empresa, int id_empresa){
-        String retorno = empresaRepository.updateMail(empresa,id_empresa);
+    public String updateMail(@RequestBody Empresa empresa, @PathVariable int id_empresa){
+        String retorno = EmpresaRepository.updateMail(empresa,id_empresa);
         return retorno;
     }
 
 
     @DeleteMapping("/Empresa/{id_empresa}")
     public void delete(@PathVariable int id_empresa){
-        empresaRepository.delete(id_empresa);
+        EmpresaRepository.delete(id_empresa);
     }
 }

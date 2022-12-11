@@ -52,7 +52,7 @@ public class Cliente_tiendaServices {
 
 
     // actualizar U
-    @PutMapping("/Categoria/{precio}") //{id}(?)
+    @PutMapping("/Cliente_tienda/{id}") //{id}(?)
     @ResponseBody
     public String updateCliente_tienda(@RequestBody Cliente_tienda Cliente_tienda, @PathVariable int id){
         String retorno = Cliente_tiendaRepository.update(Cliente_tienda,id);
@@ -60,7 +60,7 @@ public class Cliente_tiendaServices {
     }
 
     // borrar D
-    @DeleteMapping("/Categoria/{id}")
+    @DeleteMapping("/Cliente_tienda/{id}")
     public void borrar(@PathVariable int id){
         Cliente_tiendaRepository.delete(id);
     }
