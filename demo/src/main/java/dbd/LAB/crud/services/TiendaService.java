@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 
-public class TiendaService implements TiendaRepository{
+public class TiendaService{
 
     private final TiendaRepository tiendaRepository;
 
