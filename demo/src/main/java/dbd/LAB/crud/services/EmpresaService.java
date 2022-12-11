@@ -7,9 +7,9 @@ import java.util.List;
 @CrossOrigin
 @RestController
 
-public class EmpresaService {
+public class EmpresaService implements EmpresaRepository{
 
-    private final EmpresaRepository empresaRepository;
+    private final EmpresaRepository empresaRepository ;
 
     EmpresaService(EmpresaRepository empresaRepository) {
         this.empresaRepository = empresaRepository;
@@ -25,20 +25,20 @@ public class EmpresaService {
 
 
     @GetMapping("/Empresa")
-    public List<Empresa> getAllEmpresa(){
+    public List<Empresa> getAll(){
         return empresaRepository.getAll();
     }
 
 
     @GetMapping("/Empresa/{id}")
-    public List<Empresa> getEmpresa(@RequestBody int id_empresa){
+    public List<Empresa> showLugar(@RequestBody int id_empresa){
         return empresaRepository.showLugar(id_empresa);
     }
 
 
     @PutMapping("/Empresa/{precio}") //{id}(?)
     @ResponseBody
-    public String updatePassEmpresa(@RequestBody Empresa empresa,int id_empresa){
+    public String updatePass(@RequestBody Empresa empresa,int id_empresa){
         String retorno = empresaRepository.updatePass(empresa,id_empresa);
         return retorno;
     }
@@ -46,14 +46,14 @@ public class EmpresaService {
 
     @PutMapping("/Empresa/{precio}") //{id}(?)
     @ResponseBody
-    public String updateMailEmpresa(@RequestBody Empresa empresa, int id_empresa){
+    public String updateMail(@RequestBody Empresa empresa, int id_empresa){
         String retorno = empresaRepository.updateMail(empresa,id_empresa);
         return retorno;
     }
 
 
     @DeleteMapping("/Empresa/{id}")
-    public void borrar(@PathVariable int id_empresa){
+    public void delete(@PathVariable int id_empresa){
         empresaRepository.delete(id_empresa);
     }
 }
