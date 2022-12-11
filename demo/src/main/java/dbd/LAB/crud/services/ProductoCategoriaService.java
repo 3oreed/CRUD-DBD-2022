@@ -47,6 +47,11 @@ public class ProductoCategoriaService {
         return ProductoCategoriaRepository.show(id);
     }
 
+    @GetMapping("/ProductoCategoria/stock/{id}")
+    public List<ProductoCategoria> getStock(@PathVariable int id){
+        return ProductoCategoriaRepository.verificaStock(id);
+    }
+
 
 
     // actualizar U

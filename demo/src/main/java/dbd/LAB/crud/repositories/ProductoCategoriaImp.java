@@ -56,6 +56,18 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     }
 
     @Override
+    public List<ProductoCategoria> verificaStock(int id_prod) {
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery("select stock_actual from productocategoria where id_prod =:id_prod")
+                    .addParameter("id_prod",id_prod)
+                    .executeAndFetch(ProductoCategoria.class);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
     public List<ProductoCategoria> getAll() {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from productocategoria order by id_prod asc")

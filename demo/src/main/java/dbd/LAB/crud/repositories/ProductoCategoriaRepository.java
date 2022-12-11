@@ -10,6 +10,8 @@ public interface ProductoCategoriaRepository {
 
     public String update(ProductoCategoria ProductoCat, int idProdCat);
 
+    public List <ProductoCategoria> verificaStock(int idProdCat);
+
     public List<ProductoCategoria> getAll();
 
     public List<ProductoCategoria> show(int idProdCat);
