@@ -1,27 +1,27 @@
 package dbd.LAB.crud.models;
 
 public class Valoracion {
-    private int idValoracion;
+    private int id_valoracion;
     private int puntuacion;
     private String opinion;
     private Boolean favoritos;
-    private int idCliente;
-    private int idEmpresa;
+    private int id_cliente;
+    private int id_empresa;
 
     //Constructor
-    public Valoracion(int idValoracion, int puntuacion, String opinion,
-                      Boolean favoritos, int idCliente, int idEmpresa) {
-        this.idValoracion = idValoracion;
+    public Valoracion(int id_valoracion, int puntuacion, String opinion,
+                      Boolean favoritos, int id_cliente, int id_empresa) {
+        this.id_valoracion = id_valoracion;
         this.puntuacion = puntuacion;
         this.opinion = opinion;
         this.favoritos = favoritos;
-        this.idCliente = idCliente;
-        this.idEmpresa = idEmpresa;
+        this.id_cliente = id_cliente;
+        this.id_empresa = id_empresa;
     }
     //Getters
 
-    public int getIdValoracion() {
-        return idValoracion;
+    public int getId_valoracion() {
+        return id_valoracion;
     }
 
     public int getPuntuacion() {
@@ -36,17 +36,17 @@ public class Valoracion {
         return favoritos;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getId_cliente() {
+        return id_cliente;
     }
 
-    public int getIdEmpresa() {
-        return idEmpresa;
+    public int getId_empresa() {
+        return id_empresa;
     }
 
     //Setters
-    public void setIdValoracion(int idValoracion) {
-        this.idValoracion = idValoracion;
+    public void setId_valoracion(int id_valoracion) {
+        this.id_valoracion = id_valoracion;
     }
 
     public void setPuntuacion(int puntuacion) {
@@ -61,11 +61,11 @@ public class Valoracion {
         this.favoritos = favoritos;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public void setId_empresa(int id_empresa) {
+        this.id_empresa = id_empresa;
     }
 }

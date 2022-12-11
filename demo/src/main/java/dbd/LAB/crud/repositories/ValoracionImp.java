@@ -10,9 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.stereotype.Repository;
-        import org.sql2o.Connection;
-        import org.sql2o.Sql2o;
-        import java.util.List;
+
 @Repository
 public class ValoracionImp implements ValoracionRepository{
     @Autowired
@@ -28,8 +26,8 @@ public class ValoracionImp implements ValoracionRepository{
                     .addParameter("puntuacion",valoracion.getPuntuacion())
                     .addParameter("opinion",valoracion.getOpinion())
                     .addParameter("favoritos",valoracion.getFavoritos())
-                    .addParameter("id_cliente",valoracion.getIdCliente())
-                    .addParameter("id_empresa",valoracion.getIdEmpresa())
+                    .addParameter("id_cliente",valoracion.getId_cliente())
+                    .addParameter("id_empresa",valoracion.getId_empresa())
                     .executeUpdate();
             return valoracion;
 

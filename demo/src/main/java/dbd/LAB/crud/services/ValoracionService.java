@@ -32,20 +32,20 @@ public class ValoracionService {
     }
 
     @GetMapping("/Valoracion/{id_valoracion}")
-    public List<Valoracion> getValoracion(@RequestBody int id_valoracion){
-        return valoracionRepository.show(id_valoracion);
+    public List<Valoracion> getValoracion(@RequestBody int idvaloracion){
+        return valoracionRepository.show(idvaloracion);
     }
 
 
     @PutMapping("/Valoracion/{id_valoracion}")
     @ResponseBody
-    public String updatePuntuacion(@RequestBody Valoracion valoracion,int id_valoracion){
-        String retorno = valoracionRepository.update(valoracion,id_valoracion);
+    public String updatePuntuacion(@RequestBody Valoracion valoracion,int idvaloracion){
+        String retorno = valoracionRepository.update(valoracion,idvaloracion);
         return retorno;
     }
 
     @DeleteMapping("/Valoracion/{id_valoracion}")
-    public void borrar(@PathVariable int id_valoracion){
-        valoracionRepository.delete(id_valoracion);
+    public void borrar(@PathVariable int idvaloracion){
+        valoracionRepository.delete(idvaloracion);
     }
 }
