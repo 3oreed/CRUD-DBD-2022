@@ -8,8 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.List;
-
+@Repository
 public class BoletaImp implements BoletaRepository{
+    @Autowired
     private Sql2o sql2o;
 
     @Override

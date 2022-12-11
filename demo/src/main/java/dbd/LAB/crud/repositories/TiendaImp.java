@@ -3,13 +3,15 @@ package dbd.LAB.crud.repositories;
 import dbd.LAB.crud.models.Boleta;
 import dbd.LAB.crud.models.Empresa;
 import dbd.LAB.crud.models.Tienda;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import java.util.List;
-
+@Repository
 public class TiendaImp {
-
+    @Autowired
     private Sql2o sql2o;
     public Tienda crear(Tienda tienda) {
         try (Connection conn = sql2o.open()){

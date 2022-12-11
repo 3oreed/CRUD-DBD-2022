@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @CrossOrigin
 @RestController
 
@@ -16,8 +15,8 @@ import java.util.List;
 public class RankingService {
 
 
-    private final RankingRepository rankingRepository;
-
+    private RankingRepository rankingRepository;
+    @Autowired
     public RankingService(RankingRepository rankingRepository) {
         this.rankingRepository = rankingRepository;
     }
