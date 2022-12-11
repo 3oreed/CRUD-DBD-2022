@@ -1,3 +1,4 @@
+package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Categoria;
 import dbd.LAB.crud.repositories.CategoriaRepository;
 
