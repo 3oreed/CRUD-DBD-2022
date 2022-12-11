@@ -16,28 +16,28 @@ public class Empresa_administradorService {
     public Empresa_administradorService(@Lazy Empresa_administradorRepository empresaAdministradorRepository) {
         this.empresaAdministradorRepository = empresaAdministradorRepository;
     }
-    @PostMapping("/Empresa_administrador")
+    @PostMapping("/Empresa_Administrador")
     @ResponseBody
-    public Empresa_Administrador crear(Empresa_Administrador empresaAdministrador){
+    public Empresa_Administrador crear(@RequestBody Empresa_Administrador empresaAdministrador){
         Empresa_Administrador resultado = empresaAdministradorRepository.crear(empresaAdministrador);
         return resultado;
     }
-    @GetMapping("/Empresa_administrador")
+    @GetMapping("/Empresa_Administrador")
     public List<Empresa_Administrador> getAllEmpresaAdmin(){
         return empresaAdministradorRepository.getAll();
     }
-    @GetMapping("/Empresa_administrador/{id_empresa_administrador}")
-    public List<Empresa_Administrador> getEmpresaAdmin(int id_empresa_administrador){
+    @GetMapping("/Empresa_Administrador/{id_empresa_administrador}")
+    public List<Empresa_Administrador> getEmpresaAdmin(@PathVariable int id_empresa_administrador){
         return empresaAdministradorRepository.show(id_empresa_administrador);
     }
-    @PutMapping("/Empresa_administrador/{id_empresa_administrador}") //{id}(?)
+    @PutMapping("/Empresa_Administrador/{id_empresa_administrador}") //{id}(?)
     @ResponseBody
-    public String updateEmpresa_admin(Empresa_Administrador empresaAdministrador,int id_empresa_administrador){
+    public String updateEmpresa_admin(@RequestBody Empresa_Administrador empresaAdministrador,@PathVariable int id_empresa_administrador){
         String retorno = empresaAdministradorRepository.update(empresaAdministrador,id_empresa_administrador);
         return retorno;
     }
-    @DeleteMapping("/Empresa_administrador/{id_empresa_administrador}")
-    public void borrar(int id_empresa_administrador){
+    @DeleteMapping("/Empresa_Administrador/{id_empresa_administrador}")
+    public void borrar(@PathVariable int id_empresa_administrador){
         empresaAdministradorRepository.delete(id_empresa_administrador);
     }
 }
