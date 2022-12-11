@@ -37,7 +37,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public List<Administrador> getAll() {
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery("select * from administrador order by nombre ASC")
+            return conn.createQuery("select * from administrador order by id_admin ASC")
                     .executeAndFetch(Administrador.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -60,10 +60,10 @@ public class AdministradorImp implements AdministradorRepository {
 
 
     @Override
-    public void delete(int id) {
+    public void delete(int id_admin) {
         try (Connection conn = sql2o.open()) {
-            conn.createQuery("DELETE from administrador where id = :id ")
-                    .addParameter("id", id)
+            conn.createQuery("DELETE from administrador where id_admin = :id_admin ")
+                    .addParameter("id_admin", id_admin)
                     .executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -75,7 +75,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public String update(Administrador Administrador, int id) {
         try (Connection conn = sql2o.open()) {
-            String updateSql = "update administrador set nombre=:nombre WHERE id=:id";
+            String updateSql = "update administrador set nombre=:nombre WHERE id_admin=:id";
             conn.createQuery(updateSql)
                     .addParameter("nombre", Administrador.getNombre())
                     .executeUpdate();
