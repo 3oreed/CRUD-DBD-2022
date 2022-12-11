@@ -1,40 +1,40 @@
 package dbd.LAB.crud.models;
 
 public class Cliente_ProductoCategoria {
-    private int id_cliente_productoCategoria;
+    private int cliente_productocategoria;
     private int id_cliente;
-    private int prodCat;
+    private int id_prod;
 
     //Contructors
 
-    public Cliente_ProductoCategoria(int id_cliente_productoCategoria, int id_cliente, int prodCat) {
-        this.id_cliente_productoCategoria = id_cliente_productoCategoria;
+    public Cliente_ProductoCategoria(int cliente_productocategoria, int id_cliente, int id_prod) {
+        this.cliente_productocategoria = cliente_productocategoria;
         this.id_cliente = id_cliente;
-        this.prodCat = prodCat;
+        this.id_prod = id_prod;
     }
     //Getters
-    public int getId_cliente_productoCategoria() {
-        return id_cliente_productoCategoria;
+    public int getCliente_productocategoria() {
+        return cliente_productocategoria;
     }
 
     public int getId_cliente() {
         return id_cliente;
     }
 
-    public int getProdCat() {
-        return prodCat;
+    public int getId_prod() {
+        return id_prod;
     }
     //Setters
 
-    public void setId_cliente_productoCategoria(int id_cliente_productoCategoria) {
-        this.id_cliente_productoCategoria = id_cliente_productoCategoria;
+    public void setCliente_productocategoria(int cliente_productocategoria) {
+        this.cliente_productocategoria = cliente_productocategoria;
     }
 
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
 
-    public void setProdCat(int prodCat) {
-        this.prodCat = prodCat;
+    public void setId_prod(int id_prod) {
+        this.id_prod = id_prod;
     }
 }

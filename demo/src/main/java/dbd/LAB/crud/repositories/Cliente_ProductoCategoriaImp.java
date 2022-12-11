@@ -21,7 +21,7 @@ public class Cliente_ProductoCategoriaImp implements Cliente_ProductoCategoriaRe
             conn.createQuery(sql,true)
 
                     .addParameter("id_cliente",clienteProdCat.getId_cliente())
-                    .addParameter("cliente_productocategoria",clienteProdCat.getProdCat())
+                    .addParameter("cliente_productocategoria",clienteProdCat.getId_prod())
 
                     .executeUpdate();
             return clienteProdCat;
@@ -38,7 +38,7 @@ public class Cliente_ProductoCategoriaImp implements Cliente_ProductoCategoriaRe
             String updateSql = "update cliente_productocategoria set cliente_productocategoria=:id_cliente_productocategoria" +
                     " WHERE cliente_productocategoria=:id_cliente_productocategoria";
             conn.createQuery(updateSql)
-                    .addParameter("cliente_productocategoria",clienteProdCat.getId_cliente_productoCategoria())
+                    .addParameter("cliente_productocategoria",clienteProdCat.getCliente_productocategoria())
                     .executeUpdate();
             return "Se actualizo id de un Cliente_ProductoCategoria";
         }catch (Exception e){
