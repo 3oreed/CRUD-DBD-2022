@@ -35,6 +35,7 @@ public class CarritoImp implements CarritoRepository{
             String updateSql = "update carrito set cantidad_productos=:cantidad_productos WHERE id_carrito=:id_carrito";
             conn.createQuery(updateSql)
                     .addParameter("cantidad_productos",Carrito.getCantidad_productos())
+                    .addParameter("id_carrito",id_carrito)
                     .executeUpdate();
             return "Se actualizó el Cantidad_productos";
         }catch (Exception e){

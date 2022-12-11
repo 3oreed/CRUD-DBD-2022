@@ -49,7 +49,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public List<Administrador> show(int id) {
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery("select * from administrador where id = :id ")
+            return conn.createQuery("select * from administrador where id_admin = :id ")
                     .addParameter("id", id)
                     .executeAndFetch(Administrador.class);
         } catch (Exception e) {
@@ -75,9 +75,10 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public String update(Administrador Administrador, int id) {
         try (Connection conn = sql2o.open()) {
-            String updateSql = "update administrador set nombre=:nombre WHERE id_admin=:id";
+            String updateSql = "update administrador set nombre=:nombre WHERE id_admin=:id_admin";
             conn.createQuery(updateSql)
                     .addParameter("nombre", Administrador.getNombre())
+                    .addParameter("id_admin",id)
                     .executeUpdate();
             return "Se actualizó el Administrador";
         } catch (Exception e) {
