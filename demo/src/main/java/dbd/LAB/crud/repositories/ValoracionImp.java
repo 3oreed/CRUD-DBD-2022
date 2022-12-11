@@ -40,9 +40,10 @@ public class ValoracionImp implements ValoracionRepository{
     @Override
     public String update(Valoracion Valoracion, int id_valoracion) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update valoracion set puntuacion=:puntuacion WHERE id_valoracion=:id_valoracion";
+            String updateSql = "update valoracion set favoritos=:favoritos WHERE id_valoracion=:id_valoracion";
             conn.createQuery(updateSql)
-                    .addParameter("puntuacion",Valoracion.getPuntuacion())
+                    .addParameter("favoritos",Valoracion.getFavoritos())
+                    .addParameter("id_valoracion",id_valoracion)
                     .executeUpdate();
             return "Se actualizó el Valoracion";
         }catch (Exception e){

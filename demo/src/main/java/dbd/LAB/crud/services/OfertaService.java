@@ -33,7 +33,7 @@ public class OfertaService {
 
     @PutMapping("/Oferta/{id_oferta}") //{id}(?)
     @ResponseBody
-    public String updateOferta(@RequestBody Oferta oferta, int id_oferta){
+    public String update(@RequestBody Oferta oferta, int id_oferta){
         String retorno = ofertaRepository.update(oferta,id_oferta);
         return retorno;
     }

@@ -39,11 +39,11 @@ public class OfertaImp implements OfertaRepository {
         try (Connection conn = sql2o.open()){
             String updateSql = "update oferta set descripcion=:descripcion,stock_oferta=:stock_oferta,fecha_inicio=:fecha_inicio,fecha_final=:fecha_final where id_oferta=:id_oferta";
             conn.createQuery(updateSql,true)
-                    .addParameter("id_oferta",id_oferta)
                     .addParameter("descripcion",oferta.getDescripcion())
                     .addParameter("stock_oferta",oferta.getStock_oferta())
                     .addParameter("fecha_inicio", LocalDate.parse(oferta.getFecha_inicio()))
                     .addParameter("fecha_final",LocalDate.parse(oferta.getFecha_final()))
+                    .addParameter("id_oferta",id_oferta)
                     .executeUpdate();
             return "Se actualizó informacion de OFERTA";
         }catch (Exception e){

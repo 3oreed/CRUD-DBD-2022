@@ -39,7 +39,7 @@ public class ValoracionService {
 
     @PutMapping("/Valoracion/{id_valoracion}")
     @ResponseBody
-    public String updatePuntuacion(@RequestBody Valoracion valoracion,int idvaloracion){
+    public String update(@RequestBody Valoracion valoracion,int idvaloracion){
         String retorno = valoracionRepository.update(valoracion,idvaloracion);
         return retorno;
     }
