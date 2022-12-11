@@ -32,6 +32,7 @@ public class Metodo_de_pagoImp implements Metodo_de_pagoRepository {
             String updateSql = "update metodo_de_pago set nombre_metodo=:nombre_metodo WHERE id_tipopago=:id_tipo_de_pago";
             conn.createQuery(updateSql)
                     .addParameter("nombre_metodo",tipo_de_pago.getNombre_metodo())
+                    .addParameter("id_tipo_de_pago",id_tipo_de_pago)
                     .executeUpdate();
             return "Se actualizó el NOMBRE DEL METODO DE PAGO";
         }catch (Exception e){
@@ -58,7 +59,7 @@ public class Metodo_de_pagoImp implements Metodo_de_pagoRepository {
     public List<Metodo_de_pago> show(int id_tipo_de_pago) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from metodo_de_pago where id_tipopago = :id_tipo_de_pago ")
-                    .addParameter("id_tipopago",id_tipo_de_pago)
+                    .addParameter("id_tipo_de_pago",id_tipo_de_pago)
                     .executeAndFetch(Metodo_de_pago.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -70,7 +71,7 @@ public class Metodo_de_pagoImp implements Metodo_de_pagoRepository {
     public void delete(int id_tipo_de_pago) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from metodo_de_pago where id_tipopago = :id_tipo_de_pago")
-                    .addParameter("id_tipopago",id_tipo_de_pago)
+                    .addParameter("id_tipo_de_pago",id_tipo_de_pago)
                     .executeUpdate();
         }catch (Exception e) {
             System.out.println(e.getMessage());
