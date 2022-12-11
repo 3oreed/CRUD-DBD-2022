@@ -1,7 +1,5 @@
 package dbd.LAB.crud.repositories;
 
-import dbd.LAB.crud.models.Boleta;
-import dbd.LAB.crud.models.Empresa;
 import dbd.LAB.crud.models.Tienda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,7 +8,7 @@ import org.sql2o.Sql2o;
 
 import java.util.List;
 @Repository
-public class TiendaImp {
+public class TiendaImp{
     @Autowired
     private Sql2o sql2o;
     public Tienda crear(Tienda tienda) {
@@ -41,22 +39,6 @@ public class TiendaImp {
         }catch (Exception e){
             System.out.println(e.getMessage());
             return "Fallo al actualizar nombre de tienda";
-        }
-    }
-
-    public String update(Tienda tienda, int id_tienda) {
-        try(Connection conn = sql2o.open()){
-            String updateSql = "update boleta set nombre=:nombre,edad_minima=:edad_minima,codig_postal=:codigo_postal,tipo_empresa=:tipo_empresa WHERE id_tienda=:id_tienda";
-            conn.createQuery(updateSql)
-                    .addParameter("nombre",tienda.getNombreTienda())
-                    .addParameter("edad_minima",tienda.getEdadMinima())
-                    .addParameter("codigo_postal",tienda.getPostalCode())
-                    .addParameter("tipo_empresa",tienda.getTipoEmpresa())
-                    .executeUpdate();
-            return "Se actualizó tienda";
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return "Fallo al actualizar tienda.";
         }
     }
 
