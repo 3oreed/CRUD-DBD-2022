@@ -3,6 +3,7 @@ import dbd.LAB.crud.models.Carrito_ProductoCarrito;
 import dbd.LAB.crud.repositories.Carrito_ProductoCarritoRepository;
 
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +22,7 @@ import java.util.List;
 public class Carrito_ProductoCarritoService {
     private final Carrito_ProductoCarritoRepository Carrito_ProductoCarritoRepository;
 
-    Carrito_ProductoCarritoService(Carrito_ProductoCarritoRepository Carrito_ProductoCarritoRepository){
+    Carrito_ProductoCarritoService(@Lazy Carrito_ProductoCarritoRepository Carrito_ProductoCarritoRepository){
         this.Carrito_ProductoCarritoRepository = Carrito_ProductoCarritoRepository;
     }
 

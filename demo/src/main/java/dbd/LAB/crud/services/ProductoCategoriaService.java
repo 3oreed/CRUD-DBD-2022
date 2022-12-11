@@ -3,6 +3,7 @@ import dbd.LAB.crud.models.ProductoCategoria;
 import dbd.LAB.crud.repositories.ProductoCategoriaRepository;
 
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +22,7 @@ import java.util.List;
 public class ProductoCategoriaService {
     private final ProductoCategoriaRepository ProductoCategoriaRepository;
 
-    ProductoCategoriaService(ProductoCategoriaRepository ProductoCategoriaRepository){
+    ProductoCategoriaService(@Lazy ProductoCategoriaRepository ProductoCategoriaRepository){
         this.ProductoCategoriaRepository = ProductoCategoriaRepository;
     }
 

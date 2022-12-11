@@ -2,6 +2,7 @@ package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Cliente;
 import dbd.LAB.crud.repositories.ClienteRepository;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,7 +21,7 @@ import java.util.List;
 public class ClienteService{
     private final ClienteRepository ClienteRepository;
 
-    ClienteService(ClienteRepository ClienteRepository){
+    ClienteService(@Lazy ClienteRepository ClienteRepository){
         this.ClienteRepository = ClienteRepository;
     }
 

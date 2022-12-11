@@ -1,6 +1,7 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Empresa;
 import dbd.LAB.crud.repositories.EmpresaRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class EmpresaService implements EmpresaRepository{
 
     private final EmpresaRepository empresaRepository ;
 
-    EmpresaService(EmpresaRepository empresaRepository) {
+    EmpresaService(@Lazy EmpresaRepository empresaRepository) {
         this.empresaRepository = empresaRepository;
     }
 

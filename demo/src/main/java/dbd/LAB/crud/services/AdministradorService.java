@@ -3,6 +3,7 @@ import dbd.LAB.crud.models.Administrador;
 import dbd.LAB.crud.repositories.AdministradorRepository;
 
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +22,7 @@ import java.util.List;
 public class AdministradorService {
     private final AdministradorRepository AdministradorRepository;
 
-    AdministradorService(AdministradorRepository AdministradorRepository){
+    AdministradorService(@Lazy AdministradorRepository AdministradorRepository){
         this.AdministradorRepository = AdministradorRepository;
     }
 

@@ -2,6 +2,7 @@ package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Pedido;
 import dbd.LAB.crud.models.Tienda;
 import dbd.LAB.crud.repositories.TiendaRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class TiendaService implements TiendaRepository{
 
     private final TiendaRepository tiendaRepository;
 
-    TiendaService(TiendaRepository tiendaRepository) {
+    TiendaService(@Lazy TiendaRepository tiendaRepository) {
         this.tiendaRepository = tiendaRepository;
     }
     @PostMapping("/Tienda")

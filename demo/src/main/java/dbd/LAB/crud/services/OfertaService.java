@@ -1,6 +1,7 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Oferta;
 import dbd.LAB.crud.repositories.OfertaRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public class OfertaService {
 
     private final OfertaRepository ofertaRepository;
 
-    public OfertaService(OfertaRepository ofertaRepository) {
+    public OfertaService(@Lazy OfertaRepository ofertaRepository) {
         this.ofertaRepository = ofertaRepository;
     }
     @PostMapping("/Oferta")

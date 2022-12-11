@@ -1,6 +1,7 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Ranking;
 import dbd.LAB.crud.repositories.RankingRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +25,7 @@ public class RankingService implements RankingRepository{
 
     private final RankingRepository rankingRepository;
 
-    public RankingService(RankingRepository rankingRepository) {
+    public RankingService(@Lazy RankingRepository rankingRepository) {
         this.rankingRepository = rankingRepository;
     }
 

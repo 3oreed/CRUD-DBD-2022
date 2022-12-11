@@ -3,6 +3,7 @@ import dbd.LAB.crud.models.Boleta;
 import dbd.LAB.crud.repositories.BoletaRepository;
 
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +22,7 @@ import java.util.List;
 public class BoletaService {
     private final BoletaRepository BoletaRepository;
 
-    BoletaService(BoletaRepository BoletaRepository){
+    BoletaService(@Lazy BoletaRepository BoletaRepository){
         this.BoletaRepository = BoletaRepository;
     }
 

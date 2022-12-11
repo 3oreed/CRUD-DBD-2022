@@ -1,6 +1,7 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Empresa_Administrador;
 import dbd.LAB.crud.repositories.Empresa_administradorRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class Empresa_administradorService {
 
     private final Empresa_administradorRepository empresaAdministradorRepository;
 
-    public Empresa_administradorService(Empresa_administradorRepository empresaAdministradorRepository) {
+    public Empresa_administradorService(@Lazy Empresa_administradorRepository empresaAdministradorRepository) {
         this.empresaAdministradorRepository = empresaAdministradorRepository;
     }
     @PostMapping("/Empresa_administrador")

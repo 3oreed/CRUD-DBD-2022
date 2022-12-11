@@ -1,6 +1,7 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Pedido;
 import dbd.LAB.crud.repositories.PedidoRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public class PedidoService {
 
     private final PedidoRepository pedidoRepository;
 
-    PedidoService(PedidoRepository pedidoRepository) {
+    PedidoService(@Lazy PedidoRepository pedidoRepository) {
         this.pedidoRepository = pedidoRepository;
     }
 

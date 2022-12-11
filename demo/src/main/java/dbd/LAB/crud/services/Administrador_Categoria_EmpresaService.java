@@ -3,6 +3,7 @@ import dbd.LAB.crud.models.Administrador_Categoria_Empresa;
 import dbd.LAB.crud.repositories.Administrador_Categoria_EmpresaRepository;
 
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +22,7 @@ import java.util.List;
 public class Administrador_Categoria_EmpresaService {
     private final Administrador_Categoria_EmpresaRepository Administrador_Categoria_EmpresaRepository;
 
-    Administrador_Categoria_EmpresaService(Administrador_Categoria_EmpresaRepository Administrador_Categoria_EmpresaRepository){
+    Administrador_Categoria_EmpresaService(@Lazy Administrador_Categoria_EmpresaRepository Administrador_Categoria_EmpresaRepository){
         this.Administrador_Categoria_EmpresaRepository = Administrador_Categoria_EmpresaRepository;
     }
 

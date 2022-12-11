@@ -1,6 +1,7 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.TiendaAdmin;
 import dbd.LAB.crud.repositories.TiendaAdminRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public class TiendaAdminService implements TiendaAdminRepository {
 
     private final TiendaAdminRepository tiendaAdminRepository;
 
-    public TiendaAdminService(TiendaAdminRepository tiendaAdminRepository) {
+    public TiendaAdminService(@Lazy TiendaAdminRepository tiendaAdminRepository) {
         this.tiendaAdminRepository = tiendaAdminRepository;
     }
 

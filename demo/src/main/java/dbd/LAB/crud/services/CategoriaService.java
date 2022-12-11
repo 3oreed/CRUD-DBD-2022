@@ -3,6 +3,7 @@ import dbd.LAB.crud.models.Categoria;
 import dbd.LAB.crud.repositories.CategoriaRepository;
 
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,17 +20,18 @@ import java.util.List;
 @CrossOrigin
 @RestController
 public class CategoriaService implements CategoriaRepository{
-    private final CategoriaRepository CategoriaRepository;
+    private final CategoriaRepository categoriaRepository;
 
-    CategoriaService(CategoriaRepository CategoriaRepository){
-        this.CategoriaRepository = CategoriaRepository;
+    public CategoriaService(@Lazy CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
     }
+
 
     // crear C
     @PostMapping("/Categoria")
     @ResponseBody
-    public Categoria crear(@RequestBody Categoria Categoria){
-        Categoria resultado = CategoriaRepository.crear(Categoria);
+    public Categoria crear(@RequestBody Categoria categoria){
+        Categoria resultado = categoriaRepository.crear(categoria);
         return resultado;
     }
 
@@ -37,39 +39,34 @@ public class CategoriaService implements CategoriaRepository{
     @PutMapping("/Categoria/{id_categoria}") //{id}(?)
     @ResponseBody
     public String update(@RequestBody Categoria categoria,@PathVariable int id_categoria) {
-        String retorno = CategoriaRepository.update(categoria,id_categoria);
+        String retorno = categoriaRepository.update(categoria,id_categoria);
         return retorno;
     }
 
     @Override
     public String updateDesc(@RequestBody Categoria categoria,@PathVariable int id_categoria) {
-        String retorno = CategoriaRepository.updateDesc(categoria,id_categoria);
+        String retorno = categoriaRepository.updateDesc(categoria,id_categoria);
         return retorno;
     }
 
     @Override
     @GetMapping("/Categoria")
     public List<Categoria> getAll() {
-        return CategoriaRepository.getAll();
+        return categoriaRepository.getAll();
     }
 
     @Override
     @GetMapping("/Categoria/{id_categoria}")
     public List<Categoria> show(@PathVariable int id_categoria) {
-        return CategoriaRepository.show(id_categoria);
+        return categoriaRepository.show(id_categoria);
     }
 
     @Override
     @DeleteMapping("/Categoria/{id_categoria}")
     public void delete(@PathVariable int id_categoria) {
-        CategoriaRepository.delete(id_categoria);
+        categoriaRepository.delete(id_categoria);
 
     }
 
 
-
-    @DeleteMapping("/Categoria/{id}")
-    public void borrar(@PathVariable int id){
-        CategoriaRepository.delete(id);
-    }
 }

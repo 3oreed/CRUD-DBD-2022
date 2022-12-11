@@ -1,6 +1,7 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Pago;
 import dbd.LAB.crud.repositories.PagoRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public class PagoService {
 
     private final PagoRepository pagoRepository;
 
-    public PagoService(PagoRepository pagoRepository) {
+    public PagoService(@Lazy PagoRepository pagoRepository) {
         this.pagoRepository = pagoRepository;
     }
     @PostMapping("/Pago")
