@@ -18,7 +18,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-public class CategoriaService{
+public class CategoriaService implements CategoriaRepository{
     private final CategoriaRepository CategoriaRepository;
 
     CategoriaService(CategoriaRepository CategoriaRepository){
@@ -33,30 +33,41 @@ public class CategoriaService{
         return resultado;
     }
 
-
-
-    // get R
-    @GetMapping("/Categoria")
-    public List<Categoria> getAllCategorias(){
-        return CategoriaRepository.getAll();
-    }
-    //get by
-    @GetMapping("/Categoria/{id}")
-    public List<Categoria> getCategoria(@PathVariable int id){
-        return CategoriaRepository.show(id);
-    }
-
-
-
-    // actualizar U
+    @Override
     @PutMapping("/Categoria/{precio}") //{id}(?)
     @ResponseBody
-    public String updateCategoria(@RequestBody Categoria Categoria, @PathVariable int id){
-        String retorno = CategoriaRepository.update(Categoria,id);
+    public String update(Categoria categoria, int id_categoria) {
+        String retorno = CategoriaRepository.update(categoria,id_categoria);
         return retorno;
     }
 
-    // borrar D
+    @Override
+    public String updateDesc(Categoria categoria, int id_categoria) {
+        String retorno = CategoriaRepository.updateDesc(categoria,id_categoria);
+        return retorno;
+    }
+
+    @Override
+    @GetMapping("/Categoria")
+    public List<Categoria> getAll() {
+        return CategoriaRepository.getAll();
+    }
+
+    @Override
+    @GetMapping("/Categoria/{id}")
+    public List<Categoria> show(@PathVariable int id_categoria) {
+        return CategoriaRepository.show(id_categoria);
+    }
+
+    @Override
+    @DeleteMapping()
+    public void delete(@PathVariable int id_categoria) {
+        CategoriaRepository.delete(id_categoria);
+
+    }
+
+
+
     @DeleteMapping("/Categoria/{id}")
     public void borrar(@PathVariable int id){
         CategoriaRepository.delete(id);
