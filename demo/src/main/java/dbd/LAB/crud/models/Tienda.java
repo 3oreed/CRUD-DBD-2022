@@ -5,13 +5,13 @@ public class Tienda {
     private String nombre;
     private int edad_minima;
     private int codigo_postal;
-    private int tipo_empresa;
+    private String tipo_empresa;
     private int id_empresa;
 
     //Constructor
 
     public Tienda(int id_tienda, String nombre, int edad_minima,
-                  int codigo_postal, int tipo_empresa, int id_empresa) {
+                  int codigo_postal, String tipo_empresa, int id_empresa) {
         this.id_tienda = id_tienda;
         this.nombre = nombre;
         this.edad_minima = edad_minima;
@@ -37,7 +37,7 @@ public class Tienda {
         return codigo_postal;
     }
 
-    public int getTipo_empresa() {
+    public String getTipo_empresa() {
         return tipo_empresa;
     }
 
@@ -62,7 +62,7 @@ public class Tienda {
         this.codigo_postal = codigo_postal;
     }
 
-    public void setTipo_empresa(int tipo_empresa) {
+    public void setTipo_empresa(String tipo_empresa) {
         this.tipo_empresa = tipo_empresa;
     }
 

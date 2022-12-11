@@ -8,9 +8,10 @@ import org.sql2o.Sql2o;
 
 import java.util.List;
 @Repository
-public class TiendaImp{
+public class TiendaImp implements TiendaRepository{
     @Autowired
     private Sql2o sql2o;
+    @Override
     public Tienda crear(Tienda tienda) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO tienda(nombre,edad_minima,codigo_postal,tipo_empresa,id_empresa)"
@@ -21,6 +22,8 @@ public class TiendaImp{
                     .addParameter("edad_minima",tienda.getEdad_minima())
                     .addParameter("codigo_postal",tienda.getCodigo_postal())
                     .addParameter("tipo_empresa",tienda.getTipo_empresa())
+                    .addParameter("id_empresa",tienda.getId_empresa())
+
                     .executeUpdate();
             return tienda;
         }catch (Exception e){
@@ -28,7 +31,7 @@ public class TiendaImp{
         }
         return null;
     }
-
+    @Override
     public String updateNombre(Tienda tienda, int id_tienda) {
         try(Connection conn = sql2o.open()){
             String updateSql = "update tienda set nombre=:nombre WHERE id_tienda=:id_tienda";
@@ -41,7 +44,7 @@ public class TiendaImp{
             return "Fallo al actualizar nombre de tienda";
         }
     }
-
+    @Override
     public List<Tienda> getAll() {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * from tienda order by id_tienda asc")
@@ -51,7 +54,7 @@ public class TiendaImp{
             return null;
         }
     }
-
+    @Override
     public List<Tienda> show(int id_tienda) {
 
         try(Connection conn = sql2o.open()){
@@ -63,7 +66,7 @@ public class TiendaImp{
             return null;
         }
     }
-
+    @Override
     public void delete(int id_tienda) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from tienda where id_tienda = :id_tienda")
