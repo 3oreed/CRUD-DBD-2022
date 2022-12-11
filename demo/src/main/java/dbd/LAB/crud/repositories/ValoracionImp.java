@@ -16,7 +16,7 @@ public class ValoracionImp implements ValoracionRepository{
     @Autowired
     private Sql2o sql2o;
 
-    @Override
+
     public Valoracion crear(Valoracion valoracion) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO valoracion(puntuacion,opinion,favoritos,id_cliente,id_empresa)" +
@@ -37,7 +37,7 @@ public class ValoracionImp implements ValoracionRepository{
         return null;
     }
 
-    @Override
+
     public String update(Valoracion Valoracion, int id_valoracion) {
         try(Connection conn = sql2o.open()){
             String updateSql = "update valoracion set favoritos=:favoritos WHERE id_valoracion=:id_valoracion";
@@ -53,7 +53,7 @@ public class ValoracionImp implements ValoracionRepository{
 
     }
 
-    @Override
+
     public List<Valoracion> getAll() {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from valoracion order by id_valoracion asc")
@@ -65,7 +65,7 @@ public class ValoracionImp implements ValoracionRepository{
 
     }
 
-    @Override
+
     public List<Valoracion> show(int id_valoracion) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from valoracion where id_valoracion = :id_valoracion")
@@ -78,7 +78,7 @@ public class ValoracionImp implements ValoracionRepository{
 
     }
 
-    @Override
+
     public void delete(int id_valoracion) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("delete from valoracion where id_valoracion= :id_valoracion")
