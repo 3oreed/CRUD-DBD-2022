@@ -19,7 +19,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-public class TiendaAdminService implements TiendaAdminRepository {
+public class TiendaAdminService  {
 
     private final TiendaAdminRepository tiendaAdminRepository;
 

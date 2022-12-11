@@ -4,15 +4,6 @@ import dbd.LAB.crud.repositories.RankingRepository;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -20,7 +11,7 @@ import java.util.List;
 @RestController
 
 
-public class RankingService implements RankingRepository{
+public class RankingService {
 
 
     private final RankingRepository rankingRepository;
@@ -37,28 +28,29 @@ public class RankingService implements RankingRepository{
         return resultado;
     }
 
-    @Override
+
     @PutMapping("/Ranking/{id}")
+    @ResponseBody
     public String update(@RequestBody Ranking ranking,@PathVariable int id_ranking) {
         String retorno = rankingRepository.update(ranking,id_ranking);
         return retorno;
     }
 
-    @Override
+
     @GetMapping("/Ranking")
     public List<Ranking> getAll() {
         return rankingRepository.getAll();
     }
 
-    @Override
+
     @GetMapping("/Ranking/{id_ranking}")
-    public List<Ranking> showLugar(int lugar) {
-        return rankingRepository.showLugar(lugar);
+    public List<Ranking> show(@PathVariable int lugar) {
+        return rankingRepository.show(lugar);
     }
 
-    @Override
+
     @DeleteMapping("/Ranking/{id_ranking}")
-    public void delete(int id_ranking) {
+    public void delete(@PathVariable int id_ranking) {
         rankingRepository.delete(id_ranking);
 
     }

@@ -10,7 +10,7 @@ public interface RankingRepository {
 
     public List<Ranking> getAll();
 
-    public List<Ranking> showLugar(int lugar);
+    public List<Ranking> show(int lugar);
 
     public void delete(int id_ranking);
 }

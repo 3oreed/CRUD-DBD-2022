@@ -4,21 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
-import java.net.ConnectException;
 import java.util.List;
 @Repository
-public class RankingImp {
+public class RankingImp implements RankingRepository {
     @Autowired
     private Sql2o sql2o;
 
+    @Override
     public Ranking crear(Ranking ranking) {
         try (Connection conn = sql2o.open()) {
             String sql = "INSERT INTO  ranking(nombre_empresa,lugar)" +
                     "VALUES(:nombre_empresa,:lugar)";
             conn.createQuery(sql, true)
-                    .addParameter("nombre_empresa", ranking.getNombreEmpresa())
-                    .addParameter("lugar", ranking.getLugarRanking())
+                    .addParameter("nombre_empresa", ranking.getNombre_empresa())
+                    .addParameter("lugar", ranking.getLugar())
                     .executeUpdate();
             return ranking;
 
@@ -28,12 +27,12 @@ public class RankingImp {
         return null;
     }
 
-
+    @Override
     public String update(Ranking ranking, int id_ranking) {
         try (Connection conn = sql2o.open()) {
             String updateSql = "update ranking set lugar=:lugar where id_ranking=:id_ranking";
             conn.createQuery(updateSql)
-                    .addParameter("lugar", ranking.getLugarRanking())
+                    .addParameter("lugar", ranking.getLugar())
                     .executeUpdate();
             return "Se actualizó el lugar del ranking";
         } catch (Exception e) {
@@ -41,7 +40,7 @@ public class RankingImp {
             return "Fallo al actualizar detalle_compra";
         }
     }
-
+    @Override
     public List<Ranking> getAll() {
         try (Connection conn = sql2o.open()) {
             return conn.createQuery("SELECT * from ranking order by lugar asc")
@@ -52,8 +51,8 @@ public class RankingImp {
         }
 
     }
-
-    public List<Ranking> showLugar3(int lugar) {
+    @Override
+    public List<Ranking> show(int lugar) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from ranking where lugar = :lugar")
                     .addParameter("lugar",lugar)
@@ -64,7 +63,7 @@ public class RankingImp {
         }
 
     }
-
+    @Override
     public void delete(int id_ranking) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from ranking where id_ranking = :id_ranking")
