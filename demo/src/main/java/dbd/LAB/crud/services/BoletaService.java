@@ -49,7 +49,7 @@ public class BoletaService {
 
 
     // actualizar U
-    @PutMapping("/Categoria/{precio}") //{id}(?)
+    @PutMapping("/Boleta/{precio}") //{id}(?)
     @ResponseBody
     public String updateBoleta(@RequestBody Boleta Boleta, @PathVariable int id){
         String retorno = BoletaRepository.update(Boleta,id);
@@ -57,7 +57,7 @@ public class BoletaService {
     }
 
     // borrar D
-    @DeleteMapping("/Categoria/{id}")
+    @DeleteMapping("/Boleta/{id}")
     public void borrar(@PathVariable int id){
         BoletaRepository.delete(id);
     }

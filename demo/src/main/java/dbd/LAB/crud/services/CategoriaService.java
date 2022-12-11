@@ -34,7 +34,7 @@ public class CategoriaService implements CategoriaRepository{
     }
 
     @Override
-    @PutMapping("/Categoria/{precio}") //{id}(?)
+    @PutMapping("/Categoria/{id_categoria}") //{id}(?)
     @ResponseBody
     public String update(Categoria categoria, int id_categoria) {
         String retorno = CategoriaRepository.update(categoria,id_categoria);
@@ -54,13 +54,13 @@ public class CategoriaService implements CategoriaRepository{
     }
 
     @Override
-    @GetMapping("/Categoria/{id}")
+    @GetMapping("/Categoria/{id_categoria}")
     public List<Categoria> show(@PathVariable int id_categoria) {
         return CategoriaRepository.show(id_categoria);
     }
 
     @Override
-    @DeleteMapping()
+    @DeleteMapping("/Categoria/{id_categoria}")
     public void delete(@PathVariable int id_categoria) {
         CategoriaRepository.delete(id_categoria);
 

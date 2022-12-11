@@ -49,7 +49,7 @@ public class Administrador_Categoria_EmpresaService {
 
 
     // actualizar U
-    @PutMapping("/Categoria/{precio}") //{id}(?)
+    @PutMapping("/Administrador_Categoria_Empresa/{id}") //{id}(?)
     @ResponseBody
     public String updateAdministrador_Categoria_Empresa(@RequestBody Administrador_Categoria_Empresa Administrador_Categoria_Empresa, @PathVariable int id){
         String retorno = Administrador_Categoria_EmpresaRepository.update(Administrador_Categoria_Empresa,id);
@@ -57,7 +57,7 @@ public class Administrador_Categoria_EmpresaService {
     }
 
     // borrar D
-    @DeleteMapping("/Categoria/{id}")
+    @DeleteMapping("/Administrador_Categoria_Empresa/{id}")
     public void borrar(@PathVariable int id){
         Administrador_Categoria_EmpresaRepository.delete(id);
     }

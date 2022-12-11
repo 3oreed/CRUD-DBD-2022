@@ -49,7 +49,7 @@ public class Carrito_ProductoCarritoService {
 
 
     // actualizar U
-    @PutMapping("/Categoria/{precio}") //{id}(?)
+    @PutMapping("/Carrito_ProductoCarrito/{id}") //{id}(?)
     @ResponseBody
     public String updateCarrito_ProductoCarrito(@RequestBody Carrito_ProductoCarrito Carrito_ProductoCarrito, @PathVariable int id){
         String retorno = Carrito_ProductoCarritoRepository.update(Carrito_ProductoCarrito,id);
@@ -57,7 +57,7 @@ public class Carrito_ProductoCarritoService {
     }
 
     // borrar D
-    @DeleteMapping("/Categoria/{id}")
+    @DeleteMapping("/Carrito_ProductoCarrito/{id}")
     public void borrar(@PathVariable int id){
         Carrito_ProductoCarritoRepository.delete(id);
     }

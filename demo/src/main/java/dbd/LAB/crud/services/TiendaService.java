@@ -32,13 +32,13 @@ public class TiendaService implements TiendaRepository{
     }
 
     @Override
-    @GetMapping("/Pedido")
+    @GetMapping("/Tienda")
     public List<Tienda> getAll() {
         return tiendaRepository.getAll();
     }
 
     @Override
-    @GetMapping("/Pedido/{id_tienda}")
+    @GetMapping("/Tienda/{id_tienda}")
     public List<Tienda> show(int id_tienda) {
         return tiendaRepository.show(id_tienda);
     }

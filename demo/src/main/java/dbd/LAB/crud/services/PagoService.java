@@ -23,19 +23,18 @@ public class PagoService {
     public List<Pago> getAllpago(){
         return pagoRepository.getAll();
     }
-    @GetMapping("/Pago/{id}")
+    @GetMapping("/Pago/{id_pago}")
     public List<Pago> getPago(@PathVariable int id_pago) {
         return pagoRepository.show(id_pago);
     }
-    @PutMapping("/Pago/{precio}") //{id}(?)
+    @PutMapping("/Pago/{id_pago}") //{id}(?)
     @ResponseBody
     public String updatePago(@RequestBody Pago pago, int id_pago){
         String retorno = pagoRepository.update(pago,id_pago);
         return retorno;
     }
-    @DeleteMapping("/Pago/{id}")
+    @DeleteMapping("/Pago/{id_pago}")
     public void borrar(@PathVariable int id_pago){
-
         pagoRepository.delete(id_pago);
     }
 

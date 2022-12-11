@@ -24,19 +24,19 @@ public class OfertaService {
         return ofertaRepository.getAll();
     }
 
-    @GetMapping("/Oferta/{id}")
+    @GetMapping("/Oferta/{id_oferta}")
     public  List<Oferta> getOferta(@PathVariable int id_oferta){
         return ofertaRepository.show(id_oferta);
     }
 
-    @PutMapping("/Oferta/{precio}") //{id}(?)
+    @PutMapping("/Oferta/{id_oferta}") //{id}(?)
     @ResponseBody
     public String updateOferta(@RequestBody Oferta oferta, int id_oferta){
         String retorno = ofertaRepository.update(oferta,id_oferta);
         return retorno;
     }
 
-    @DeleteMapping("/Oferta/{id}")
+    @DeleteMapping("/Oferta/{id_oferta}")
     public void borrar(@PathVariable int id_oferta){
         ofertaRepository.delete(id_oferta);
     }

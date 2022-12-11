@@ -37,7 +37,7 @@ public class RankingService implements RankingRepository{
     }
 
     @Override
-    @PutMapping("/Categoria/{id}")
+    @PutMapping("/Ranking/{id}")
     public String update(@RequestBody Ranking ranking,@PathVariable int id_ranking) {
         String retorno = rankingRepository.update(ranking,id_ranking);
         return retorno;
@@ -50,13 +50,13 @@ public class RankingService implements RankingRepository{
     }
 
     @Override
-    @GetMapping("/Categoria/{id_ranking}")
+    @GetMapping("/Ranking/{id_ranking}")
     public List<Ranking> showLugar(int lugar) {
         return rankingRepository.showLugar(lugar);
     }
 
     @Override
-    @DeleteMapping("/Categoria/{id_ranking}")
+    @DeleteMapping("/Ranking/{id_ranking}")
     public void delete(int id_ranking) {
         rankingRepository.delete(id_ranking);
 

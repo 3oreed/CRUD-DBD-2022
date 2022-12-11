@@ -34,7 +34,6 @@ public class AdministradorService {
     }
 
 
-
     // get R
     @GetMapping("/Administrador")
     public List<Administrador> getAllAdministradors(){
@@ -46,10 +45,8 @@ public class AdministradorService {
         return AdministradorRepository.show(id);
     }
 
-
-
     // actualizar U
-    @PutMapping("/Categoria/{precio}") //{id}(?)
+    @PutMapping("/Administrador/{id}") //{id}(?)
     @ResponseBody
     public String updateAdministrador(@RequestBody Administrador Administrador, @PathVariable int id){
         String retorno = AdministradorRepository.update(Administrador,id);
@@ -57,7 +54,7 @@ public class AdministradorService {
     }
 
     // borrar D
-    @DeleteMapping("/Categoria/{id}")
+    @DeleteMapping("/Administrador/{id}")
     public void borrar(@PathVariable int id){
         AdministradorRepository.delete(id);
     }

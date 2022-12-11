@@ -25,17 +25,17 @@ public class Empresa_administradorService {
     public List<Empresa_Administrador> getAllEmpresaAdmin(){
         return empresaAdministradorRepository.getAll();
     }
-    @GetMapping("/Empresa_administrador/{id}")
+    @GetMapping("/Empresa_administrador/{id_empresa_administrador}")
     public List<Empresa_Administrador> getEmpresaAdmin(int id_empresa_administrador){
         return empresaAdministradorRepository.show(id_empresa_administrador);
     }
-    @PutMapping("/Empresa_administrador/{precio}") //{id}(?)
+    @PutMapping("/Empresa_administrador/{id_empresa_administrador}") //{id}(?)
     @ResponseBody
     public String updateEmpresa_admin(Empresa_Administrador empresaAdministrador,int id_empresa_administrador){
         String retorno = empresaAdministradorRepository.update(empresaAdministrador,id_empresa_administrador);
         return retorno;
     }
-    @DeleteMapping("/Empresa_administrador/{id}")
+    @DeleteMapping("/Empresa_administrador/{id_empresa_administrador}")
     public void borrar(int id_empresa_administrador){
         empresaAdministradorRepository.delete(id_empresa_administrador);
     }
