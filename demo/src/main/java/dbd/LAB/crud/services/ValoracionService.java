@@ -1,6 +1,8 @@
 package dbd.LAB.crud.services;
 import dbd.LAB.crud.models.Valoracion;
 import dbd.LAB.crud.repositories.ValoracionRepository;
+
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public class ValoracionService {
 
     private final ValoracionRepository valoracionRepository;
 
-    public ValoracionService(ValoracionRepository valoracionRepository) {
+    public ValoracionService(@Lazy ValoracionRepository valoracionRepository) {
         this.valoracionRepository = valoracionRepository;
     }
 

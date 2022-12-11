@@ -21,19 +21,15 @@ public class ValoracionImp implements ValoracionRepository{
     @Override
     public Valoracion crear(Valoracion Valoracion) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Valoracion(idValoracion,puntuacion,opinion,favoritos,idCliente,idEmpresa)" +
-                    "VALUES (:idValoracion,:puntuacion,:opinion,:favoritos,:idCliente,:idEmpresa)";
+            String sql = "INSERT INTO valoracion(id_valoracion,puntuacion,opinion,favoritos,id_cliente,id_empresa)" +
+                    "VALUES (:id_valoracion,:puntuacion,:opinion,:favoritos,:id_cliente,:id_empresa)";
             conn.createQuery(sql,true)
-                    .addParameter("idValoracion",Valoracion.getIdValoracion())
+                    .addParameter("id_valoracion",Valoracion.getIdValoracion())
                     .addParameter("puntuacion",Valoracion.getPuntuacion())
                     .addParameter("opinion",Valoracion.getOpinion())
                     .addParameter("favoritos",Valoracion.getFavoritos())
-                    .addParameter("idCliente",Valoracion.getIdCliente())
-                    .addParameter("idEmpresa",Valoracion.getIdEmpresa())
-
-
-
-
+                    .addParameter("id_cliente",Valoracion.getIdCliente())
+                    .addParameter("id_empresa",Valoracion.getIdEmpresa())
 
                     .executeUpdate();
             return Valoracion;
@@ -44,9 +40,9 @@ public class ValoracionImp implements ValoracionRepository{
     }
 
     @Override
-    public String update(Valoracion Valoracion, int idValoracion) {
+    public String update(Valoracion Valoracion, int id_valoracion) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Valoracion set puntuacion=:puntuacion WHERE idValoracion=:idValoracion";
+            String updateSql = "update valoracion set puntuacion=:puntuacion WHERE id_valoracion=:id_valoracion";
             conn.createQuery(updateSql)
                     .addParameter("puntuacion",Valoracion.getPuntuacion())
                     .executeUpdate();
@@ -61,7 +57,7 @@ public class ValoracionImp implements ValoracionRepository{
     @Override
     public List<Valoracion> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from Valoracion order by idValoracion asc")
+            return conn.createQuery("select * from valoracion order by id_valoracion asc")
                     .executeAndFetch(Valoracion.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -71,10 +67,10 @@ public class ValoracionImp implements ValoracionRepository{
     }
 
     @Override
-    public List<Valoracion> show(int idValoracion) {
+    public List<Valoracion> show(int id_valoracion) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Valoracion where idValoracion = :idValoracion")
-                    .addParameter("idValoracion",idValoracion)
+            return conn.createQuery("select * from valoracion where id_valoracion = :id_valoracion")
+                    .addParameter("id_valoracion",id_valoracion)
                     .executeAndFetch(Valoracion.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -84,10 +80,10 @@ public class ValoracionImp implements ValoracionRepository{
     }
 
     @Override
-    public void delete(int idValoracion) {
+    public void delete(int id_valoracion) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Valoracion where idValoracion= :idValoracion")
-                    .addParameter("idValoracion",idValoracion)
+            conn.createQuery("delete from valoracion where id_valoracion= :id_valoracion")
+                    .addParameter("id_valoracion",id_valoracion)
                     .executeUpdate();
         }catch (Exception e) {
             System.out.println(e.getMessage());
