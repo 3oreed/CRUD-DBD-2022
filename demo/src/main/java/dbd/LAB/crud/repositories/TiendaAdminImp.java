@@ -20,8 +20,8 @@ public class TiendaAdminImp implements TiendaAdminRepository{
             String sql = "INSERT INTO tienda_admin(id_admin,id_admin)" +
                     "VALUES (:id_admin,:id_tienda)";
             conn.createQuery(sql,true)
-                    .addParameter("id_admin",tiendaAdmin.getIdAdmin())
-                    .addParameter("id_tienda",tiendaAdmin.getIdTienda())
+                    .addParameter("id_admin",tiendaAdmin.getId_admin())
+                    .addParameter("id_tienda",tiendaAdmin.getId_tienda())
                     .executeUpdate();
             return tiendaAdmin;
         }catch (Exception e){
@@ -35,7 +35,7 @@ public class TiendaAdminImp implements TiendaAdminRepository{
         try(Connection conn = sql2o.open()){
             String updateSql = "update tienda_admin set id_admin=:id_admin WHERE id_tienda_admin=:id_tienda_admin";
             conn.createQuery(updateSql)
-                    .addParameter("id_admin",tiendaAdmin.getIdAdmin())
+                    .addParameter("id_admin",tiendaAdmin.getId_admin())
                     .executeUpdate();
             return "Se actualizó el TiendaAdmin";
         }catch (Exception e){

@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TiendaAdminRepository{
 
-    public TiendaAdmin crear(TiendaAdmin TiendaAdmin );
-    public String update(TiendaAdmin TiendaAdmin  , int idTiendaAdmin);
+    public TiendaAdmin crear(TiendaAdmin tiendaAdmin );
+    public String update(TiendaAdmin tiendaAdmin  , int id_tienda_admin);
     public List<TiendaAdmin> getAll();
-    public List<TiendaAdmin> show(int idTiendaAdmin );
-    public void delete(int idTiendaAdmin );
+    public List<TiendaAdmin> show(int id_tienda_admin );
+    public void delete(int id_tienda_admin );
 }

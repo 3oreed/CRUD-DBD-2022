@@ -1,40 +1,40 @@
 package dbd.LAB.crud.models;
 
 public class TiendaAdmin {
-    private int idTiendaAdmin;
-    private int idAdmin;
-    private int idTienda;
+    private int id_tienda_admin;
+    private int id_admin;
+    private int id_tienda;
 
     //Constructor
-    public TiendaAdmin(int idTiendaAdmin, int idAdmin, int idTienda) {
-        this.idTiendaAdmin = idTiendaAdmin;
-        this.idAdmin = idAdmin;
-        this.idTienda = idTienda;
+    public TiendaAdmin(int id_tienda_admin, int id_admin, int id_tienda) {
+        this.id_tienda_admin = id_tienda_admin;
+        this.id_admin = id_admin;
+        this.id_tienda = id_tienda;
     }
     //Getters
 
-    public int getIdTiendaAdmin() {
-        return idTiendaAdmin;
+    public int getId_tienda_admin() {
+        return id_tienda_admin;
     }
 
-    public int getIdAdmin() {
-        return idAdmin;
+    public int getId_admin() {
+        return id_admin;
     }
 
-    public int getIdTienda() {
-        return idTienda;
+    public int getId_tienda() {
+        return id_tienda;
     }
     //Setters
 
-    public void setIdTiendaAdmin(int idTiendaAdmin) {
-        this.idTiendaAdmin = idTiendaAdmin;
+    public void setId_tienda_admin(int id_tienda_admin) {
+        this.id_tienda_admin = id_tienda_admin;
     }
 
-    public void setIdAdmin(int idAdmin) {
-        this.idAdmin = idAdmin;
+    public void setId_admin(int id_admin) {
+        this.id_admin = id_admin;
     }
 
-    public void setIdTienda(int idTienda) {
-        this.idTienda = idTienda;
+    public void setId_tienda(int id_tienda) {
+        this.id_tienda = id_tienda;
     }
 }
