@@ -33,6 +33,7 @@ public class RankingImp implements RankingRepository {
             String updateSql = "update ranking set lugar=:lugar where id_ranking=:id_ranking";
             conn.createQuery(updateSql)
                     .addParameter("lugar", ranking.getLugar())
+                    .addParameter("id_ranking",id_ranking)
                     .executeUpdate();
             return "Se actualizó el lugar del ranking";
         } catch (Exception e) {
