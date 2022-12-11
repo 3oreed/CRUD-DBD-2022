@@ -16,7 +16,7 @@ public class PedidoService {
     }
 
 
-    @PostMapping("/PedidoCrear")
+    @PostMapping("/Pedido")
     @ResponseBody
     public Pedido crear(@RequestBody Pedido pedido){
         Pedido resultado = pedidoRepository.crear(pedido);
@@ -24,35 +24,35 @@ public class PedidoService {
     }
 
 
-    @GetMapping("/PedidoGet/{id_pedido}")
+    @GetMapping("/Pedido/{id_pedido}")
     public List<Pedido> getPedido(@PathVariable int id_pedido){
         return pedidoRepository.getAll();
     }
 
 
-    @GetMapping("/PedidoAll")
+    @GetMapping("/Pedido")
     public List<Pedido> getAllPedido(){
         return pedidoRepository.getAll();
     }
 
 
-    @PutMapping("/PedidoUpdatePedido/{id_pedido}") //{id}(?)
+    @PutMapping("/Pedido/{id_pedido}") //{id}(?)
     @ResponseBody
-    public String updateEntregaPedido(@RequestBody Pedido pedido,int id_pedido){
+    public String updatePedido(@RequestBody Pedido pedido,int id_pedido){
         String retorno = pedidoRepository.updateEntrega(pedido,id_pedido);
         return retorno;
 
     }
 
-
-    @PutMapping("/PedidoUpdateUbicacion/{id_pedido}") //{id}(?)
+   /*
+    @PutMapping("/Pedido/{id_pedido}") //{id}(?)
     @ResponseBody
     public String updateUbicacionPedido(@RequestBody Pedido pedido,int id_pedido){
         String retorno = pedidoRepository.updateUbicacion(pedido,id_pedido);
         return retorno;
 
-    }
-    @DeleteMapping("/Pedidoborrar/{id_pedido}")
+    }*/
+    @DeleteMapping("/Pedido/{id_pedido}")
     public void borrar(@PathVariable int id_pedido){
         pedidoRepository.delete(id_pedido);
     }

@@ -29,7 +29,7 @@ public class Cliente_tiendaServices {
 
 
     // crear C
-    @PostMapping("/ClienteTiendaCrear")
+    @PostMapping("/ClienteTienda")
     @ResponseBody
     public Cliente_tienda crear(@RequestBody Cliente_tienda Cliente_tienda){
         Cliente_tienda resultado = Cliente_tiendaRepository.crear(Cliente_tienda);
@@ -39,12 +39,12 @@ public class Cliente_tiendaServices {
 
 
     // get R
-    @GetMapping("/Cliente_tiendaGet")
+    @GetMapping("/Cliente_tienda")
     public List<Cliente_tienda> getAllCliente_tiendas(){
         return Cliente_tiendaRepository.getAll();
     }
     //get by
-    @GetMapping("/Cliente_tiendaGetid/{id}")
+    @GetMapping("/Cliente_tienda/{id}")
     public List<Cliente_tienda> getCategoria(@PathVariable int id){
         return Cliente_tiendaRepository.show(id);
     }
@@ -52,7 +52,7 @@ public class Cliente_tiendaServices {
 
 
     // actualizar U
-    @PutMapping("/Cliente_tiendaUpdate/{id}") //{id}(?)
+    @PutMapping("/Cliente_tienda/{id}") //{id}(?)
     @ResponseBody
     public String updateCliente_tienda(@RequestBody Cliente_tienda Cliente_tienda, @PathVariable int id){
         String retorno = Cliente_tiendaRepository.update(Cliente_tienda,id);
@@ -60,7 +60,7 @@ public class Cliente_tiendaServices {
     }
 
     // borrar D
-    @DeleteMapping("/Cliente_tiendaBorrar/{id}")
+    @DeleteMapping("/Cliente_tienda/{id}")
     public void borrar(@PathVariable int id){
         Cliente_tiendaRepository.delete(id);
     }
