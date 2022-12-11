@@ -50,16 +50,16 @@ public class BoletaService {
 
 
     // actualizar U
-    @PutMapping("/Boleta/{precio}") //{id}(?)
+    @PutMapping("/Boleta/{id_boleta}") //{id}(?)
     @ResponseBody
-    public String updateBoleta(@RequestBody Boleta Boleta, @PathVariable int id){
-        String retorno = BoletaRepository.update(Boleta,id);
+    public String updateBoleta(@RequestBody Boleta Boleta, @PathVariable int id_boleta){
+        String retorno = BoletaRepository.update(Boleta,id_boleta);
         return retorno;
     }
 
     // borrar D
-    @DeleteMapping("/Boleta/{id}")
-    public void borrar(@PathVariable int id){
-        BoletaRepository.delete(id);
+    @DeleteMapping("/Boleta/{id_boleta}")
+    public void borrar(@PathVariable int id_boleta){
+        BoletaRepository.delete(id_boleta);
     }
 }

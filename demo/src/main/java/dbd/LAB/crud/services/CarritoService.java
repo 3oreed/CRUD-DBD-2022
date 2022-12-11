@@ -20,17 +20,19 @@ import java.util.List;
 @CrossOrigin
 @RestController
 public class CarritoService {
-    private final CarritoRepository CarritoRepository;
+    private final CarritoRepository carritoRepository;
 
-    CarritoService(@Lazy CarritoRepository CarritoRepository){
-        this.CarritoRepository = CarritoRepository;
+
+
+    public CarritoService(@Lazy CarritoRepository carritoRepository) {
+        this.carritoRepository = carritoRepository;
     }
 
     // crear C
     @PostMapping("/Carrito")
     @ResponseBody
     public Carrito crear(@RequestBody Carrito Carrito){
-        Carrito resultado = CarritoRepository.crear(Carrito);
+        Carrito resultado = carritoRepository.crear(Carrito);
         return resultado;
     }
 
@@ -39,12 +41,12 @@ public class CarritoService {
     // get R
     @GetMapping("/Carrito")
     public List<Carrito> getAllCarritos(){
-        return CarritoRepository.getAll();
+        return carritoRepository.getAll();
     }
     //get by
     @GetMapping("/Carrito/{id}")
     public List<Carrito> getCategoria(@PathVariable int id){
-        return CarritoRepository.show(id);
+        return carritoRepository.show(id);
     }
 
 
@@ -53,13 +55,13 @@ public class CarritoService {
     @PutMapping("/Carrito/{id}") //{id}(?)
     @ResponseBody
     public String updateCarrito(@RequestBody Carrito Carrito, @PathVariable int id){
-        String retorno = CarritoRepository.update(Carrito,id);
+        String retorno = carritoRepository.update(Carrito,id);
         return retorno;
     }
 
     // borrar D
     @DeleteMapping("/Carrito/{id}")
     public void borrar(@PathVariable int id){
-        CarritoRepository.delete(id);
+        carritoRepository.delete(id);
     }
 }

@@ -35,6 +35,7 @@ public class BoletaImp implements BoletaRepository{
         try(Connection conn = sql2o.open()){
             String updateSql = "update boleta set detalle_compra=:detalle_compra WHERE id_boleta=:id_boleta";
             conn.createQuery(updateSql)
+                    .addParameter("id_boleta",id_boleta)
                     .addParameter("detalle_compra",Boleta.getDetalle_compra())
                     .executeUpdate();
             return "Se actualizó el detalle_compra";
