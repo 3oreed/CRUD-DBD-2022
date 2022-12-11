@@ -17,7 +17,7 @@ public class EmpresaService implements EmpresaRepository{
     }
 
 
-    @PostMapping("/Empresacrear")
+    @PostMapping("/Empresa")
     @ResponseBody
     public Empresa crear(@RequestBody Empresa empresa){
         Empresa resultado = EmpresaRepository.crear(empresa);
@@ -25,19 +25,19 @@ public class EmpresaService implements EmpresaRepository{
     }
 
 
-    @GetMapping("/EmpresaGet")
+    @GetMapping("/Empresa")
     public List<Empresa> getAll(){
         return EmpresaRepository.getAll();
     }
 
 
-    @GetMapping("/EmpresaShow/{id_empresa}")
+    @GetMapping("/Empresa/{id_empresa}")
     public List<Empresa> showLugar(@PathVariable int id_empresa){
         return EmpresaRepository.showLugar(id_empresa);
     }
 
 
-    @PutMapping("/EmpresaUpdatePass/{id_empresa}") //{id}(?)
+    @PutMapping("/Empresa/{id_empresa}") //{id}(?)
     @ResponseBody
     public String updatePass(@RequestBody Empresa empresa, @PathVariable int id_empresa){
         String retorno = EmpresaRepository.updatePass(empresa,id_empresa);
@@ -45,7 +45,7 @@ public class EmpresaService implements EmpresaRepository{
     }
 
 
-    @PutMapping("/EmpresaUpdateMail/{id_empresa}") //{id}(?)
+    @PutMapping("/Empresas/{id_empresa}") //{id}(?)
     @ResponseBody
     public String updateMail(@RequestBody Empresa empresa, @PathVariable int id_empresa){
         String retorno = EmpresaRepository.updateMail(empresa,id_empresa);
@@ -53,7 +53,7 @@ public class EmpresaService implements EmpresaRepository{
     }
 
 
-    @DeleteMapping("/EmpresaDelete/{id_empresa}")
+    @DeleteMapping("/Empresa/{id_empresa}")
     public void delete(@PathVariable int id_empresa){
         EmpresaRepository.delete(id_empresa);
     }
