@@ -1,5 +1,6 @@
 package dbd.LAB.crud.repositories;
 import dbd.LAB.crud.models.Empresa;
+import dbd.LAB.crud.repositories.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
@@ -7,7 +8,7 @@ import org.sql2o.Sql2o;
 import java.util.List;
 
 @Repository
-public class EmpresaImp {
+public class EmpresaImp implements EmpresaRepository{
     @Autowired
     private Sql2o sql2o;
 

@@ -12,7 +12,7 @@ public interface EmpresaRepository {
 
     public List<Empresa> getAll();
 
-    public List<Empresa> showLugar(int id_empresa);
+    public List<Empresa> show(int id_empresa);
 
     public void delete(int id_empresa);
 }

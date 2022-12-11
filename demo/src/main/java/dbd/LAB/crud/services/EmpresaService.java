@@ -8,12 +8,12 @@ import java.util.List;
 @CrossOrigin
 @RestController
 
-public class EmpresaService implements EmpresaRepository{
+public class EmpresaService {
 
     private final EmpresaRepository EmpresaRepository ;
 
-    EmpresaService(@Lazy EmpresaRepository empresaRepository) {
-        this.EmpresaRepository = empresaRepository;
+    EmpresaService(@Lazy EmpresaRepository EmpresaRepository) {
+        this.EmpresaRepository = EmpresaRepository;
     }
 
 
@@ -32,8 +32,8 @@ public class EmpresaService implements EmpresaRepository{
 
 
     @GetMapping("/Empresa/{id_empresa}")
-    public List<Empresa> showLugar(@PathVariable int id_empresa){
-        return EmpresaRepository.showLugar(id_empresa);
+    public List<Empresa> show(@PathVariable int id_empresa){
+        return EmpresaRepository.show(id_empresa);
     }
 
 
