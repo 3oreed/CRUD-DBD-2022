@@ -27,7 +27,7 @@ public class ValoracionService {
 
 
     @GetMapping("/Valoracion")
-    public List<Valoracion> getAllValoracion(){
+    public List<Valoracion> getAll(){
         return valoracionRepository.getAll();
     }
 

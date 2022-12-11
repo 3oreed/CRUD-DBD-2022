@@ -15,18 +15,15 @@ public class TiendaAdminImp implements TiendaAdminRepository{
     private Sql2o sql2o;
 
     @Override
-    public TiendaAdmin crear(TiendaAdmin TiendaAdmin) {
+    public TiendaAdmin crear(TiendaAdmin tiendaAdmin) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO TiendaAdmin(idTiendaAdmin,idAdmin,idTienda)" +
-                    "VALUES (:idTiendaAdmin,:idAdmin,:idTienda)";
+            String sql = "INSERT INTO tienda_admin(id_admin,id_admin)" +
+                    "VALUES (:id_admin,:id_tienda)";
             conn.createQuery(sql,true)
-                    .addParameter("idTiendaAdmin",TiendaAdmin.getIdTiendaAdmin())
-                    .addParameter("idAdmin",TiendaAdmin.getIdAdmin())
-                    .addParameter("idTienda",TiendaAdmin.getIdTienda())
-
-
+                    .addParameter("id_admin",tiendaAdmin.getIdAdmin())
+                    .addParameter("id_tienda",tiendaAdmin.getIdTienda())
                     .executeUpdate();
-            return TiendaAdmin;
+            return tiendaAdmin;
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -34,11 +31,11 @@ public class TiendaAdminImp implements TiendaAdminRepository{
     }
 
     @Override
-    public String update(TiendaAdmin TiendaAdmin, int idTiendaAdmin) {
+    public String update(TiendaAdmin tiendaAdmin, int id_tienda_admin) {
         try(Connection conn = sql2o.open()){
-            String updateSql = "update TiendaAdmin set idAdmin=:idAdmin WHERE idTiendaAdmin=:idTiendaAdmin";
+            String updateSql = "update tienda_admin set id_admin=:id_admin WHERE id_tienda_admin=:id_tienda_admin";
             conn.createQuery(updateSql)
-                    .addParameter("idAdmin",TiendaAdmin.getIdAdmin())
+                    .addParameter("id_admin",tiendaAdmin.getIdAdmin())
                     .executeUpdate();
             return "Se actualizó el TiendaAdmin";
         }catch (Exception e){
@@ -51,7 +48,7 @@ public class TiendaAdminImp implements TiendaAdminRepository{
     @Override
     public List<TiendaAdmin> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from TiendaAdmin order by idTiendaAdmin asc")
+            return conn.createQuery("SELECT * from tienda_admin order by id_tienda_admin asc")
                     .executeAndFetch(TiendaAdmin.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -61,10 +58,10 @@ public class TiendaAdminImp implements TiendaAdminRepository{
     }
 
     @Override
-    public List<TiendaAdmin> show(int idTiendaAdmin) {
+    public List<TiendaAdmin> show(int id_tienda_admin) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from TiendaAdmin where idTiendaAdmin = :idTiendaAdmin")
-                    .addParameter("idTiendaAdmin",idTiendaAdmin)
+            return conn.createQuery("select * from tienda_admin where id_tienda_admin = :id_tienda_admin")
+                    .addParameter("id_tienda_admin",id_tienda_admin)
                     .executeAndFetch(TiendaAdmin.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -74,10 +71,10 @@ public class TiendaAdminImp implements TiendaAdminRepository{
     }
 
     @Override
-    public void delete(int idTiendaAdmin) {
+    public void delete(int id_tienda_admin) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from TiendaAdmin where idTiendaAdmin= :idTiendaAdmin")
-                    .addParameter("idTiendaAdmin",idTiendaAdmin)
+            conn.createQuery("DELETE from tienda_admin where id_tienda_admin= :id_tienda_admin")
+                    .addParameter("id_tienda_admin",id_tienda_admin)
                     .executeUpdate();
         }catch (Exception e) {
             System.out.println(e.getMessage());

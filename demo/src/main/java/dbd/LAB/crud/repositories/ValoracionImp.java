@@ -19,20 +19,20 @@ public class ValoracionImp implements ValoracionRepository{
     private Sql2o sql2o;
 
     @Override
-    public Valoracion crear(Valoracion Valoracion) {
+    public Valoracion crear(Valoracion valoracion) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO valoracion(id_valoracion,puntuacion,opinion,favoritos,id_cliente,id_empresa)" +
-                    "VALUES (:id_valoracion,:puntuacion,:opinion,:favoritos,:id_cliente,:id_empresa)";
+            String sql = "INSERT INTO valoracion(puntuacion,opinion,favoritos,id_cliente,id_empresa)" +
+                    "VALUES (:puntuacion,:opinion,:favoritos,:id_cliente,:id_empresa)";
             conn.createQuery(sql,true)
-                    .addParameter("id_valoracion",Valoracion.getIdValoracion())
-                    .addParameter("puntuacion",Valoracion.getPuntuacion())
-                    .addParameter("opinion",Valoracion.getOpinion())
-                    .addParameter("favoritos",Valoracion.getFavoritos())
-                    .addParameter("id_cliente",Valoracion.getIdCliente())
-                    .addParameter("id_empresa",Valoracion.getIdEmpresa())
 
+                    .addParameter("puntuacion",valoracion.getPuntuacion())
+                    .addParameter("opinion",valoracion.getOpinion())
+                    .addParameter("favoritos",valoracion.getFavoritos())
+                    .addParameter("id_cliente",valoracion.getIdCliente())
+                    .addParameter("id_empresa",valoracion.getIdEmpresa())
                     .executeUpdate();
-            return Valoracion;
+            return valoracion;
+
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

@@ -17,9 +17,10 @@ public class TiendaService implements TiendaRepository{
     TiendaService(@Lazy TiendaRepository tiendaRepository) {
         this.tiendaRepository = tiendaRepository;
     }
-    @PostMapping("/Tienda")
-    @ResponseBody
+
     @Override
+    @ResponseBody
+    @PostMapping("/Tienda")
     public Tienda crear(@RequestBody Tienda tienda) {
         Tienda resultado = tiendaRepository.crear(tienda);
         return resultado;
