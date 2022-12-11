@@ -16,7 +16,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
     @Override
     public  Administrador_Categoria_Empresa crear(Administrador_Categoria_Empresa Administrador_Categoria_Empresa){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Administrador_Categoria_Empresa (id_admin_categoria_empresa,id_admin,id_categoria)" +
+            String sql = "INSERT INTO administrador_categoria_empresa (id_admin,id_categoria)" +
                     "VALUES (:id_admin,:id_categoria)";
             conn.createQuery(sql, true)
                     //.addParameter("id_admin_categoria_empresa",Administrador_Categoria_Empresa.getId_admin_categoria_empresa())
@@ -36,7 +36,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
     @Override
     public List<Administrador_Categoria_Empresa> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Administrador_Categoria_Empresa order by nombre ASC")
+            return conn.createQuery("select * from administrador_categoria_empresa order by nombre ASC")
                     .executeAndFetch(Administrador_Categoria_Empresa.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -48,7 +48,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
     @Override
     public List<Administrador_Categoria_Empresa> show(int id) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Administrador_Categoria_Empresa where id = :id ")
+            return conn.createQuery("select * from administrador_categoria_empresa where id = :id ")
                     .addParameter("id",id)
                     .executeAndFetch(Administrador_Categoria_Empresa.class);
         } catch (Exception e) {
@@ -63,7 +63,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
     @Override
     public void delete(int  id) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Administrador_Categoria_Empresa where id = :id ")
+            conn.createQuery("DELETE from administrador_categoria_empresa where id = :id ")
                     .addParameter("id",id)
                     .executeUpdate();
         }catch (Exception e) {
@@ -76,7 +76,7 @@ public class Administrador_Categoria_EmpresaImp implements Administrador_Categor
     @Override
     public String update(Administrador_Categoria_Empresa Administrador_Categoria_Empresa, int  id){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Administrador_Categoria_Empresa set id_admin=:id_admin WHERE id=:id";
+            String updateSql = "update administrador_categoria_empresa set id_admin=:id_admin WHERE id=:id";
             conn.createQuery(updateSql)
                     .addParameter("id", id)
                     .addParameter("id_admin", Administrador_Categoria_Empresa.getId_admin())

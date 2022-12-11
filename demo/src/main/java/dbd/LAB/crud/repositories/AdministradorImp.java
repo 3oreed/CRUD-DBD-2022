@@ -15,7 +15,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public Administrador crear(Administrador Administrador) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO Administrador(id_admin,clave,email,nombre,apellido)" +
+            String sql = "INSERT INTO administrador(clave,email,nombre,apellido)" +
                     "VALUES (:clave,:email, :nombre,:apellido)";
             conn.createQuery(sql, true)
                     //.addParameter("id_admin", Administrador.getId_admin())
@@ -37,7 +37,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public List<Administrador> getAll() {
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery("select * from Administrador order by nombre ASC")
+            return conn.createQuery("select * from administrador order by nombre ASC")
                     .executeAndFetch(Administrador.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -49,7 +49,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public List<Administrador> show(int id) {
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery("select * from Administrador where id = :id ")
+            return conn.createQuery("select * from administrador where id = :id ")
                     .addParameter("id", id)
                     .executeAndFetch(Administrador.class);
         } catch (Exception e) {
@@ -62,7 +62,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public void delete(int id) {
         try (Connection conn = sql2o.open()) {
-            conn.createQuery("DELETE from Administrador where id = :id ")
+            conn.createQuery("DELETE from administrador where id = :id ")
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class AdministradorImp implements AdministradorRepository {
     @Override
     public String update(Administrador Administrador, int id) {
         try (Connection conn = sql2o.open()) {
-            String updateSql = "update Administrador set nombre=:nombre WHERE id=:id";
+            String updateSql = "update administrador set nombre=:nombre WHERE id=:id";
             conn.createQuery(updateSql)
                     .addParameter("nombre", Administrador.getNombre())
                     .executeUpdate();
