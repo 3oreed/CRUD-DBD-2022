@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 
 
-public class RankingService {
+public class RankingService implements RankingRepository{
 
 
     private final RankingRepository rankingRepository;
@@ -36,26 +36,32 @@ public class RankingService {
         return resultado;
     }
 
-    @GetMapping("/Categoria")
-    public List<Ranking> getAllRanking(){
-        return rankingRepository.getAll();
-    }
-
-    @GetMapping("/Categoria/{id_ranking}")
-    public List<Ranking> getRanking(@PathVariable int id_rankig){
-        return rankingRepository.showLugar(id_rankig);
-    }
-
+    @Override
     @PutMapping("/Categoria/{id}")
-    public String updateRanking(@RequestBody Ranking ranking, @PathVariable int id_ranking){
+    public String update(@RequestBody Ranking ranking,@PathVariable int id_ranking) {
         String retorno = rankingRepository.update(ranking,id_ranking);
         return retorno;
     }
 
-    @DeleteMapping("/Categoria/{id_ranking}")
-    public void borrar(int id_ranking){
-        rankingRepository.delete(id_ranking);
+    @Override
+    @GetMapping("/Ranking")
+    public List<Ranking> getAll() {
+        return rankingRepository.getAll();
     }
+
+    @Override
+    @GetMapping("/Categoria/{id_ranking}")
+    public List<Ranking> showLugar(int lugar) {
+        return rankingRepository.showLugar(lugar);
+    }
+
+    @Override
+    @DeleteMapping("/Categoria/{id_ranking}")
+    public void delete(int id_ranking) {
+        rankingRepository.delete(id_ranking);
+
+    }
+
 
 
 }
