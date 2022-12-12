@@ -14,10 +14,11 @@ public class EmpresaImp implements EmpresaRepository{
 
     public Empresa crear(Empresa empresa) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO empresa(clave,mail,direccion,id_ranking)"
-                    + "VALUES (:clave,:mail,:direccion,:id_ranking)";
+            String sql = "INSERT INTO empresa(nombre_empresa,clave,mail,direccion,id_ranking)"
+                    + "VALUES (:nombre_empresa,:clave,:mail,:direccion,:id_ranking)";
             conn.createQuery(sql,true)
                     .throwOnMappingFailure(false)
+                    .addParameter("nombre_empresa",empresa.getNombre_empresa())
                     .addParameter("clave",empresa.getClave())
                     .addParameter("mail",empresa.getMail())
                     .addParameter("direccion",empresa.getDireccion())
