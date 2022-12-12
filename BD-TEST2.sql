@@ -6,7 +6,7 @@ create table if not exists Cliente(
 	email varchar(100),
 	direccion varchar(100),
 	fecha_nacimiento date,
-	edad int GENERATED ALWAYS AS (2022 - date_part('year', date_of_birth)) stored	
+	edad int GENERATED ALWAYS AS (2022 - date_part('year', fecha_nacimiento)) stored	
 );
 
 create table if not exists Administrador(
