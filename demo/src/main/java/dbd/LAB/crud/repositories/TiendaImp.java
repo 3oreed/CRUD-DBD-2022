@@ -14,13 +14,13 @@ public class TiendaImp implements TiendaRepository{
     @Override
     public Tienda crear(Tienda tienda) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO tienda(nombre,edad_minima,codigo_postal,tipo_empresa,id_empresa)"
-                    + "VALUES (:nombre,:edad_minima,:codigo_postal,:tipo_empresa,:id_empresa)";
+            String sql = "INSERT INTO tienda(nombre,edad_minima,ciudad,tipo_empresa,id_empresa)"
+                    + "VALUES (:nombre,:edad_minima,:ciudad,:tipo_empresa,:id_empresa)";
             conn.createQuery(sql,true)
 
                     .addParameter("nombre",tienda.getNombre())
                     .addParameter("edad_minima",tienda.getEdad_minima())
-                    .addParameter("codigo_postal",tienda.getCodigo_postal())
+                    .addParameter("ciudad",tienda.getCiudad())
                     .addParameter("tipo_empresa",tienda.getTipo_empresa())
                     .addParameter("id_empresa",tienda.getId_empresa())
 
@@ -86,6 +86,19 @@ public class TiendaImp implements TiendaRepository{
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from tienda where tipo_empresa=:tipo_empresa")
                     .addParameter("tipo_empresa",tipo_empresa)
+                    .executeAndFetch(Tienda.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<Tienda> showByCiudad(String ciudad) {
+
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery("select * from tienda where ciudad=:ciudad")
+                    .addParameter("ciudad",ciudad)
                     .executeAndFetch(Tienda.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());

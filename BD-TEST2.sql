@@ -36,7 +36,7 @@ create table if not exists Tienda(
 	id_tienda serial primary key,
 	nombre varchar(100),
 	edad_minima int,
-	codigo_postal int,
+	ciudad varchar(100),
 	tipo_empresa varchar(100),
 	id_empresa int,
 	foreign key(id_empresa) references Empresa(id_empresa)

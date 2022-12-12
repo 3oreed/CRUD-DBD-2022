@@ -17,5 +17,7 @@ public interface TiendaRepository {
 
     public List<Tienda> showByTipoEmpresa(String tipo_empresa);
 
+    public List<Tienda> showByCiudad(String ciudad);
+
     public void delete(int id_tienda);
 }

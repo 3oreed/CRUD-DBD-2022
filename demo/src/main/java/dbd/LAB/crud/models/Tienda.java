@@ -4,21 +4,21 @@ public class Tienda {
     private int id_tienda;
     private String nombre;
     private int edad_minima;
-    private int codigo_postal;
+    private String ciudad;
     private String tipo_empresa;
     private int id_empresa;
 
     //Constructor
 
-    public Tienda(int id_tienda, String nombre, int edad_minima,
-                  int codigo_postal, String tipo_empresa, int id_empresa) {
+    public Tienda(int id_tienda, String nombre, int edad_minima, String ciudad, String tipo_empresa, int id_empresa) {
         this.id_tienda = id_tienda;
         this.nombre = nombre;
         this.edad_minima = edad_minima;
-        this.codigo_postal = codigo_postal;
+        this.ciudad = ciudad;
         this.tipo_empresa = tipo_empresa;
         this.id_empresa = id_empresa;
     }
+
     //Getters
 
     public int getId_tienda() {
@@ -33,8 +33,8 @@ public class Tienda {
         return edad_minima;
     }
 
-    public int getCodigo_postal() {
-        return codigo_postal;
+    public String getCiudad() {
+        return ciudad;
     }
 
     public String getTipo_empresa() {
@@ -58,8 +58,8 @@ public class Tienda {
         this.edad_minima = edad_minima;
     }
 
-    public void setCodigo_postal(int codigo_postal) {
-        this.codigo_postal = codigo_postal;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public void setTipo_empresa(String tipo_empresa) {
