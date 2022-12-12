@@ -52,7 +52,7 @@ public class ClienteService{
     @PutMapping("/ClienteUpdatePass/{id_cliente}") //{id}(?)
     @ResponseBody
     public String updatePass(@RequestBody Cliente Cliente, @PathVariable int id_cliente){
-        String retorno = ClienteRepository.update(Cliente,id_cliente);
+        String retorno = ClienteRepository.updatePass(Cliente,id_cliente);
         return retorno;
     }
 
