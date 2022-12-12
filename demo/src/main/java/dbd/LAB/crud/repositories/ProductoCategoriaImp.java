@@ -15,9 +15,9 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
     public ProductoCategoria crear(ProductoCategoria prodCat) {
         try (Connection conn = sql2o.open()){
             String sql = "INSERT INTO productocategoria (nombre,descripcion,precio,stock_inicial," +
-                    "stock_actual,vendidos,id_carrito,id_empresa,id_categoria) " +
+                    "stock_actual,id_empresa,id_categoria) " +
                     "VALUES(:nombre,:descripcion,:precio,:stock_inicial," +
-                    ":stock_actual,:vendidos,:id_carrito,:id_empresa,:id_categoria)";
+                    ":stock_actual,:id_empresa,:id_categoria)";
             conn.createQuery(sql,true)
 
                     .addParameter("nombre",prodCat.getNombre())
@@ -25,8 +25,6 @@ public class ProductoCategoriaImp implements ProductoCategoriaRepository{
                     .addParameter("precio",prodCat.getPrecio())
                     .addParameter("stock_inicial",prodCat.getStock_inicial())
                     .addParameter("stock_actual",prodCat.getStock_actual())
-                    .addParameter("vendidos",prodCat.getVendidos())
-                    .addParameter("id_carrito",prodCat.getId_carrito())
                     .addParameter("id_empresa",prodCat.getId_empresa())
                     .addParameter("id_categoria",prodCat.getId_categoria())
 

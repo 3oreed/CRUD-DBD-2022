@@ -8,12 +8,11 @@ public class ProductoCategoria {
       private int stock_inicial;
       private int stock_actual;
       private int vendidos;
-      private int id_carrito;
       private int id_empresa;
       private int id_categoria;
     //Constructor
     public ProductoCategoria(int id_prod, String nombre, String descripcion, int precio,
-                             int stock_inicial, int stock_actual, int vendidos, int id_carrito,
+                             int stock_inicial, int stock_actual, int vendidos,
                              int id_empresa, int id_categoria) {
         this.id_prod = id_prod;
         this.nombre = nombre;
@@ -22,7 +21,6 @@ public class ProductoCategoria {
         this.stock_inicial = stock_inicial;
         this.stock_actual = stock_actual;
         this.vendidos = vendidos;
-        this.id_carrito = id_carrito;
         this.id_empresa = id_empresa;
         this.id_categoria = id_categoria;
     }
@@ -53,10 +51,6 @@ public class ProductoCategoria {
 
     public int getVendidos() {
         return vendidos;
-    }
-
-    public int getId_carrito() {
-        return id_carrito;
     }
 
     public int getId_empresa() {
@@ -95,9 +89,6 @@ public class ProductoCategoria {
         this.vendidos = vendidos;
     }
 
-    public void setId_carrito(int id_carrito) {
-        this.id_carrito = id_carrito;
-    }
 
     public void setId_empresa(int id_empresa) {
         this.id_empresa = id_empresa;
