@@ -14,12 +14,15 @@ public class PdtoCarritoImp implements PdtoCarritoRepository {
 
     public PdtoCarrito crear(PdtoCarrito PdtoCarrito) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO productocarrito (nombre,cantidad,comentario)" +
-                    "VALUES (:nombre,:cantidad,:comentario)";
+            String sql = "INSERT INTO productocarrito (nombre,cantidad,comentario,precio,id_carrito,id_prod)" +
+                    "VALUES (:nombre,:cantidad,:comentario,:precio,:id_carrito,:id_prod)";
             conn.createQuery(sql,true)
                     .addParameter("nombre",PdtoCarrito.getNombre())
                     .addParameter("cantidad",PdtoCarrito.getCantidad())
                     .addParameter("comentario",PdtoCarrito.getComentario())
+                    .addParameter("precio",PdtoCarrito.getPrecio())
+                    .addParameter("id_carrito",PdtoCarrito.getId_carrito())
+                    .addParameter("id_prod",PdtoCarrito.getId_prod())
                     .executeUpdate();
             return PdtoCarrito;
         }catch (Exception e){
@@ -48,7 +51,7 @@ public class PdtoCarritoImp implements PdtoCarritoRepository {
 
     public List<PdtoCarrito> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * from productocarrito order by id_item_carrito asc")
+            return conn.createQuery("SELECT * from productocarrito order by id_carrito asc")
                     .executeAndFetch(PdtoCarrito.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
