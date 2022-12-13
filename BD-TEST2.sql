@@ -25,7 +25,7 @@ create table if not exists Ranking(
 
 create table if not exists Empresa(
 	id_empresa serial primary key,
-	nombre_empresa varchar(100)
+	nombre_empresa varchar(100),
 	clave varchar(100),
 	mail varchar(100),
 	direccion text,
