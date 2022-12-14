@@ -72,8 +72,9 @@ public class TiendaService{
 
 
     @DeleteMapping("/Tienda/{id_tienda}")
-    public void delete(@PathVariable int id_tienda) {
-        tiendaRepository.delete(id_tienda);
+    public String delete(@PathVariable int id_tienda) {
+        String retorno = tiendaRepository.delete(id_tienda);
+        return retorno;
 
     }
 }

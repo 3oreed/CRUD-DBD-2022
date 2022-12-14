@@ -11,5 +11,5 @@ public interface ClienteRepository {
     public String updateMail(Cliente cliente, int id_cliente);
     public List<Cliente> getAll();
     public List<Cliente> show(int id_cliente);
-    public void delete(int id_cliente);
+    public String delete(int id_cliente);
 }

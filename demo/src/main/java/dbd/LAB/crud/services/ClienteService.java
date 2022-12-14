@@ -78,7 +78,8 @@ public class ClienteService{
 
     // borrar D
     @DeleteMapping("/Cliente/{id_cliente}")
-    public void borrar(@PathVariable int id_cliente){
-        ClienteRepository.delete(id_cliente);
+    public String borrar(@PathVariable int id_cliente){
+       String retorno = ClienteRepository.delete(id_cliente);
+       return retorno;
     }
 }

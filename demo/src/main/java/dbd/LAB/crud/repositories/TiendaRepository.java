@@ -19,5 +19,5 @@ public interface TiendaRepository {
 
     public List<Tienda> showByCiudad(String ciudad);
 
-    public void delete(int id_tienda);
+    public String delete(int id_tienda);
 }

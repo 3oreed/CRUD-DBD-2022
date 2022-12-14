@@ -129,13 +129,15 @@ public class ClienteImp implements ClienteRepository{
     }
 
     @Override
-    public void delete(int id_cliente) {
+    public String delete(int id_cliente) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from cliente where id_cliente= :id_cliente")
                     .addParameter("id_cliente",id_cliente)
                     .executeUpdate();
+            return "Datos eliminador SATISFACTORIAMENTE";
         }catch (Exception e) {
             System.out.println(e.getMessage());
+            return "Error al ELIMINAR datos";
         }
 
     }

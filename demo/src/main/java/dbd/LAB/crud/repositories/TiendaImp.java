@@ -106,13 +106,16 @@ public class TiendaImp implements TiendaRepository{
         }
     }
     @Override
-    public void delete(int id_tienda) {
+    public String delete(int id_tienda) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from tienda where id_tienda = :id_tienda")
                     .addParameter("id_tienda",id_tienda)
                     .executeUpdate();
+
+            return "Datos eliminados SATISFACTORIAMENTE";
         }catch (Exception e) {
             System.out.println(e.getMessage());
+            return "Error al eliminar datos.";
         }
     }
 }
