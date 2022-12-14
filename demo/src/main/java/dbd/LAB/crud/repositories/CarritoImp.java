@@ -20,7 +20,7 @@ public class CarritoImp implements CarritoRepository{
             conn.createQuery(sql,true)
                     //.addParameter("id_Carrito",Carrito.getId_Carrito())
                     .addParameter("cantidad_productos",Carrito.getCantidad_productos())
-                    .addParameter("subtotal",Carrito.getSubtotal())
+                    .addParameter("subtotal",Carrito.getTotal())
                     .executeUpdate();
             return Carrito;
         }catch (Exception e){

@@ -18,8 +18,9 @@ public class ClienteImp implements ClienteRepository{
     @Override
     public Cliente crear(Cliente Cliente) {
         try (Connection conn = sql2o.open()){
-            String sql = "INSERT INTO cliente(nombre,apellido,clave,email,direccion,fecha_nacimiento,edad)" +
-                    "VALUES (:Nombre_cliente,:Apellido_cliente,:Clave_cliente,:email,:Direccion_cliente,:Fecha_nacimiento_cliente,:Edad_cliente)";
+            String sql = "INSERT INTO cliente(nombre,apellido,clave,email,direccion,fecha_nacimiento)" +
+                    "VALUES (:Nombre_cliente,:Apellido_cliente,:Clave_cliente,:email,:Direccion_cliente," +
+                    ":Fecha_nacimiento_cliente)";
             conn.createQuery(sql,true)
                     .addParameter("Nombre_cliente",Cliente.getNombre())
                     .addParameter("Apellido_cliente",Cliente.getApellido())
@@ -27,7 +28,6 @@ public class ClienteImp implements ClienteRepository{
                     .addParameter("email",Cliente.getEmail())
                     .addParameter("Direccion_cliente",Cliente.getDireccion())
                     .addParameter("Fecha_nacimiento_cliente",LocalDate.parse(Cliente.getFecha_nacimiento()))
-                    .addParameter("Edad_cliente",Cliente.getEdad())
                     .executeUpdate();
             return Cliente;
         }catch (Exception e){
@@ -37,7 +37,7 @@ public class ClienteImp implements ClienteRepository{
     }
 
     @Override
-    public String update(Cliente cliente, int id_cliente) {
+    public String updatePass(Cliente cliente, int id_cliente) {
         try(Connection conn = sql2o.open()){
             String updateSql = "update cliente set clave=:clave WHERE id_cliente=:id_cliente";
             conn.createQuery(updateSql)
@@ -129,13 +129,15 @@ public class ClienteImp implements ClienteRepository{
     }
 
     @Override
-    public void delete(int id_cliente) {
+    public String delete(int id_cliente) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from cliente where id_cliente= :id_cliente")
                     .addParameter("id_cliente",id_cliente)
                     .executeUpdate();
+            return "Datos eliminador SATISFACTORIAMENTE";
         }catch (Exception e) {
             System.out.println(e.getMessage());
+            return "Error al ELIMINAR datos";
         }
 
     }

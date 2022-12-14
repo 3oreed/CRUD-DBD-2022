@@ -56,7 +56,7 @@ public class ValoracionImp implements ValoracionRepository{
 
     public List<Valoracion> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from valoracion order by id_valoracion asc")
+            return conn.createQuery("select * from valoracion order by id_empresa asc")
                     .executeAndFetch(Valoracion.class);
         }catch (Exception e){
             System.out.println(e.getMessage());

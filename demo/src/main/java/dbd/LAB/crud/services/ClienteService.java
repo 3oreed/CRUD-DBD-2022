@@ -52,7 +52,7 @@ public class ClienteService{
     @PutMapping("/ClienteUpdatePass/{id_cliente}") //{id}(?)
     @ResponseBody
     public String updatePass(@RequestBody Cliente Cliente, @PathVariable int id_cliente){
-        String retorno = ClienteRepository.update(Cliente,id_cliente);
+        String retorno = ClienteRepository.updatePass(Cliente,id_cliente);
         return retorno;
     }
 
@@ -78,7 +78,8 @@ public class ClienteService{
 
     // borrar D
     @DeleteMapping("/Cliente/{id_cliente}")
-    public void borrar(@PathVariable int id_cliente){
-        ClienteRepository.delete(id_cliente);
+    public String borrar(@PathVariable int id_cliente){
+       String retorno = ClienteRepository.delete(id_cliente);
+       return retorno;
     }
 }

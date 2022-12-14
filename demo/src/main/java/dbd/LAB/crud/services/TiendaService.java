@@ -65,10 +65,16 @@ public class TiendaService{
         return tiendaRepository.showByTipoEmpresa(tipo);
     }
 
+    @GetMapping("/Tienda/ciudad/{ciudad}")
+    public List<Tienda> showByCiudad(@PathVariable String ciudad) {
+        return tiendaRepository.showByCiudad(ciudad);
+    }
+
 
     @DeleteMapping("/Tienda/{id_tienda}")
-    public void delete(@PathVariable int id_tienda) {
-        tiendaRepository.delete(id_tienda);
+    public String delete(@PathVariable int id_tienda) {
+        String retorno = tiendaRepository.delete(id_tienda);
+        return retorno;
 
     }
 }
