@@ -19,6 +19,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 public class ClienteService{
+    //Controlador de funciones
     private final ClienteRepository ClienteRepository;
 
     ClienteService(@Lazy ClienteRepository ClienteRepository){

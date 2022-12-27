@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import java.util.List;
 @Repository
 public class ClienteImp implements ClienteRepository{
+
+    //Impletentacion de funciones
     @Autowired
 
     private Sql2o sql2o;

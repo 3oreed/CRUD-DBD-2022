@@ -4,6 +4,7 @@ import dbd.LAB.crud.models.Cliente;
 import java.util.List;
 
 public interface ClienteRepository {
+    //Declaracion de funciones
     public Cliente crear(Cliente cliente );
     public String updateDireccion(Cliente cliente,int id_cliente);
     public String updateAll(Cliente cliente, int id_cliente);
